@@ -1,2 +1,1 @@
-trade.csv filter=lfs diff=lfs merge=lfs -text
 cites_trade.csv filter=lfs diff=lfs merge=lfs -text
