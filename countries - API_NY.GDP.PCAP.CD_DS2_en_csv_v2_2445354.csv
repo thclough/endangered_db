@@ -1,0 +1,314 @@
+index,full_name,world_bank_code,cites_code,in_world_bank,in_cites
+,Afghanistan,AFG,AF,1,1
+,Africa,AFR,XF,1,1
+,Aland Islands,ALA,AX,0,1
+,Albania,ALB,AL,1,1
+,Algeria,DZA,DZ,1,1
+,American Samoa,ASM,AS,1,1
+,Andorra,AND,AD,1,1
+,Angola,AGO,AO,1,1
+,Anguilla,AIA,AI,0,1
+,Antarctica,ATA,AQ,0,1
+,Antigua and Barbuda,ATG,AG,1,1
+,Arab World,ARB,,1,0
+,Argentina,ARG,AR,1,1
+,Armenia,ARM,AM,1,1
+,Aruba,ABW,AW,1,1
+,Asia,,XS,0,1
+,Australia,AUS,AU,1,1
+,Austria,AUT,AT,1,1
+,Azerbaijan,AZE,AZ,1,1
+,"Bahamas, The",BHS,BS,1,1
+,Bahrain,BHR,BH,1,1
+,Bangladesh,BGD,BD,1,1
+,Barbados,BRB,BB,1,1
+,Belarus,BLR,BY,1,1
+,Belgium,BEL,BE,1,1
+,Belize,BLZ,BZ,1,1
+,Benin,BEN,BJ,1,1
+,Bermuda,BMU,BM,1,1
+,Bhutan,BTN,BT,1,1
+,Bolivia,BOL,BO,1,1
+,Bonaire St. Eustatius and Saba,,BQ,0,1
+,Bosnia and Herzegovina,BIH,BA,1,1
+,Botswana,BWA,BW,1,1
+,Bouvet Island,BVT,BV,0,1
+,Brazil,BRA,BR,1,1
+,British India Ocean Territory,IOT,IO,0,1
+,Brunei Darussalam,BRN,BN,1,1
+,Bulgaria,BGR,BG,1,1
+,Burkina Faso,BFA,BF,1,1
+,Burundi,BDI,BI,1,1
+,Cape Verde,CPV,CV,1,1
+,Cambodia,KHM,KH,1,1
+,Cameroon,CMR,CM,1,1
+,Canada,CAN,CA,,
+,Caribbean,CSS,XC,0,1
+,Cayman Islands,CYM,KY,1,1
+,Central African Republic,CAF,CF,1,1
+,Central Europe and the Baltics,CEB,,,
+,Chad,TCD,TD,1,1
+,Channel Islands,CHI,,,
+,Chile,CHL,CL,1,1
+,China,CHN,CN,1,1
+,Christmas Island,CXR,CX,0,1
+,Cocos (Keeling) Islands,CCK,CC,0,1
+,Colombia,COL,CO,1,1
+,Comoros,COM,KM,1,1
+,"Congo, Dem. Rep.",COD,CD,1,1
+,"Congo, Rep.",COG,CG,1,1
+,Cook Islands,COK,CK,0,1
+,Costa Rica,CRI,CR,1,1
+,Cote d'Ivoire,CIV,CI,1,1
+,Croatia,HRV,HR,1,1
+,Cuba,CUB,CU,1,1
+,Curacao,CUW,CW,1,0
+,Cyprus,CYP,CY,1,1
+,Czech Republic,CZE,CZ,1,1
+,Denmark,DNK,DK,1,1
+,Djibouti,DJI,DJ,1,1
+,Dominica,DMA,DM,1,1
+,Dominican Republic,DOM,DO,1,1
+,Early-demographic dividend,EAR,,1,0
+,East Asia & Pacific,EAP,,1,0
+,East Asia & Pacific,EAS,,1,0
+,East Asia & Pacific (IDA & IBRD countries),TEA,,1,0
+,Ecuador,ECU,EC,1,1
+,"Egypt, Arab Rep.",EGY,EG,1,1
+,El Salvador,SLV,SV,1,1
+,Equatorial Guinea,GNQ,GQ,1,1
+,Eritrea,ERI,ER,1,1
+,Estonia,EST,EE,1,1
+,Swaziland,SWZ,SZ,1,1
+,Ethiopia,ETH,ET,1,1
+,Euro area,EMU,,1,0
+,Europe,,XE,0,1
+,Europe & Central Asia,ECA,,1,0
+,Europe & Central Asia,ECS,,1,0
+,Europe & Central Asia (IDA & IBRD countries),TEC,,1,0
+,European Union,EUU,,1,0
+,Falkland Islands (Malvinas),FLK,FK,0,1
+,Faroe Islands,FRO,FO,1,1
+,Fiji,FJI,FJ,1,1
+,Finland,FIN,FI,1,1
+,Former Czechoslovakia,,ZC,0,1
+,Former East Germany,,DD,0,1
+,Former Pacific Trust Territory,,PC,0,1
+,Former Serbia and Montenegro,,CS,0,1
+,Former Soviet Union,,SU,0,1
+,Former Yugoslavia,,YU,0,1
+,Fragile and conflict affected situations,FCS,,1,0
+,France,FRA,FR,1,1
+,French Antilles,,XA,0,1
+,French Guiana,GUF,GF,0,1
+,French Polynesia,PYF,PF,1,1
+,French Southern Territories,ATF,TF,0,1
+,Gabon,GAB,GA,1,1
+,"Gambia, The",GMB,GM,1,1
+,Georgia,GEO,GE,1,1
+,Germany,DEU,DE,1,1
+,Ghana,GHA,GH,1,1
+,Gibraltar,GIB,GI,1,1
+,Greece,GRC,GR,1,1
+,Greenland,GRL,GL,1,1
+,Grenada,GRD,GD,1,1
+,Guam,GUM,GU,1,1
+,Guadeloupe,GLP,GP,0,1
+,Guatemala,GTM,GT,1,1
+,Guernsey,GGY,GG,0,1
+,Guinea,GIN,GN,1,1
+,Guinea-Bissau,GNB,GW,1,1
+,Guyana,GUY,GY,1,1
+,Haiti,HTI,HT,1,1
+,Heard and McDonald Islands,HMD,HM,0,1
+,Heavily indebted poor countries (HIPC),HPC,,1,0
+,High income,HIC,,1,0
+,Holy See (Vatican City State),VAT,VA,0,1
+,Honduras,HND,HN,1,1
+,"Hong Kong SAR, China",HKG,HK,1,1
+,Hungary,HUN,HU,1,1
+,IBRD only,IBD,,1,0
+,Iceland,ISL,IS,1,1
+,IDA & IBRD total,IBT,,1,0
+,IDA blend,IDB,,1,0
+,IDA only,IDX,,1,0
+,IDA total,IDA,,1,0
+,India,IND,IN,1,1
+,Indonesia,IDN,ID,1,1
+,Introduction from the Sea,,ZZ,0,1
+,"Iran, Islamic Rep.",IRN,IR,1,1
+,Iraq,IRQ,IQ,1,1
+,Ireland,IRL,IE,1,1
+,Isle of Man,IMN,IM,1,1
+,Israel,ISR,IL,1,1
+,Italy,ITA,IT,1,1
+,Jamaica,JAM,JM,1,1
+,Japan,JPN,JP,1,1
+,Jersey,JEY,JE,1,1
+,Jordan,JOR,JO,1,1
+,Kazakhstan,KAZ,KZ,1,1
+,Kenya,KEN,KE,1,1
+,Kiribati,KIR,KI,1,1
+,"Korea, Dem. People's Rep.",PRK,KP,1,1
+,"Korea, Rep.",KOR,KR,1,1
+,Kosovo,XKX,KV,1,0
+,Kuwait,KWT,KW,1,1
+,Kyrgyzstan,KGZ,KG,1,1
+,Lao PDR,LAO,LA,1,1
+,Late-demographic dividend,LTE,,1,0
+,Latin America & Caribbean,LAC,,1,0
+,Latin America & Caribbean,LCN,,1,0
+,Latin America & the Caribbean (IDA & IBRD countries),TLA,,1,0
+,Latvia,LVA,LV,1,1
+,Least developed countries: UN classification,LDC,,1,0
+,Lebanon,LBN,LB,1,1
+,Lesotho,LSO,LS,1,1
+,Liberia,LBR,LR,1,1
+,Libya,LBY,LY,1,1
+,Liechtenstein,LIE,LI,1,1
+,Lithuania,LTU,LT,1,1
+,Low & middle income,LMY,,1,0
+,Low income,LIC,,1,0
+,Lower middle income,LMC,,1,0
+,Luxembourg,LUX,LU,1,1
+,"Macao SAR, China",MAC,MO,1,1
+,Macedonia,MKD,MK,1,1
+,Madagascar,MDG,MG,1,1
+,Malawi,MWI,MW,1,1
+,Malaysia,MYS,MY,1,1
+,Maldives,MDV,MV,1,1
+,Mali,MLI,ML,1,1
+,Malta,MLT,MT,1,1
+,Marshall Islands,MHL,MH,1,1
+,Martinique,MTQ,MQ,0,1
+,Mauritania,MRT,MR,1,1
+,Mauritius,MUS,MU,1,1
+,Mayotte,MYT,YT,0,1
+,Mexico,MEX,MX,1,1
+,"Micronesia, Fed. Sts.",FSM,FM,1,1
+,Middle East & North Africa,MEA,,1,0
+,Middle East & North Africa,MNA,,1,0
+,Middle East & North Africa (IDA & IBRD countries),TMN,,1,0
+,Middle income,MIC,,1,0
+,Moldova,MDA,MD,1,1
+,Monaco,MCO,MC,1,1
+,Mongolia,MNG,MN,1,1
+,Montenegro,MNE,ME,1,1
+,Montserrat,MSR,MS,0,1
+,Morocco,MAR,MA,1,1
+,Mozambique,MOZ,MZ,1,1
+,Myanmar,MMR,MM,1,1
+,Namibia,NAM,NA,1,1
+,Nauru,NRU,NR,1,1
+,Nepal,NPL,NP,1,1
+,Netherlands,NLD,NL,1,1
+,Netherlands Antilles,ANT,AN,0,1
+,New Caledonia,NCL,NC,1,1
+,New Zealand,NZL,NZ,1,1
+,Nicaragua,NIC,NI,1,1
+,Niger,NER,NE,1,1
+,Nigeria,NGA,NG,1,1
+,Niue,NIU,NU,0,1
+,Norfolk Island,NFK,NF,0,1
+,North America,NAC,,1,0
+,Northern Mariana Islands,MNP,MP,1,1
+,Norway,NOR,NO,1,1
+,Not classified,INX,,1,0
+,OECD members,OED,,1,0
+,Oman,OMN,OM,1,1
+,Other small states,OSS,,1,0
+,Pacific island small states,PSS,,1,0
+,Pakistan,PAK,PK,1,1
+,Palau,PLW,PW,1,1
+,Palestinian Territory,PSE,PS,1,1
+,Panama,PAN,PA,1,1
+,Papua New Guinea,PNG,PG,1,1
+,Paraguay,PRY,PY,1,1
+,Peru,PER,PE,1,1
+,Philippines,PHL,PH,1,1
+,Pitcairn,PCN,PN,0,1
+,Poland,POL,PL,1,1
+,Portugal,PRT,PT,1,1
+,Post-demographic dividend,PST,,1,0
+,Pre-demographic dividend,PRE,,1,0
+,Puerto Rico,PRI,PR,1,1
+,Qatar,QAT,QA,1,1
+,Réunion,REU,RE,0,1
+,Romania,ROU,RO,1,1
+,Russian Federation,RUS,RU,1,1
+,Rwanda,RWA,RW,1,1
+,Samoa,WSM,WS,1,1
+,San Marino,SMR,SM,1,1
+,Sao Tome and Principe,STP,ST,1,1
+,Saudi Arabia,SAU,SA,1,1
+,Senegal,SEN,SN,1,1
+,Serbia,SRB,RS,1,1
+,Seychelles,SYC,SC,1,1
+,Sierra Leone,SLE,SL,1,1
+,Singapore,SGP,SG,1,1
+,Sint Maarten (Dutch part),SXM,SX,1,0
+,Slovakia,SVK,SK,1,1
+,Slovenia,SVN,SI,1,1
+,Small states,SST,,1,0
+,Solomon Islands,SLB,SB,1,1
+,Somalia,SOM,SO,1,1
+,South Africa,ZAF,ZA,1,1
+,South America,,XM,0,1
+,South Asia,SAS,,1,0
+,South Asia (IDA & IBRD),TSA,,1,0
+,South Georgia and the South Sandwich Islands,SGS,GS,0,1
+,South Sudan,SSD,SS,1,0
+,Spain,ESP,ES,1,1
+,Sri Lanka,LKA,LK,1,1
+,St. Barthelemy,,BL,0,1
+,St. Helena,SHN,SH,0,1
+,St. Kitts and Nevis,KNA,KN,1,1
+,St. Lucia,LCA,LC,1,1
+,St. Martin (French part),MAF,MF,1,0
+,St. Pierre and Miquelon,SPM,PM,0,1
+,St. Vincent and the Grenadines,VCT,VC,1,1
+,Sub-Saharan Africa,SSF,,1,0
+,Sub-Saharan Africa (excluding high income),SSA,,1,0
+,Sub-Saharan Africa (IDA & IBRD countries),TSS,,1,0
+,Sudan,SDN,SD,1,1
+,Suriname,SUR,SR,1,1
+,Svalbard and Jan Mayen Islands,SJM,SJ,0,1
+,Sweden,SWE,SE,1,1
+,Switzerland,CHE,CH,1,1
+,Syrian Arab Republic,SYR,SY,1,1
+,"Taiwan, Republic of China",TWN,TW,0,1
+,Tajikistan,TJK,TJ,1,1
+,Tanzania,TZA,TZ,1,1
+,Thailand,THA,TH,1,1
+,Timor-Leste,TLS,TL,1,1
+,Togo,TGO,TG,1,1
+,Tokelau,TKL,TK,0,1
+,Tonga,TON,TO,1,1
+,Trinidad and Tobago,TTO,TT,1,1
+,Tunisia,TUN,TN,1,1
+,Turkey,TUR,TR,1,1
+,Turkmenistan,TKM,TM,1,1
+,Turks and Caicos Islands,TCA,TC,1,1
+,Tuvalu,TUV,TV,1,1
+,Uganda,UGA,UG,1,1
+,Ukraine,UKR,UA,1,1
+,United Arab Emirates,ARE,AE,1,1
+,United Kingdom,GBR,GB,1,1
+,United States,USA,US,1,1
+,United States Minor Outlying Islands,UMI,UM,0,1
+,Unknown,,XX,0,1
+,Upper middle income,UMC,,1,0
+,Uruguay,URY,UY,1,1
+,Uzbekistan,UZB,UZ,1,1
+,Vanuatu,VUT,VU,1,1
+,Various,,XV,0,1
+,"Venezuela, RB",VEN,VE,1,1
+,Vietnam,VNM,VN,1,1
+,Virgin Islands (British),VGB,VG,1,1
+,Virgin Islands (U.S.),VIR,VI,1,1
+,Wallis and Futuna Islands,WLF,WF,0,1
+,Western Sahara,,EH,0,1
+,World,WLD,,1,0
+,"Yemen, Rep.",YEM,YE,1,1
+,Zambia,ZMB,ZM,1,1
+,Zimbabwe,ZWE,ZW,1,1
