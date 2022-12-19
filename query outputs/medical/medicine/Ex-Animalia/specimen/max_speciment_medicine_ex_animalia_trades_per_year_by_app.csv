@@ -1,0 +1,26 @@
+year,taxon_id,taxon_name,appendix,"round(tot_traded,4)"
+2008,147641,"hoodia gordonii",II,1830
+2009,139699,"saussurea costus",I,941
+2009,147641,"hoodia gordonii",II,15246
+2010,139699,"saussurea costus",I,14428
+2010,152520,"hirudo medicinalis",II,198960
+2011,139699,"saussurea costus",I,6588
+2011,152520,"hirudo medicinalis",II,55264
+2012,139699,"saussurea costus",I,4932
+2012,152520,"hirudo medicinalis",II,55620
+2013,139699,"saussurea costus",I,9537
+2013,138707,"aloe ferox",II,64231.7
+2014,139699,"saussurea costus",I,6258
+2014,145446,"hydrastis canadensis",II,466520
+2015,139699,"saussurea costus",I,1839
+2015,145446,"hydrastis canadensis",II,621506.57
+2016,139699,"saussurea costus",I,7338
+2016,145446,"hydrastis canadensis",II,649965
+2017,139699,"saussurea costus",I,6437
+2017,145446,"hydrastis canadensis",II,480640
+2018,139699,"saussurea costus",I,47502
+2018,145446,"hydrastis canadensis",II,612674
+2019,139699,"saussurea costus",I,120000
+2019,145071,"prunus africana",II,1723000
+2020,139699,"saussurea costus",I,6982
+2020,145071,"prunus africana",II,634050
