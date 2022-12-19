@@ -10,6 +10,9 @@ This analysis stems from a group project in "CS3200: Database Design" at Northea
 
 ## Introduction
 
+The overuse of animal and plant material for purposes such as luxury goods has caused alarming depletion in certain species populations. Much of this trade is supposed to be illegal and, therefore, untraceable. legal trade in these threatened or endangered species
+
+
 <details open>
 <summary>
 
