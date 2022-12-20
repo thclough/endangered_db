@@ -1,5 +1,5 @@
 # Endangered Animal Database Construction and Analysis
-#### Tighe Clough
+#### By: Tighe Clough
 
 ## Background
 
@@ -19,11 +19,12 @@ In this project, I have set out to create a database that integrates CITES data,
 ## Data Sources
 
 </summary>
-
-<br>
-- CITES Database:
-- RED List API
   
+* <a href="ttrade.cites.org"> CITES Database </a>
+* <a href="https://apiv3.iucnredlist.org/"> RED List API </a>
+* <a href="https://data.worldbank.org/indicator/NY.GDP.MKTP.CD"> World Bank GDP Data </a>
+* <a href="https://data.worldbank.org/indicator/SP.POP.TOTL"> World Bank Population Data </a>
+
 </details>
 
 ## Methods
@@ -31,7 +32,7 @@ In this project, I have set out to create a database that integrates CITES data,
 ## Analysis/Results
 
 
-<details open>
+<details>
 <summary>
 
 ## Citations
