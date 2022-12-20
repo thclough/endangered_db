@@ -20,8 +20,10 @@ In this project, I have set out to create a database that integrates CITES data,
 
 </summary>
   
-* <a href="ttrade.cites.org"> CITES Database </a> Really just a bunch of csv's without database structure. See Introduction for desctiption of database.
-  <details open>
+* <a href="ttrade.cites.org"> CITES Database </a> 
+  * Single unnormalized table. See "Introduction" for desctiption of database. Use dropdown for field info
+  
+  <details>
     <summary> Field Info </summary>
     
   * Year - year of trade
