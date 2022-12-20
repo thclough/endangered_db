@@ -37,8 +37,9 @@ In this project, I have set out to create a database that integrates CITES data,
   * Importer: Importing country
   * Exporter: Exporting country
   * Origin: Origin Country
-  * Purpose
-  * Source
+  * Purpose: see below
+  * Source: see below
+    ![purpose_and_source_codes](/readme_images/purpose_and_source_codes)
     
   </details>
 * <a href="https://apiv3.iucnredlist.org/"> RED List API </a>
