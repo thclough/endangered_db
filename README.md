@@ -74,15 +74,28 @@ In this project, I have set out to create a database that integrates CITES data,
 
 ## Methods
 
-## Analysis/Results
+### Database Design and Construction
+
+
+The plan for the database:
+
+<img src="https://github.com/thclough/endangered_db/blob/main/readme_images/historical_status.png" width="800" height="600"></img>
 
 
 <details>
 <summary>
 
-## Citations
+### See data wrangling process and code examples below
 
 </summary>
+
+The database consists of...
+
+</details>
+
+## Analysis/Results
+
+## Citations
 
 <br>
 
