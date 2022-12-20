@@ -1,12 +1,9 @@
 # Endangered Animal Database Construction and Analysis
-### Tighe Clough
-
-#### Inspired by a group project by:
-Tighe Clough (myself), Yuxuan Chen, Britney Chen, Sarah Tong, Amaya Kejriwal
+#### Tighe Clough
 
 ## Background
 
-This analysis stems from a group project in "CS3200: Database Design" at Northeastern University in Boston, Massachusetts. My original vision for the project proved too ambitious due to time and technology constraints. I have revisited the project to achieve these goals and have redesigned and updated the database. Additionally, I am performing continuous analysis on the database which I document through updates on this repo.
+This analysis stems from a group project in "CS3200: Database Design" at Northeastern University in Boston, Massachusetts. The group consisted of myself, Yuxuan Chen, Britney Chen, Sarah Tong, anf Amaya Kejriwal. My original vision for the project proved too ambitious due to time and technology constraints. I have revisited the project to achieve these goals and have redesigned and updated the database. Additionally, I am performing continuous analysis on the database which I document through updates on this repo.
 
 ## Introduction
 
