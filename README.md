@@ -20,7 +20,7 @@ In this project, I have set out to create a database that integrates CITES data,
 
 </summary>
   
-* <a href="ttrade.cites.org"> CITES Database (Really just a bunch of csv's)</a>
+* <a href="ttrade.cites.org"> CITES Database </a> Really just a bunch of csv's without database structure. See Introduction for desctiption of database.
   <details open>
     <summary> Field Info </summary>
     
@@ -53,7 +53,7 @@ In this project, I have set out to create a database that integrates CITES data,
   
     
   </details>
-* <a href="https://apiv3.iucnredlist.org/"> RED List API </a>
+* <a href="https://apiv3.iucnredlist.org/"> RED List API </a> 
 * <a href="https://data.worldbank.org/indicator/NY.GDP.MKTP.CD"> World Bank GDP Data </a>
 * <a href="https://data.worldbank.org/indicator/SP.POP.TOTL"> World Bank Population Data </a>
 
