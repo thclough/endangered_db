@@ -50,13 +50,24 @@ In this project, I have set out to create a database that integrates CITES data,
     * S - Scientific
     * Z - Zoo
   * Source
-  
-    
+    * A - Plants/derivatives that have been arttificially propagated
+    * C - Animals/derivatives bred in captivity
+    * D - Appendix I animals or plants bred/propagated
+    * F - Animals born in captivity that do not fulfill C
+    * I - Confiscated or seized specimens
+    * O - Pre-Convention Species
+    * R - Ranched specimens (taken as eggs or juveniles from the wild and raised in captivity)
+    * U - unknown
+    * W - taken from the wild
+    * X - taken from marine environment not under a jurisdiction
+    * Y - plants/derivatives (in between artificially propagated and fully wild because had some level of human intervention)
   </details>
 * <a href="https://apiv3.iucnredlist.org/"> RED List API </a> 
+  * info on taxa and IUCN Red List conservation status for select years
 * <a href="https://data.worldbank.org/indicator/NY.GDP.MKTP.CD"> World Bank GDP Data </a>
+  * Country GDP (Current USD) data per year
 * <a href="https://data.worldbank.org/indicator/SP.POP.TOTL"> World Bank Population Data </a>
-
+  * Country population data per year
 </details>
 
 ## Methods
