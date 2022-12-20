@@ -20,7 +20,27 @@ In this project, I have set out to create a database that integrates CITES data,
 
 </summary>
   
-* <a href="ttrade.cites.org"> CITES Database </a>
+* <a href="ttrade.cites.org"> CITES Database (Really just a bunch of csv's)</a>
+  <details>
+    <summary> Field Info </summary>
+    
+  * Year: year of trade
+  * Appendix: CITES classification relating to how endangered the taxon is ("I" being the most, "III" the least))
+  * Taxon: taxa traded
+  * Class
+  * Order
+  * Family
+  * Genus
+  * Term: trade term of taxa (ex. live, body, seed)
+  * Quantity
+  * Unit: Unit of measurment
+  * Importer: Importing country
+  * Exporter: Exporting country
+  * Origin: Origin Country
+  * Purpose
+  * Source
+    
+  </details>
 * <a href="https://apiv3.iucnredlist.org/"> RED List API </a>
 * <a href="https://data.worldbank.org/indicator/NY.GDP.MKTP.CD"> World Bank GDP Data </a>
 * <a href="https://data.worldbank.org/indicator/SP.POP.TOTL"> World Bank Population Data </a>
