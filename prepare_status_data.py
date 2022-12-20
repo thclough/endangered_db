@@ -6,7 +6,7 @@ import pandas as pd
 # historical endangered status records
 status_records = {}
 # token to make url request to Red List API
-token = "<INSERT TOKEN HERE>
+token = "<INSERT TOKEN HERE>"
 # species missing historical records
 missing_records = []
 
