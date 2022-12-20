@@ -13,7 +13,7 @@ It is worth noting that the database does not contain *illegal* wildlife trade. 
 
 In this project, I have set out to create a database that integrates CITES data, RED list endangerment statuses, and importing/exporting/origin country statistics. Following the contruction of the database, I have theorized a few use cases to demonstrate the importance of studying this connected data.
 
-<details>
+<details open>
 <summary>
 
 ## Data Sources
@@ -21,25 +21,36 @@ In this project, I have set out to create a database that integrates CITES data,
 </summary>
   
 * <a href="ttrade.cites.org"> CITES Database (Really just a bunch of csv's)</a>
-  <details>
+  <details open>
     <summary> Field Info </summary>
     
-  * Year: year of trade
-  * Appendix: CITES classification relating to how endangered the taxon is ("I" being the most, "III" the least))
-  * Taxon: taxa traded
+  * Year - year of trade
+  * Appendix - CITES classification relating to how endangered the taxon is ("I" being the most, "III" the least))
+  * Taxon - taxa traded
   * Class
   * Order
   * Family
   * Genus
-  * Term: trade term of taxa (ex. live, body, seed)
+  * Term - trade term of taxa (ex. live, body, seed)
   * Quantity
-  * Unit: Unit of measurment
-  * Importer: Importing country
-  * Exporter: Exporting country
-  * Origin: Origin Country
-  * Purpose: see below
-  * Source: see below
-    ![purpose_and_source_codes](/readme_images/purpose_and_source_codes)
+  * Unit - Unit of measurment
+  * Importer - Importing country
+  * Exporter - Exporting country
+  * Origin - Origin Country
+  * Purpose
+    * B - Breeding in captivity or artificial propagation
+    * E - Educational
+    * G - Botanical garden
+    * H - Hunting trophy
+    * L - Law enforcement/judcial/forensix
+    * M - Medical (including biomedical research)
+    * N - Reintroduction or introduction into the wild
+    * P - Personal
+    * Q - Circus or travelling exhibition
+    * S - Scientific
+    * Z - Zoo
+  * Source
+  
     
   </details>
 * <a href="https://apiv3.iucnredlist.org/"> RED List API </a>
