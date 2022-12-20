@@ -13,7 +13,7 @@ It is worth noting that the database does not contain *illegal* wildlife trade. 
 
 In this project, I have set out to create a database that integrates CITES data, RED list endangerment statuses, and importing/exporting/origin country statistics. Following the contruction of the database, I have theorized a few use cases to demonstrate the importance of studying this connected data.
 
-<details open>
+<details>
 <summary>
 
 ## Data Sources
