@@ -77,9 +77,13 @@ In this project, I have set out to create a database that integrates CITES data,
 ### Database Design and Construction
 
 
-The plan for the database:
+The database enhances CITES data (found in the trade table) through attaching relevant information on the traded animals/plant and importing/exporting/origin countries. 
 
-<img src="https://github.com/thclough/endangered_db/blob/main/readme_images/historical_status.png" width="800" height="600"></img>
+The "taxon" table lists taxa information (kingdom to species) for each taxa in the trade table. Addtionally, Red List conservation status by year on certain taxa is listed in the "historical_status" table.  
+
+The country table creates a country_id for each CITES country and serves to connect trades in the "trade" table with relevant country statistics (namely gdp and population). The "gdp" and "population" tables provided yearly data for countries/regions from World Bank Open Data. Most World Bank countries align with CITES countries. Notably, regions do not align. For example, the CITES incldued data for the region "Asia" while the World Bank does not.
+
+<img src="https://github.com/thclough/endangered_db/blob/main/readme_images/historical_status.png" width="800" height="563"></img>
 
 
 <details>
