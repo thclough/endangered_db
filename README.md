@@ -83,18 +83,22 @@ The "taxon" table lists taxa information (kingdom to species) for each taxa in t
 
 The country table creates a country_id for each CITES country and serves to connect trades in the "trade" table with relevant country statistics (namely gdp and population). The "gdp" and "population" tables provided yearly data for countries/regions from World Bank Open Data. Most World Bank countries align with CITES countries. Notably, regions do not align. For example, the CITES incldued data for the region "Asia" while the World Bank does not.
 
-<img src="https://github.com/thclough/endangered_db/blob/main/readme_images/historical_status.png" width="800" height="563"></img>
+<!-- <img src="https://github.com/thclough/endangered_db/blob/main/readme_images/historical_status.png" width="800" height="563"></img> -->
 
+![ER](https://github.com/thclough/endangered_db/blob/main/readme_images/historical_status.png)
 
 <details>
 <summary>
 
-### See data wrangling process and code examples below
+### See data wrangling process and code blocks below
 
 </summary>
 
-The database consists of...
-
+The strategy is to prepare each table as a csv using Python and then load each table into a database. The CITES table is unnomralized and unconducive to attaching data. As the "trade" table is a child to both the "taxon" and "country" tables, these parent tables and their primary keys must be prepared first. The primary keys from these tables can then be inserted as foreign keys into the "trade" table.
+  
+I first chose to sum the quantities of trades with identical characteristics for each year for easier analysis.
+  
+  
 </details>
 
 ## Analysis/Results
