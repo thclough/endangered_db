@@ -89,6 +89,8 @@ The "taxon" table lists taxa information (kingdom to species) for each taxa in t
 
 The country table creates a country_id for each CITES country and serves to connect trades in the "trade" table with relevant country statistics (namely gdp and population). The "gdp" and "population" tables provided yearly data for countries/regions from World Bank Open Data. Most World Bank countries align with CITES countries. Notably, regions do not align. For example, the CITES incldued data for the region "Asia" while the World Bank does not.
 
+Upon close inspection, one can see that the "taxon" table is not very normalized. Taxon data is heirarchical and therefore has many depedencies. It is not worth the effort to normalize the table by separating out each level of taxonomy to its own table. Joining such tables for later analysis would be tedious and unneccessary.
+
 <!-- <img src="https://github.com/thclough/endangered_db/blob/main/readme_images/historical_status.png" width="800" height="563"></img> -->
 
 ![ER](https://github.com/thclough/endangered_db/blob/main/readme_images/historical_status.png)
