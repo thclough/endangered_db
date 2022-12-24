@@ -3,7 +3,7 @@
 
 ## Background
 
-This analysis stems from a group project in "CS3200: Database Design" at Northeastern University in Boston, Massachusetts. The group consisted of myself, Yuxuan Chen, Britney Chen, Sarah Tong, and Amaya Kejriwal. My original vision for the project proved too ambitious due to time and technology constraints. I have revisited the project to achieve these goals and have redesigned and updated the database. Additionally, I am performing continuous analysis on the database which I document through updates on this repo.
+This analysis stems from a group project in "CS3200: Database Design" at Northeastern University. The group consisted of myself, [Yuxuan Chen](https://github.com/OOYUKIOO), [Britney Chen](https://github.com/britneyart80), [Sarah Tong](https://github.com/saraht0ng), and Amaya Kejriwal. My original vision for the project proved too ambitious due to time and technology constraints. I have revisited the project to achieve these goals and have redesigned and updated the database. Additionally, I am performing continuous analysis on the database which I document through updates on this repo.
 
 ## Introduction
 
@@ -285,9 +285,26 @@ taxon_df = taxon_df.merge(cites_taxon, how="outer", on=on_cols).drop_duplicates(
 
 [Yuki Chen](https://github.com/OOYUKIOO) wrote the original code to fetch data from the RED List API.
 
-The original project only only collected data on taxon related to medicinal purposes. In this extension of the project, I decided to collect data on all CITES taxon that were in the RED List. While this was a lengthier process, it made for a more complete data set.
+The original project only only collected data on taxon related to medicinal purposes. In this extension of the project, I decided to collect data on all CITES taxon that were in the RED List. While this was a lengthier process, it made for a more complete data set. I prepared the list of CITES taxon for RED List data collection with a simple pandas inner join:
+
+```python
+# get the taxon name and then merge with original taxon data on taxon
+temp = master2.merge(taxon_df2, left_on="taxon_id", right_index=True).merge(taxon_df, on="taxon")[["taxon_id", "taxon", "species_y"]].drop_duplicates()
+```
+
+See code [here](https://github.com/thclough/endangered_db/blob/main/prepare_status_data.py) for fetching data from the API.
 
 #### "country" Table CSV
+
+[Sarah Tong](https://github.com/saraht0ng) and myself modified the original list of World Bank countries and codes given
+
+We created the primary keys for each country and mapped the World Bank countries to each CITES country. These primary keys are used as foreign keys in the "gdp" and "population" tables.
+
+#### "gdp" and "population" Table CSV
+
+[Yuki Chen](https://github.com/OOYUKIOO) wrote original code to format the "gdp" Table CSV found [here](https://github.com/thclough/endangered_db/blob/main/prepare_gdp_data.py)
+
+This code normalized the World Bank country and population data for each country.
 
 #### Aligning Parent and Child Keys
 
