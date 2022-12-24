@@ -226,9 +226,62 @@ lower_cols = ["Class", "Order", "Family", "Genus", "Taxon"]
 master2[lower_cols] = master2[lower_cols].copy(deep=True).apply(lambda x: x.str.lower())
 ```
 
-#### Taxon Table
+#### The "taxon" Table
 
-First need to read in all the 
+The "taxon" table will be a parent of the trade table. The table will contain all taxa in the IUCN RED List along with those in the trade table. My manipulation of the trade table dataframe so far has been in preparation for comapring the two CSVs, seeing which taxa are in CITES trade data but NOT in the IUCN RED List data, then adding those to the "taxon" table. For example, there are hyprid species and "spp" (more than one species of the same genus) in the CITES trade data which are not in the IUCN RED List: 
+
+<img src ="https://github.com/thclough/endangered_db/blob/main/readme_images/spp.png"></img>
+<img src ="https://github.com/thclough/endangered_db/blob/main/readme_images/hybrid.png"></img>
+
+So I first had to load the IUCN taxon data into a new dataframe:
+
+```python
+#### Read in taxon data ####
+# taxon data from IUCN Red List database of endangered animals
+# every entry in "trade" table will have a taxon id, linking to the "taxon" table, participation is mandatory
+
+# columns to use
+cols = ["kingdomName", "phylumName", "className", "orderName", "familyName", "genusName", "speciesName"]
+
+# read csvs (had to read two because of data export limits from Red)
+LC = pd.read_csv("data/taxonomy_LC.csv", usecols = cols)
+ex_LC = pd.read_csv("data/taxonomy_ex.csv", usecols = cols)
+
+# combine
+taxon_df = pd.concat([LC, ex_LC])
+
+# lowercase for good looks
+taxon_df = taxon_df.apply(lambda x: x.str.lower())
+
+# get rid of the weird naming
+taxon_df.columns = [col.replace("Name","") for col in taxon_df.columns]
+
+# create a taxon column
+taxon_df["taxon"] = (taxon_df["genus"] + ' ' + taxon_df["species"]).copy(deep = True)
+```
+
+I added higher order classification data to CITES trade taxon that were missing such data and performed an outer join to obtain a comprehensive taxon dataframe: 
+
+```python
+# take just the taxon data out of the cites trade table
+cites_taxon = master2[lower_cols].copy(deep=True).drop_duplicates()
+
+# lower case the column labels to match with the taxon table columns
+cites_taxon.columns = [col.lower() for col in cites_taxon.columns]
+
+# get kingdom and phylum for the CITES data
+# create a df for the classes with their kingdoms and phylums 
+higher = taxon_df[["kingdom", "phylum", "class"]].drop_duplicates() # unique kingdom, phylum, class in taxon_df
+cites_taxon = cites_taxon.merge(higher, how="outer", on="class")
+
+# outer join for comprehensive set of taxa
+on_cols = ["kingdom", "phylum", "class", "order", "family", "genus", "taxon"]
+taxon_df = taxon_df.merge(cites_taxon, how="outer", on=on_cols).drop_duplicates().dropna(subset=["taxon"])
+```
+
+#### Country Table
+
+#### Aligning Parent and Child Keys
 
 </details>
 
