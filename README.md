@@ -25,7 +25,7 @@ In this project, I have set out to create a database that integrates CITES data,
 </summary>
   
 * <a href="ttrade.cites.org"> CITES Database </a> 
-  * Single unnormalized table. See "Introduction" for desctiption of database. Use dropdown for field info
+  * Single unnormalized table. See "Introduction" for description of database. Use dropdown for field info.
   
   <details>
     <summary> Field Info </summary>
@@ -117,7 +117,7 @@ master = pd.DataFrame(columns = cols)
 
 # CITES CSV's are downloaded in separate parts so must put together in one dataframe
 for doc_num in range(1, 49):
-    temp = pd.read_csv(f"data/cites_master/trade_db_{doc_num}.csv", usecols = cols)
+    temp = pd.read_csv(f"<path to CITES data>/trade_db_{doc_num}.csv", usecols = cols)
     master = pd.concat([master, temp])
 ```
 
@@ -129,7 +129,7 @@ We must use a different method for reading in the data, and format it to fit our
 ```python
 # read 2022 data
 new_cols = ["Year", "App.", "Taxon", "Class", "Order", "Family", "Genus","Term", "Importer reported quantity", "Exporter reported quantity", "Unit", "Importer", "Exporter", "Origin", "Purpose", "Source"]
-twenty_df = pd.read_csv(f"data/cites_master/cites_2022.csv", usecols = new_cols)
+twenty_df = pd.read_csv(f"<path to CITES data>/cites_2022.csv", usecols = new_cols)
 
 # newer data separates exporter reported quantity and importer reported quantity
 # only one party (importer or exporter) reports quantity meaning we can
@@ -246,8 +246,8 @@ So I first had to load the IUCN taxon data into a new dataframe:
 cols = ["kingdomName", "phylumName", "className", "orderName", "familyName", "genusName", "speciesName"]
 
 # read csvs (had to read two because of data export limits from Red)
-LC = pd.read_csv("data/taxonomy_LC.csv", usecols = cols)
-ex_LC = pd.read_csv("data/taxonomy_ex.csv", usecols = cols)
+LC = pd.read_csv("original_data/taxonomy_LC.csv", usecols = cols)
+ex_LC = pd.read_csv("original_data/taxonomy_ex.csv", usecols = cols)
 
 # combine
 taxon_df = pd.concat([LC, ex_LC])
@@ -327,7 +327,7 @@ A similar process for the "country" foreign keys:
 ```python
 # Create foreign keys for different countries
 # data taken from World Bank
-countries_df = pd.read_csv("DBDesign-Expansion/countries - API_NY.GDP.PCAP.CD_DS2_en_csv_v2_2445354.csv", index_col=0)
+countries_df = pd.read_csv("original_data/countries - API_NY.GDP.PCAP.CD_DS2_en_csv_v2_2445354.csv", index_col=0)
 
 countries_df.reset_index(drop=True, inplace=True)
 
