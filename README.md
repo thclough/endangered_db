@@ -226,7 +226,7 @@ lower_cols = ["Class", "Order", "Family", "Genus", "Taxon"]
 master2[lower_cols] = master2[lower_cols].copy(deep=True).apply(lambda x: x.str.lower())
 ```
 
-#### The "taxon" Table
+#### "taxon" Table CSV
 
 The "taxon" table will be a parent of the trade table. The table will contain all taxa in the IUCN RED List along with those in the trade table. My manipulation of the trade table dataframe so far has been in preparation for comapring the two CSVs, seeing which taxa are in CITES trade data but NOT in the IUCN RED List data, then adding those to the "taxon" table. For example, there are hyprid species and "spp" (more than one species of the same genus) in the CITES trade data which are not in the IUCN RED List: 
 
@@ -279,9 +279,62 @@ on_cols = ["kingdom", "phylum", "class", "order", "family", "genus", "taxon"]
 taxon_df = taxon_df.merge(cites_taxon, how="outer", on=on_cols).drop_duplicates().dropna(subset=["taxon"])
 ```
 
-#### Country Table
+#### "historical_status" Table CSV
+
+#### "country" Table CSV
 
 #### Aligning Parent and Child Keys
+
+I first created a primary key disctionary for the "taxon" table and mapped them into the trade table:
+
+```python
+### Aligning foreign keys for creation of database
+
+# find the foreign keys for the taxon data
+# create way to map foreign keys
+# giving each taxa an index number (starts at 0 so adding 1)
+taxon_dict = {y:x+1 for x,y in taxon_df["taxon"].to_dict().items()}
+
+# add foreign keys
+master2["taxon_id"] = master2["Taxon"].map(taxon_dict)
+```
+
+A similar process for the "country" foreign keys:
+
+```python
+# Create foreign keys for different countries
+# data taken from World Bank
+countries_df = pd.read_csv("DBDesign-Expansion/countries - API_NY.GDP.PCAP.CD_DS2_en_csv_v2_2445354.csv", index_col=0)
+
+countries_df.reset_index(drop=True, inplace=True)
+
+# some weird countries to change out
+master2 = master2.replace("YD","YE")
+master2 = master2.replace("NT","AN")
+master2 = master2.replace("HS","") # HS typo (maybe does not exist)
+
+# create map for foreign keys
+countries_dict = {y:int(x+1) for x,y in countries_df["cites_code"].to_dict().items()}
+
+# insert correct foreign keys
+master2["importer_id"] = master2["Importer"].map(countries_dict)
+master2["exporter_id"] = master2["Exporter"].map(countries_dict)
+master2["origin_id"] = master2["Origin"].map(countries_dict)
+```
+
+I dropped unwanted columns/entries and finalized the indices:
+
+```python
+# drop unneeded columns
+master2 = master2.drop(["Taxon","Class", "Order", "Family", "Exporter","Importer", "Origin","Species","Genus"],axis=1)
+
+# every entry needs all three foreign 
+master2 = master2.dropna(subset=["importer_id", "exporter_id", "origin_id"])
+
+# reset index ands start at 1
+master2.reset_index(drop=True, inplace = True)
+master2.index += 1
+```
 
 </details>
 
