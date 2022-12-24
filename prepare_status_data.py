@@ -1,3 +1,6 @@
+# original code by Yuki Chen (https://github.com/OOYUKIOO)
+# modified slightly by thclough (https://github.com/thclough)
+
 import urllib.request
 import csv
 import json
@@ -37,7 +40,6 @@ with open(taxon_file_name) as trades:
     # skip header
     next(reader)
     for row in reader:
-        print(row[0])
         specie_id = int(row[1])
         if specie_id not in status_records:
             specie_name = row[2]
