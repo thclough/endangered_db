@@ -11,7 +11,7 @@ The international demand for animal and plant-derived products has caused alarmi
 
 It is worth noting that the database does not contain *illegal* wildlife trade. However, the global *legal* trade of wildlife reached an estimated 119 billion USD or more in 2020, while its illegal counterpart only stood at an estimated 5 to 23 billion USD<sup>2</sup>. Therefore, the study of legal trade can give insights into overall wildlife trade patterns.
 
-In this project, I have set out to create a database that integrates CITES data, RED list endangerment statuses, and importing/exporting/origin country statistics. Following the contruction of the database, I have theorized a few use cases to demonstrate the importance of studying this connected data.
+In this project, I have set out to create a database that integrates CITES data, Red list endangerment statuses, and importing/exporting/origin country statistics. Following the contruction of the database, I have theorized a few use cases to demonstrate the importance of studying this connected data.
 
 [Skip to Analysis and Results](#analysis-and-results)
 
@@ -68,10 +68,10 @@ In this project, I have set out to create a database that integrates CITES data,
     * X - taken from marine environment not under a jurisdiction
     * Y - plants/derivatives (in between artificially propagated and fully wild because had some level of human intervention)
   </details>
-* <a href="https://www.iucnredlist.org/search">IUCN RED List Taxon Data</a>
-  * List of all taxa in the IUCN RED List
-* <a href="https://apiv3.iucnredlist.org/">RED List API </a> 
-  * info on taxa and IUCN RED List conservation status for select years
+* <a href="https://www.iucnredlist.org/search">IUCN Red List Taxon Data</a>
+  * List of all taxa in the IUCN Red List
+* <a href="https://apiv3.iucnredlist.org/">Red List API </a> 
+  * info on taxa and IUCN Red List conservation status for select years
 * <a href="https://data.worldbank.org/indicator/NY.GDP.MKTP.CD">World Bank GDP Data </a>
   * Country GDP (Current USD) data per year
 * <a href="https://data.worldbank.org/indicator/SP.POP.TOTL">World Bank Population Data </a>
@@ -95,14 +95,14 @@ Upon close inspection, one can see that the "taxon" table is not very normalized
 
 ![ER](https://github.com/thclough/endangered_db/blob/main/readme_images/historical_status.png)
 
-<details open>
+<details>
 <summary>
 
 ### See data wrangling process and code blocks below
 
 </summary>
 
-The strategy is to prepare each table as a csv using Python and then load each table into a database. The CITES table is unnormalized and unconducive to attaching data. As the "trade" table is a child to both the "taxon" and "country" tables, these parent tables and their primary keys must be prepared first. The primary keys from these tables can then be inserted as foreign keys into the "trade" table.
+The strategy is to prepare each table as a CSV using Python and then load each table into a database. The CITES table is unnormalized and unconducive to attaching data. As the "trade" table is a child to both the "taxon" and "country" tables, these parent tables and their primary keys must be prepared first. The primary keys from these tables can then be inserted as foreign keys into the "trade" table.
   
 I first imported relevant packages and read in all of the data from the CSV's, only keeping selected columns:
 ```python
@@ -283,9 +283,9 @@ taxon_df = taxon_df.merge(cites_taxon, how="outer", on=on_cols).drop_duplicates(
 
 #### "historical_status" Table CSV
 
-[Yuki Chen](https://github.com/OOYUKIOO) wrote the original code to fetch data from the RED List API.
+[Yuki Chen](https://github.com/OOYUKIOO) wrote the original code to fetch data from the Red List API.
 
-The original project only only collected data on taxon related to medicinal purposes. In this extension of the project, I decided to collect data on all CITES taxon that were in the RED List. While this was a lengthier process, it made for a more complete data set. I prepared the list of CITES taxon for RED List data collection with a simple pandas inner join:
+The original project only only collected data on taxon related to medicinal purposes. In this extension of the project, I decided to collect data on all CITES taxon that were in the Red List. While this was a lengthier process, it made for a more complete data set. I prepared the list of CITES taxon for Red List data collection with a simple pandas inner join:
 
 ```python
 # get the taxon name and then merge with original taxon data on taxon
@@ -362,6 +362,12 @@ master2.index += 1
 </details>
 
 ## Analysis and Results
+
+### Medicine Scenario
+
+
+
+### Fashion Scenario
 
 ## Citations
 
