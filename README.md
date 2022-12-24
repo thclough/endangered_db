@@ -283,6 +283,10 @@ taxon_df = taxon_df.merge(cites_taxon, how="outer", on=on_cols).drop_duplicates(
 
 #### "historical_status" Table CSV
 
+[Yuki Chen](https://github.com/OOYUKIOO) wrote the original code to fetch data from the RED List API.
+
+The original project only only collected data on taxon related to medicinal purposes. In this extension of the project, I decided to collect data on all CITES taxon that were in the RED List. While this was a lengthier process, it made for a more complete data set.
+
 #### "country" Table CSV
 
 #### Aligning Parent and Child Keys
