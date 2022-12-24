@@ -87,16 +87,60 @@ The country table creates a country_id for each CITES country and serves to conn
 
 ![ER](https://github.com/thclough/endangered_db/blob/main/readme_images/historical_status.png)
 
-<details>
+<details open>
 <summary>
 
 ### See data wrangling process and code blocks below
 
 </summary>
 
-The strategy is to prepare each table as a csv using Python and then load each table into a database. The CITES table is unnomralized and unconducive to attaching data. As the "trade" table is a child to both the "taxon" and "country" tables, these parent tables and their primary keys must be prepared first. The primary keys from these tables can then be inserted as foreign keys into the "trade" table.
+The strategy is to prepare each table as a csv using Python and then load each table into a database. The CITES table is unnormalized and unconducive to attaching data. As the "trade" table is a child to both the "taxon" and "country" tables, these parent tables and their primary keys must be prepared first. The primary keys from these tables can then be inserted as foreign keys into the "trade" table.
   
-I first chose to sum the quantities of trades with identical characteristics for each year for easier analysis.
+I first imported relevant packages and read in all of the data from the CSV's, only keeping selected columns:
+```python
+import pandas as pd
+import numpy as np
+import joblib
+
+cols = ["Year", "Appendix", "Taxon", "Class", "Order", "Family", "Genus", "Term", "Quantity", "Unit", "Importer", "Exporter", "Origin", "Purpose", "Source"]
+  
+# create dataframe to append data to
+master = pd.DataFrame(columns = cols)
+
+# CITES CSV's are downloaded in separate parts so must put together in one dataframe
+for doc_num in range(1, 49):
+    temp = pd.read_csv(f"data/cites_master/trade_db_{doc_num}.csv", usecols = cols)
+    master = pd.concat([master, temp])
+```
+
+The newest data (impartial data for 2022) is formatted slightly different:
+
+We must use a different method for reading in the data, and format it to fit our existing dataframe:
+```python
+# read 2022 data
+new_cols = ["Year", "App.", "Taxon", "Class", "Order", "Family", "Genus","Term", "Importer reported quantity", "Exporter reported quantity", "Unit", "Importer", "Exporter", "Origin", "Purpose", "Source"]
+twenty_df = pd.read_csv(f"data/cites_master/cites_2022.csv", usecols = new_cols)
+
+# newer data separates exporter reported quantity and importer reported quantity
+# only one party (importer or exporter) reports quantity meaning we can
+# sum import/export quantity into one new column to get the general traded quantity and drop the old separaecolumns
+
+# replace nan values with 0's for valid summation
+twenty_df["Importer reported quantity"] = twenty_df["Importer reported quantity"].replace(np.nan, 0)
+twenty_df["Exporter reported quantity"] = twenty_df["Exporter reported quantity"].replace(np.nan, 0)
+
+# sum the importer and exporter quantities
+twenty_df["Quantity"] = twenty_df["Importer reported quantity"] + twenty_df["Exporter reported quantity"]
+twenty_df = twenty_df.drop(columns = ["Importer reported quantity", "Exporter reported quantity"])
+
+# rename appendix column to match other data
+twenty_df = twenty_df.rename(columns = {"App.": "Appendix"})
+
+# combine dataframes to get full year range (1975-2022)
+master2 = pd.concat([master, twenty_df])
+```
+
+I then summed the quantities of trades with identical characteristics for each year for easier analysis:
   
   
 </details>
