@@ -304,7 +304,7 @@ We created the primary keys for each country and mapped the World Bank countries
 
 [Yuki Chen](https://github.com/OOYUKIOO) wrote original code to format the "gdp" Table CSV found [here](https://github.com/thclough/endangered_db/blob/main/prepare_gdp_data.py)
 
-This code normalized the World Bank country and population data for each country.
+This code normalized the World Bank gdp data for each country. I repurposed the code to normalize population data.
 
 #### Aligning Parent and Child Keys
 
