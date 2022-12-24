@@ -68,11 +68,13 @@ In this project, I have set out to create a database that integrates CITES data,
     * X - taken from marine environment not under a jurisdiction
     * Y - plants/derivatives (in between artificially propagated and fully wild because had some level of human intervention)
   </details>
-* <a href="https://apiv3.iucnredlist.org/"> RED List API </a> 
-  * info on taxa and IUCN Red List conservation status for select years
-* <a href="https://data.worldbank.org/indicator/NY.GDP.MKTP.CD"> World Bank GDP Data </a>
+* <a href="https://www.iucnredlist.org/search">IUCN RED List Taxon Data</a>
+  * List of all taxa in the IUCN RED List
+* <a href="https://apiv3.iucnredlist.org/">RED List API </a> 
+  * info on taxa and IUCN RED List conservation status for select years
+* <a href="https://data.worldbank.org/indicator/NY.GDP.MKTP.CD">World Bank GDP Data </a>
   * Country GDP (Current USD) data per year
-* <a href="https://data.worldbank.org/indicator/SP.POP.TOTL"> World Bank Population Data </a>
+* <a href="https://data.worldbank.org/indicator/SP.POP.TOTL">World Bank Population Data </a>
   * Country population data per year
 </details>
 
@@ -119,7 +121,7 @@ for doc_num in range(1, 49):
 
 The newest data (impartial data for 2022) is formatted slightly different:
 
-<img src ="https://github.com/thclough/endangered_db/blob/main/readme_images/new%20data.png" width=900 height=100></img>
+<img src ="https://github.com/thclough/endangered_db/blob/main/readme_images/new%20data.png" width=1000 height=100></img>
 
 We must use a different method for reading in the data, and format it to fit our existing dataframe:
 ```python
@@ -215,6 +217,18 @@ I then dropped all entries that did not have specic taxa data:
 ```python
 master2 = master2[[len(taxon) > 1 for taxon in master2["Taxon"].str.split()]]
 ```
+
+I then made all of the taxonomy names lowercase for easy comparison:
+
+```python
+# make all lower case for comparison with taxon table
+lower_cols = ["Class", "Order", "Family", "Genus", "Taxon"]
+master2[lower_cols] = master2[lower_cols].copy(deep=True).apply(lambda x: x.str.lower())
+```
+
+#### Taxon Table
+
+First need to read in all the 
 
 </details>
 
