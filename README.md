@@ -115,6 +115,8 @@ for doc_num in range(1, 49):
 
 The newest data (impartial data for 2022) is formatted slightly different:
 
+<img src ="https://github.com/thclough/endangered_db/blob/main/readme_images/new%20data.png" width=900 height=100></img>
+
 We must use a different method for reading in the data, and format it to fit our existing dataframe:
 ```python
 # read 2022 data
@@ -140,9 +142,76 @@ twenty_df = twenty_df.rename(columns = {"App.": "Appendix"})
 master2 = pd.concat([master, twenty_df])
 ```
 
+The master dataframe containing all of the CITES data has many different units:
+
+```python
+master2["Unit"].unique()
+```
+Output
+```python
+array(['kg', 'g', nan, 'shipments', 'sets', 'm', 'pieces', 'cartons',
+       'ml', 'l', 'bags', 'oz', 'flasks', 'pairs', 'cases', 'boxes',
+       'sides', 'm2', 'cm', 'inches', 'cans', 'items', 'bottles', 'ft3',
+       'm3', 'cm3', 'backskins', 'bellyskins', 'cm2', 'hornback skins',
+       'mg', '(skins)', 'microgrammes', 'ft2', 'lbs', 'metric tonnes',
+       'dm2', 'Number of specimens'], dtype=object)
+```
+
+I converted units to SI units where I could:
+```python
+# dictionary for converting units
+# each key have tuple value containing new unit name and conversion factor
+conv_dict = {# length
+             "cm" : ("m", 10e-4),
+             "inches" : ("m", 0.0254),
+             "ft" : ("m", 0.3048),
+             # area
+             "cm2" : ("m2", 10e-5),
+             "dm2" : ("m2", 10e-3),
+             "ft2" : ("m2", 0.092903),
+             # mass
+             "microgrammes": ("kg", 10e-10),
+             "mg" : ("kg", 10e-7), #milligram
+             "g"  : ("kg", 10e-4), 
+             "oz" : ("kg", 0.0283495),
+             "lbs": ("kg", 0.453592),
+             "metric tonnes" : ("kg", 1000),
+             # volume
+             "cm3" : ("m3", 10e-7),
+             "ml"  : ("m3", 10e-7),
+             "l"   : ("m3", 10e-4),
+             "ft3" : ("m3", 0.0283168)}
+
+for orig_unit, val in conv_dict.items():
+    si_unit = val[0]
+    conv_factor = val[1]
+    
+    # find the correct filter
+    filt = master2["Unit"] == orig_unit
+    
+    master2.loc[filt, "Quantity"] = master2.loc[filt, "Quantity"] * conv_factor
+    master2.loc[filt, "Unit"] = si_unit
+```
+
 I then summed the quantities of trades with identical characteristics for each year for easier analysis:
   
-  
+<img src ="https://github.com/thclough/endangered_db/blob/main/readme_images/sum.png" width=1000 height=100></img>
+```python
+# nearly identical trades (only differentiated by quantity) in the same year are separate 
+# use groupby to create one entry where quantities are amalgamated for one year
+
+by_cols = cols[:]
+by_cols.remove("Quantity") # group by everything except quantity (only differentiator)
+master2 = master2.groupby(by = by_cols, dropna = False).sum().sort_values(by_cols)
+master2 = master2.reset_index()
+```
+
+I then dropped all entries that did not have specic taxa data:
+
+```python
+master2 = master2[[len(taxon) > 1 for taxon in master2["Taxon"].str.split()]]
+```
+
 </details>
 
 ## Analysis/Results
