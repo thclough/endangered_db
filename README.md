@@ -11,7 +11,7 @@ The international demand for animal and plant-derived products has caused alarmi
 
 It is worth noting that the database does not contain *illegal* wildlife trade. However, the global *legal* trade of wildlife reached an estimated 119 billion USD or more in 2020, while its illegal counterpart only stood at an estimated 5 to 23 billion USD<sup>2</sup>. Therefore, the study of legal trade can give insights into overall wildlife trade patterns.
 
-In this project, I have set out to create a database that integrates CITES data, Red list endangerment statuses, and importing/exporting/origin country statistics. Following the contruction of the database, I have theorized a few use cases to demonstrate the importance of studying this connected data.
+In this project, I have set out to create a database that integrates CITES data, Red list endangerment statuses, and importing/exporting/origin country statistics. Following the contruction of the database, I have thought up a few scenarios to guide analysis and to demonstrate the importance of studying this connected data.
 
 [Skip to Analysis and Results](#analysis-and-results)
 
