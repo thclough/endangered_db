@@ -13,6 +13,10 @@ It is worth noting that the database does not contain *illegal* wildlife trade. 
 
 In this project, I have set out to create a database that integrates CITES data, RED list endangerment statuses, and importing/exporting/origin country statistics. Following the contruction of the database, I have theorized a few use cases to demonstrate the importance of studying this connected data.
 
+[Skip to Analysis and Results](#analysis-and-results)
+
+
+
 <details open>
 <summary>
 
@@ -214,7 +218,7 @@ master2 = master2[[len(taxon) > 1 for taxon in master2["Taxon"].str.split()]]
 
 </details>
 
-## Analysis/Results
+## Analysis and Results
 
 ## Citations
 
