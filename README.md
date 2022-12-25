@@ -363,9 +363,117 @@ master2.index += 1
 
 ## Analysis and Results
 
+Scenario: WildAid is a US-based environmental organization that manages campaigns to reduce demand for wildlife products. They would like to know which taxon are currently in most demand and for which purpose so that they can most efficiently strategize their next campaign.
+
 ### Medicine Scenario
 
+Certain taxon are valued for their supposed medicinal properties. Here I have visualized trends in medicinal trades.
 
+To analyze "medicine" trades I first had to filter the trades down to those with the term "medicine". While there is an "M" (medical) purpose, this is too broad because it includes taxon used for biomedical research. In fact, I found when including all trades under the "M" purpose that biomedical trades dominated the resulting outputs. The taxon accounting for most medicine and "M" trades was the "macaca fascicularis" or crab-eating macaque (see side note below). This animal is not traded for its medicinal properties but for its use in epxerimentation due to their close physiology with humans (see "tangent" dropdown below)
+
+<details>
+
+<summary>
+  
+#### tangent
+
+</summary>
+
+```sql
+-- create view for cleaner querying 
+create view med_trades as
+	select *
+	from trade 
+	where term = "medicine" or purpose = "M";
+
+-- data guide says that "if no unit is shown the quantity represents the number of specimens
+-- let's filter down to no units listed and "Number of specimens" for specimens only
+drop view if exists world_specimen_med_trades;
+create view world_specimen_med_trades as
+	select *
+    from med_trades -- not joining, no need to carry around all data, wait to join at end
+    where unit = '' or unit = "Number of specimens";
+-- need this intermediate view to go back to for further analysis
+
+-- let's group by year and taxon_id, sum across all trades for year regardless of origin, importer, exporters
+-- then find most traded animal per year
+drop view if exists world_specimen_med_trades_per_year;
+create view world_specimen_med_trades_per_year as
+	select year, taxon_id, appendix, sum(quantity) as tot_traded
+	from world_specimen_med_trades
+	group by year, taxon_id, appendix
+	order by year, taxon_id;
+-- max traded med species traded per year
+
+with
+	-- temp table containing year and taxon_id with maximum amount of trades
+	max_taxon_world_specimen_med_trades_per_year as
+		(select * 
+		from world_specimen_med_trades_per_year
+		where (year, tot_traded) in
+			(select year, max(tot_traded)
+			from world_specimen_med_trades_per_year
+			group by year))
+	select year, taxon_id, taxon_name, appendix, tot_traded -- save join for very last to be the most efficient and cleaner code
+    from max_taxon_world_specimen_med_trades_per_year left join taxon using (taxon_id);
+```
+
+The following output, which shows the max traded taxon per year listed under the term "medicine" or purpose "M", is dominated by taxa for biomedical research, particularly the macaca fascicularis as mentioned above:
+  
+Output:
+
+|year|taxon_name                |appendix|tot_traded|
+|----|--------------------------|--------|----------|
+|1977|erythrocebus patas        |II      |4         |
+|1977|pan troglodytes           |I       |4         |
+|1978|alligator mississippiensis|I       |273       |
+|1979|chlorocebus aethiops      |II      |88        |
+|1980|chlorocebus aethiops      |II      |60        |
+|1981|macaca fascicularis       |II      |895       |
+|1982|macaca fascicularis       |II      |723       |
+|1983|macaca fascicularis       |II      |4038      |
+|1984|macaca fascicularis       |II      |7184      |
+|1985|macaca fascicularis       |II      |13653     |
+|1986|macaca fascicularis       |II      |652       |
+|1987|chlorocebus aethiops      |II      |662       |
+|1988|macaca fascicularis       |II      |750       |
+|1989|hirudo medicinalis        |II      |15080     |
+|1990|hirudo medicinalis        |II      |8090      |
+|1991|hirudo medicinalis        |II      |14238     |
+|1992|hirudo medicinalis        |II      |50160     |
+|1993|macaca fascicularis       |II      |11522     |
+|1994|macaca fascicularis       |II      |25023     |
+|1995|aloe ferox                |II      |330000    |
+|1996|macaca fascicularis       |II      |14745     |
+|1997|macaca fascicularis       |II      |15132     |
+|1998|hirudo medicinalis        |II      |56000     |
+|1999|macaca mulatta            |II      |28084     |
+|2000|macaca fascicularis       |II      |42938     |
+|2001|macaca fascicularis       |II      |103709    |
+|2002|macaca fascicularis       |II      |145675    |
+|2003|macaca fascicularis       |II      |73970     |
+|2004|macaca fascicularis       |II      |70192     |
+|2005|macaca fascicularis       |II      |81818     |
+|2006|macaca fascicularis       |II      |67504     |
+|2007|daboia russelii           |III     |337726    |
+|2008|daboia russelii           |III     |333210    |
+|2009|macaca fascicularis       |II      |440029.9  |
+|2010|daboia russelii           |III     |552086    |
+|2011|daboia russelii           |III     |538496    |
+|2012|daboia russelii           |III     |415541    |
+|2013|cairina moschata          |III     |2934849   |
+|2014|cairina moschata          |III     |8577995   |
+|2015|cairina moschata          |III     |10090928  |
+|2016|cairina moschata          |III     |5021559   |
+|2017|daboia russelii           |III     |1063842   |
+|2018|daboia russelii           |III     |844536    |
+|2019|chlorocebus aethiops      |II      |360001143 |
+|2020|prunus africana           |II      |634050    |
+|2021|alligator mississippiensis|II      |2320      |
+
+</details>
+  
+Instead, I want to focus on taxa that are traded for medicinal consumption. I first filtered 
 
 ### Fashion Scenario
 
