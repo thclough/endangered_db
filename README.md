@@ -369,13 +369,17 @@ Scenario: WildAid is a US-based environmental organization that manages campaign
 
 Certain taxon are valued for their supposed medicinal properties. Here I have visualized trends in medicinal trades.
 
-To analyze "medicine" trades I first had to filter the trades down to those with the term "medicine". While there is an "M" (medical) purpose, this is too broad because it includes taxon used for biomedical research. In fact, I found when including all trades under the "M" purpose that biomedical trades dominated the resulting outputs. The taxon accounting for most medicine and "M" trades was the "macaca fascicularis" or crab-eating macaque (see side note below). This animal is not traded for its medicinal properties but for its use in epxerimentation due to their close physiology with humans (see "tangent" dropdown below)
+**GOAL**: Find 1) which endangered taxon are most at threat from medicine-driven trade, and 2) which countries are driving this demand.
+
+
+
+To analyze "medicine" trades I first had to filter the trades down to those with the term "medicine". While there is an "M" (medical) purpose, this is too broad because it includes taxon used for biomedical research. In fact, I found when including all trades under the "M" purpose that biomedical trades dominated the resulting outputs. The taxon accounting for most medicine and "M" trades was the "macaca fascicularis" or crab-eating macaque (see side note below). This animal is not traded for its medicinal properties but for its use in epxerimentation due to their close physiology with humans (see "Tangent" dropdown below)
 
 <details>
 
 <summary>
   
-#### tangent
+#### Tangent
 
 </summary>
 
@@ -474,8 +478,55 @@ Output:
 |2021|alligator mississippiensis|II      |2320      |
 
 </details>
-  
-Instead, I want to focus on taxa that are traded for medicinal consumption. I first filtered 
+
+Instead, I want to focus on taxa that are traded for medicinal consumption. This fits into the WildAid strategy of targeting individual consumer demand. I first filtered by the term "medicine" and relevant purposes (see code comments for selected purposes)
+
+<details>
+<summary>
+	
+#### See Query
+
+</summary>
+
+```sql
+-- also only if purpose is in B (Breeding/propagation), M (Medical), P (Personal), T (commercial), and blank
+-- don't want to include purposes like S (Scientific), H (Hunting Trophy), L (law enforcement/foresic) because those have nothing to do with medicine
+drop view if exists medicine_species_trades;
+create view medicine_species_trades as 
+	select * from trade join taxon using (taxon_id)
+	where term = "medicine" and purpose in ("B", "M", "P", "T", "");
+```
+</details>
+	
+I then decided to breakout the analysis by the Kingdoms Animalia (animals) and ex-Animalia (plants) because comparing absolute quantities between plants and animals is misleading, especially when looking at certain units such as kg. Plants typically come in much smaller quantities because they are naturally smaller than many animals.
+
+I further broke each of these categories down into "Number of specimens" and kg for similar comparison. According to the CITES guide, any trade without a unit can be assumed to be measures in specimens.
+
+<details>
+<summary>
+	
+#### See Query
+
+</summary>
+	
+```sql
+-- create view for any medicine animalia trades 
+drop view if exists medicine_animalia_trades;
+create view medicine_animalia_trades as
+	select *
+	from medicine_species_trades
+	where kingdom_name = "animalia";
+
+### medicine animalia: No unit ('') and "Number of specimens"
+drop view if exists specimen_medicine_animalia_trades;
+create view specimen_medicine_animalia_trades as
+	select *
+    from medicine_animalia_trades
+    where unit in ('', 'Number of specimens');
+```
+	
+<details>
+
 
 ### Fashion Scenario
 
