@@ -500,7 +500,27 @@ create view medicine_species_trades as
 	
 I then decided to breakout the analysis by the Kingdoms Animalia (animals) and ex-Animalia (plants) because comparing absolute quantities between plants and animals is misleading, especially when looking at certain units such as kg. Plants typically come in much smaller quantities because they are naturally smaller than many animals.
 
+<details>
+
+<summary>
+	
+#### See Query
+
+</summary>
+
+```sql
+-- create view for any medicine animalia trades 
+drop view if exists medicine_animalia_trades;
+create view medicine_animalia_trades as
+	select *
+	from medicine_species_trades
+	where kingdom_name = "animalia";
+```
+</details>
+	
 I further broke each of these categories down into "Number of specimens" and kg for similar comparison. According to the CITES guide, any trade without a unit can be assumed to be measures in specimens.
+
+#### Medicine - Animalia - Number of Specimens
 
 <details>
 <summary>
@@ -510,13 +530,6 @@ I further broke each of these categories down into "Number of specimens" and kg 
 </summary>
 	
 ```sql
--- create view for any medicine animalia trades 
-drop view if exists medicine_animalia_trades;
-create view medicine_animalia_trades as
-	select *
-	from medicine_species_trades
-	where kingdom_name = "animalia";
-
 ### medicine animalia: No unit ('') and "Number of specimens"
 drop view if exists specimen_medicine_animalia_trades;
 create view specimen_medicine_animalia_trades as
