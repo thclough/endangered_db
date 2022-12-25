@@ -379,6 +379,8 @@ To analyze "medicine" trades I first had to filter the trades down to those with
 
 </summary>
 
+When first approaching medical trade analysis, I chose to filter trades under either term "Medicine" or purpose "M" to have more data. The "Medicine" term only has 2977 entries out of 2.5 million + total entries in the trade table. I also started out by comparing trades where the quantity referred to number of specimens (not another unit like kg).
+	
 ```sql
 -- create view for cleaner querying 
 create view med_trades as
@@ -418,7 +420,7 @@ with
     from max_taxon_world_specimen_med_trades_per_year left join taxon using (taxon_id);
 ```
 
-The following output, which shows the max traded taxon per year listed under the term "medicine" or purpose "M", is dominated by taxa for biomedical research, particularly the macaca fascicularis as mentioned above:
+I quickly found this was insufficient. The following output, which shows the max traded taxon per year listed under the term "medicine" or purpose "M", is dominated by taxa for biomedical research, particularly "macaca fascicularis" as mentioned above:
   
 Output:
 
