@@ -562,19 +562,17 @@ with
 
 I chose to start with a simple visualization of the trades over time broken out by CITES appendix (Appendix I the most threatened and III the least). While Appendix III taxa account for the vast majority of trade (**notice the different y-axis scales**), a large increase in Appendix I trade would raise the most concern.
 
-For the Appendix I trades, there was a large increase starting in 2013, that peaked in 2014, and receded in 2015. I queried to find the most traded taxa by year broken out by appendix (see final example query in [Queries and Explanation Section](#see-queries-and-explanations)).
+For the Appendix I trades, there was a large increase starting in 2013, that peaked in 2014, and receded in 2015. I queried to find the most traded taxa by year broken out by appendix (see final example query in [Queries and Explanation Section](#see-queries-and-explanations)). 
+
+The most traded Appendix I animal in 2013 and 2014 by specimen under the term medicine was "crocodylus siamensis" or the Siamese Crocodile. This animal is commonly farmed and exploited for its medicinal properties cooming from its oil and blood<sup>3</sup>. This particular taxa does not raise concern as its trade has plummited. Instead, I am looking for taxa with sustained levels of high trade which indicate an ongoing problem.
 
 <details>
 
 <summary>
 
-#### See output for max taxon
+#### See output for max taxon by year
 	
 </summary>
-
-```sql
-
-```
 	
 |year|taxon_id|taxon_name                |appendix|tot_traded|
 |----|--------|--------------------------|--------|----------|
@@ -615,6 +613,51 @@ For the Appendix I trades, there was a large increase starting in 2013, that pea
 *Figure 1*
 ![5,2,2 Figure 1](https://github.com/thclough/endangered_db/blob/main/query_output_and_visualizations/medical/medicine/Animalia/kg/Medicine%20-%20Animalia%20-%20kg%20-%20Trades%20vs%20Year%20by%20Appendix.png)
 
+There is sustained trade in Appendix III animal taxa. 
+
+<details>
+
+<summary>
+
+#### See output for max taxon by year
+	
+</summary>
+
+|year|taxon_id|taxon_name                |appendix|total_traded|
+|----|--------|--------------------------|--------|------------|
+|2009|136686  |saiga tatarica            |II      |12.975      |
+|2010|136551  |moschus spp.              |II      |2.885       |
+|2011|136686  |saiga tatarica            |II      |35.609      |
+|2011|111654  |mauremys reevesii         |III     |265.75      |
+|2012|129985  |ursus thibetanus          |I       |0.005       |
+|2012|136364  |cetacea spp.              |II      |192         |
+|2012|111654  |mauremys reevesii         |III     |727.545     |
+|2013|134462  |testudinidae spp.         |I       |20          |
+|2013|136686  |saiga tatarica            |II      |351.973     |
+|2013|111654  |mauremys reevesii         |III     |1184.944    |
+|2014|101703  |panthera tigris           |I       |5.873       |
+|2014|136686  |saiga tatarica            |II      |320.082     |
+|2014|111654  |mauremys reevesii         |III     |7480.137    |
+|2015|129985  |ursus thibetanus          |I       |0.555       |
+|2015|134462  |testudinidae spp.         |II      |3085.05     |
+|2015|111654  |mauremys reevesii         |III     |2982.386    |
+|2016|129985  |ursus thibetanus          |I       |0.006       |
+|2016|136686  |saiga tatarica            |II      |885.136     |
+|2016|111654  |mauremys reevesii         |III     |4203.8      |
+|2017|129825  |panthera pardus           |I       |0.382       |
+|2017|136686  |saiga tatarica            |II      |672.114     |
+|2017|111654  |mauremys reevesii         |III     |6471.558    |
+|2018|136379  |rhinocerotidae spp.       |I       |6           |
+|2018|134640  |naja naja                 |II      |409.522     |
+|2018|111654  |mauremys reevesii         |III     |4272.12     |
+|2019|136686  |saiga tatarica            |II      |149.711     |
+|2019|111654  |mauremys reevesii         |III     |2311.819    |
+|2020|136551  |moschus spp.              |II      |41.615      |
+|2020|111654  |mauremys reevesii         |III     |2269.75     |
+
+	
+<details>
+
 #### 5,2,3) Medicine - Ex-Animalia (Plants) - Number of Specimens
 *Figure 1*
 ![5,2,3 Figure 1](https://github.com/thclough/endangered_db/blob/main/query_output_and_visualizations/medical/medicine/Ex-Animalia/specimen/Medicine%20-%20Plantae%20-%20Number%20of%20Specimens%20-%20Trades%20vs%20Year%20by%20Appendix.png)
@@ -631,4 +674,4 @@ For the Appendix I trades, there was a large increase starting in 2013, that pea
 [1] CITES Secretariat and UNEP-WCMC (2022). A guide to using the CITES Trade Database. Version 9. Geneva, Switzerland, and Cambridge, UK. https://trade.cites.org/cites_trade_guidelines/en-CITES_Trade_Database_Guide.pdf
 <br>
 [2] Tow, J. H., Symes, W. S., & Carrasco, L. R. (2021, October 12). Economic value of illegal wildlife trade entering the USA. PLOS ONE. https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0258523
-</details>
+[3] Crocodile | Asian Bestiary. (n.d.). http://asianbestiary.org/crocodile/
