@@ -98,7 +98,7 @@ Upon close inspection, one can see that the "taxon" table is not very normalized
 <details>
 <summary>
 
-### See data wrangling process and code blocks below
+### See data wrangling process and code blocks
 
 </summary>
 
@@ -376,12 +376,11 @@ Certain taxon are valued for their supposed medicinal properties. Here I have vi
 #### Key Findings (TL;DR)
 
 
-
 <details>
 
 <summary>
 
-#### See Queries and Explanations Below
+#### See Queries and Explanations
 
 </summary>
 
@@ -561,11 +560,63 @@ with
 *Figure 1*
 ![5,2,1 Figure 1](https://github.com/thclough/endangered_db/blob/main/query_output_and_visualizations/medical/medicine/Animalia/specimen/Medicine%20-%20Animalia%20-%20Number%20of%20Specimens%20-%20Trades%20vs%20Year%20by%20Appendix.png)
 
+I chose to start with a simple visualization of the trades over time broken out by CITES appendix (Appendix I the most threatened and III the least). While Appendix III taxa account for the vast majority of trade (**notice the different y-axis scales**), a large increase in Appendix I trade would raise the most concern.
+
+For the Appendix I trades, there was a large increase starting in 2013, that peaked in 2014, and receded in 2015. I queried to find the most traded taxa by year broken out by appendix (see final example query in [Queries and Explanation Section](#see-queries-and-explanations)).
+
+<details>
+
+<summary>
+
+#### See output for max taxon
+	
+</summary>
+
+```sql
+
+```
+	
+|year|taxon_id|taxon_name                |appendix|tot_traded|
+|----|--------|--------------------------|--------|----------|
+|2009|136436  |moschus moschiferus       |II      |358140    |
+|2010|136551  |moschus spp.              |II      |10        |
+|2010|134639  |daboia russelii           |III     |144951    |
+|2011|6336    |alligator mississippiensis|II      |3887      |
+|2011|134639  |daboia russelii           |III     |191205    |
+|2012|101703  |panthera tigris           |I       |833       |
+|2012|6336    |alligator mississippiensis|II      |23778     |
+|2012|134639  |daboia russelii           |III     |143590    |
+|2013|75841   |crocodylus siamensis      |I       |111935    |
+|2013|136551  |moschus spp.              |II      |76671     |
+|2013|50207   |cairina moschata          |III     |2934844   |
+|2014|75841   |crocodylus siamensis      |I       |405070    |
+|2014|136551  |moschus spp.              |II      |46606     |
+|2014|50207   |cairina moschata          |III     |8577995   |
+|2015|101703  |panthera tigris           |I       |2213      |
+|2015|136551  |moschus spp.              |II      |32138     |
+|2015|50207   |cairina moschata          |III     |10090928  |
+|2016|101703  |panthera tigris           |I       |1335      |
+|2016|136686  |saiga tatarica            |II      |27186     |
+|2016|50207   |cairina moschata          |III     |5021559   |
+|2017|101703  |panthera tigris           |I       |6150      |
+|2017|136436  |moschus moschiferus       |II      |36823     |
+|2017|134639  |daboia russelii           |III     |435985    |
+|2018|129985  |ursus thibetanus          |I       |8947      |
+|2018|45832   |ursus arctos              |II      |212239    |
+|2018|134639  |daboia russelii           |III     |324670    |
+|2019|45832   |ursus arctos              |II      |527011    |
+|2019|134639  |daboia russelii           |III     |549181    |
+|2020|45832   |ursus arctos              |II      |104620    |
+|2020|134639  |daboia russelii           |III     |385250    |
+
+</details>
+
 #### 5,2,2) Medicine - Animalia - kg
 *Figure 1*
 ![5,2,2 Figure 1](https://github.com/thclough/endangered_db/blob/main/query_output_and_visualizations/medical/medicine/Animalia/kg/Medicine%20-%20Animalia%20-%20kg%20-%20Trades%20vs%20Year%20by%20Appendix.png)
 
 #### 5,2,3) Medicine - Ex-Animalia (Plants) - Number of Specimens
+*Figure 1*
 ![5,2,3 Figure 1](https://github.com/thclough/endangered_db/blob/main/query_output_and_visualizations/medical/medicine/Ex-Animalia/specimen/Medicine%20-%20Plantae%20-%20Number%20of%20Specimens%20-%20Trades%20vs%20Year%20by%20Appendix.png)
 
 #### 5,2,4) Medicine - Ex-Animalia (Plants) - kg
