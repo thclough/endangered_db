@@ -369,9 +369,15 @@ Scenario: WildAid is a US-based environmental organization that manages campaign
 
 Certain taxon are valued for their supposed medicinal properties. Here I have visualized trends in medicinal trades.
 
-**GOAL**: Find 1) which endangered taxon are most at threat from medicine-driven trade, and 2) which countries are driving this demand.
+**GOAL**: Find **1)** which endangered taxon are most at threat from medicine-driven trade, and **2)** which countries are driving this demand.
 
+<details>
 
+<summary>
+
+#### See Queries and Explanations Below
+
+</summary>
 
 To analyze "medicine" trades I first had to filter the trades down to those with the term "medicine". While there is an "M" (medical) purpose, this is too broad because it includes taxon used for biomedical research. In fact, I found when including all trades under the "M" purpose that biomedical trades dominated the resulting outputs. The taxon accounting for most medicine and "M" trades was the "macaca fascicularis" or crab-eating macaque (see side note below). This animal is not traded for its medicinal properties but for its use in epxerimentation due to their close physiology with humans (see "Tangent" dropdown below)
 
@@ -481,13 +487,6 @@ Output:
 
 Instead, I want to focus on taxa that are traded for medicinal consumption. This fits into the WildAid strategy of targeting individual consumer demand. I first filtered by the term "medicine" and relevant purposes (see code comments for selected purposes)
 
-<details>
-<summary>
-	
-#### See Query
-
-</summary>
-
 ```sql
 -- also only if purpose is in B (Breeding/propagation), M (Medical), P (Personal), T (commercial), and blank
 -- don't want to include purposes like S (Scientific), H (Hunting Trophy), L (law enforcement/foresic) because those have nothing to do with medicine
@@ -496,17 +495,8 @@ create view medicine_species_trades as
 	select * from trade join taxon using (taxon_id)
 	where term = "medicine" and purpose in ("B", "M", "P", "T", "");
 ```
-</details>
 	
-I then decided to breakout the analysis by the Kingdoms Animalia (animals) and ex-Animalia (plants) because comparing absolute quantities between plants and animals is misleading, especially when looking at certain units such as kg. Plants typically come in much smaller quantities because they are naturally smaller than many animals.
-
-<details>
-
-<summary>
-	
-#### See Query
-
-</summary>
+I then decided to breakout the analysis by the Kingdoms Animalia (animals) and ex-Animalia (plants) because comparing absolute quantities between plants and animals is misleading, especially when looking at certain units such as kg. Plants typically come in much smaller quantities because they are naturally smaller than many animals. This query is for filtering by animalia:
 
 ```sql
 -- create view for any medicine animalia trades 
@@ -516,19 +506,9 @@ create view medicine_animalia_trades as
 	from medicine_species_trades
 	where kingdom_name = "animalia";
 ```
-</details>
 	
-I further broke each of these categories down into "Number of specimens" and kg for similar comparison. According to the CITES guide, any trade without a unit can be assumed to be measures in specimens.
+I further broke each of these categories down into "Number of specimens" and kg for similar comparison. According to the CITES guide, any trade without a unit can be assumed to be measured in specimens as well as those with the explicit "Number of specimens" unit. The query is for filtering out trades where the unit is number of specimens:
 
-#### Medicine - Animalia - Number of Specimens
-
-<details>
-<summary>
-	
-#### See Query
-
-</summary>
-	
 ```sql
 ### medicine animalia: No unit ('') and "Number of specimens"
 drop view if exists specimen_medicine_animalia_trades;
@@ -537,8 +517,42 @@ create view specimen_medicine_animalia_trades as
     from medicine_animalia_trades
     where unit in ('', 'Number of specimens');
 ```
+
+For each of these subcategories, I wrote a query to break out the total amount of taxa traded by appendix (how endangered the taxa is).
+
+```sql
+select
+    year,
+    sum(case when appendix = "I" then quantity else 0 end) as I,
+    sum(case when appendix = "II" then quantity else 0 end) as II,
+    sum(case when appendix = "III" then quantity else 0 end) as III,
+    sum(quantity) as total
+from specimen_medicine_animalia_trades
+group by year;
+```
+
+I then summed up trades among taxa by year regardless of importer, exporter, or origin. I finally found the most traded taxa per year by appendix. See example below: 
 	
-<details>
+```sql
+-- max taxon each year
+with
+	-- temp table containing year and taxon_id with maximum amount of trades
+	max_world_specimen_medicine_animalia_trades as
+		(select * 
+		from world_specimen_medicine_animalia_trades
+		where (year, appendix, tot_traded) in
+			-- maximum quantity for each taxon by year
+			(select year, appendix, max(tot_traded)
+			from world_specimen_medicine_animalia_trades
+			group by year, appendix))
+	select year, taxon_id, taxon_name, appendix, tot_traded -- save join for very last to be the most efficient and cleaner code
+    from max_world_specimen_medicine_animalia_trades;
+```
+	
+</details>
+
+#### Medicine - Animalia - Number of Specimens
+
 
 
 ### Fashion Scenario
