@@ -1,11 +1,11 @@
 # Endangered Animal Database Construction and Analysis
 #### By: Tighe Clough
 
-## Background
+## 1) Background
 
 This analysis stems from a group project in "CS3200: Database Design" at Northeastern University. The group consisted of myself, [Yuxuan Chen](https://github.com/OOYUKIOO), [Britney Chen](https://github.com/britneyart80), [Sarah Tong](https://github.com/saraht0ng), and Amaya Kejriwal. My original vision for the project proved too ambitious due to time and technology constraints. I have revisited the project to achieve these goals and have redesigned and updated the database. Additionally, I am performing continuous analysis on the database which I document through updates on this repo.
 
-## Introduction
+## 2) Introduction
 
 The international demand for animal and plant-derived products has caused alarming depletions in certain specie populations. While the world economies have become increasingly connected and prosperous in the past few centuries, the resulting market forces have overwheled wildlife in many cases. In 1975, 80 countries came together to address this issue by drafting and signing The Convention on International Trade in Endangered Species of Wild Flora and Fauna (CITES). The agreement stipulated the careful documentation and tracking of trade in threatened and endangered taxa (biological term for a group of related organisms). Currently the UN Environment Programme World Conservation Monitoring Center, on behalf of CITES, maintains the CITES database which contains 23 million records of such trade<sup>1</sup>. 
 
@@ -13,14 +13,14 @@ It is worth noting that the database does not contain *illegal* wildlife trade. 
 
 In this project, I have set out to create a database that integrates CITES data, Red list endangerment statuses, and importing/exporting/origin country statistics. Following the contruction of the database, I have thought up a few scenarios to guide analysis and to demonstrate the importance of studying this connected data.
 
-[Skip to Analysis and Results](#analysis-and-results)
+[Skip to Analysis and Results](#5-analysis-and-results)
 
 
 
 <details open>
 <summary>
 
-## Data Sources
+## 3) Data Sources
 
 </summary>
   
@@ -78,9 +78,9 @@ In this project, I have set out to create a database that integrates CITES data,
   * Country population data per year
 </details>
 
-## Methods
+## 4) Methods
 
-### Database Design and Construction
+### 4,1) Database Design and Construction
 
 
 The database enhances CITES data (found in the trade table) through attaching relevant information on the traded animals/plant and importing/exporting/origin countries. 
@@ -103,7 +103,9 @@ Upon close inspection, one can see that the "taxon" table is not very normalized
 </summary>
 
 The strategy is to prepare each table as a CSV using Python and then load each table into a database. The CITES table is unnormalized and unconducive to attaching data. As the "trade" table is a child to both the "taxon" and "country" tables, these parent tables and their primary keys must be prepared first. The primary keys from these tables can then be inserted as foreign keys into the "trade" table.
-  
+
+#### 4,1,1) "trade" Table CSV
+	
 I first imported relevant packages and read in all of the data from the CSV's, only keeping selected columns:
 ```python
 import pandas as pd
@@ -228,7 +230,7 @@ lower_cols = ["Class", "Order", "Family", "Genus", "Taxon"]
 master2[lower_cols] = master2[lower_cols].copy(deep=True).apply(lambda x: x.str.lower())
 ```
 
-#### "taxon" Table CSV
+#### 4,1,2) "taxon" Table CSV
 
 The "taxon" table will be a parent of the trade table. The table will contain all taxa in the IUCN RED List along with those in the trade table. My manipulation of the trade table dataframe so far has been in preparation for comapring the two CSVs, seeing which taxa are in CITES trade data but NOT in the IUCN RED List data, then adding those to the "taxon" table. For example, there are hyprid species and "spp" (more than one species of the same genus) in the CITES trade data which are not in the IUCN RED List: 
 
@@ -281,7 +283,7 @@ on_cols = ["kingdom", "phylum", "class", "order", "family", "genus", "taxon"]
 taxon_df = taxon_df.merge(cites_taxon, how="outer", on=on_cols).drop_duplicates().dropna(subset=["taxon"])
 ```
 
-#### "historical_status" Table CSV
+#### 4,1,3) "historical_status" Table CSV
 
 [Yuki Chen](https://github.com/OOYUKIOO) wrote the original code to fetch data from the Red List API.
 
@@ -294,19 +296,19 @@ temp = master2.merge(taxon_df2, left_on="taxon_id", right_index=True).merge(taxo
 
 See code [here](https://github.com/thclough/endangered_db/blob/main/prepare_status_data.py) for fetching data from the API.
 
-#### "country" Table CSV
+#### 4,1,4) "country" Table CSV
 
 [Sarah Tong](https://github.com/saraht0ng) and myself modified the original list of World Bank countries and codes given
 
 We created the primary keys for each country and mapped the World Bank countries to each CITES country. These primary keys are used as foreign keys in the "gdp" and "population" tables.
 
-#### "gdp" and "population" Table CSV
+#### 4,1,5) "gdp" and "population" Table CSV
 
 [Yuki Chen](https://github.com/OOYUKIOO) wrote original code to format the "gdp" Table CSV found [here](https://github.com/thclough/endangered_db/blob/main/prepare_gdp_data.py)
 
 This code normalized the World Bank gdp data for each country. I repurposed the code to normalize population data.
 
-#### Aligning Parent and Child Keys
+#### 4,1,6) Aligning Parent and Child Keys
 
 I first created a primary key disctionary for the "taxon" table and mapped them into the trade table:
 
@@ -361,7 +363,7 @@ master2.index += 1
 
 </details>
 
-## Analysis and Results
+## 5) Analysis and Results
 
 Scenario: WildAid is a US-based environmental organization that manages campaigns to reduce demand for wildlife products. They would like to know which taxon are currently in most demand and for which purpose so that they can most efficiently strategize their next campaign.
 
@@ -519,7 +521,7 @@ create view specimen_medicine_animalia_trades as
 ```
 
 For each of these subcategories, I wrote a query to break out the total amount of taxa traded by appendix (how endangered the taxa is).
-
+Example for [Section 5,2,1](#521-medicine---animalia---number-of-specimens) Figure 1.
 ```sql
 select
     year,
@@ -531,7 +533,7 @@ from specimen_medicine_animalia_trades
 group by year;
 ```
 
-I then summed up trades among taxa by year regardless of importer, exporter, or origin. I finally found the most traded taxa per year by appendix. See example below: 
+I then summed up trades among taxa by year regardless of importer, exporter, or origin. I finally found the most traded taxa per year by appendix. See example below used for [Section 5,2,1](#521-medicine---animalia---number-of-specimens) : 
 	
 ```sql
 -- max taxon each year
@@ -551,11 +553,21 @@ with
 	
 </details>
 
-#### Medicine - Animalia - Number of Specimens
+#### 5,2,1) Medicine - Animalia - Number of Specimens
+*Figure 1*
+![5,2,1 Figure 1](https://github.com/thclough/endangered_db/blob/main/query_output_and_visualizations/medical/medicine/Animalia/specimen/Medicine%20-%20Animalia%20-%20Number%20of%20Specimens%20-%20Trades%20vs%20Year%20by%20Appendix.png)
 
+#### 5,2,2) Medicine - Animalia - kg
+*Figure 1*
+![5,2,2 Figure 1](https://github.com/thclough/endangered_db/blob/main/query_output_and_visualizations/medical/medicine/Animalia/kg/Medicine%20-%20Animalia%20-%20kg%20-%20Trades%20vs%20Year%20by%20Appendix.png)
 
+#### 5,2,3) Medicine - Ex-Animalia (Plants) - Number of Specimens
+![5,2,3 Figure 1](https://github.com/thclough/endangered_db/blob/main/query_output_and_visualizations/medical/medicine/Ex-Animalia/specimen/Medicine%20-%20Plantae%20-%20Number%20of%20Specimens%20-%20Trades%20vs%20Year%20by%20Appendix.png)
 
-### Fashion Scenario
+#### 5,2,4) Medicine - Ex-Animalia (Plants) - kg
+![5,2,4 Figure 1](https://github.com/thclough/endangered_db/blob/main/query_output_and_visualizations/medical/medicine/Ex-Animalia/kg/Medicine%20-%20Plantae%20-%20kg%20-%20Trades%20vs%20Year%20by%20Appendix.png)
+
+### 5,3) Fashion Scenario
 
 ## Citations
 
