@@ -818,7 +818,9 @@ There is an overall increasing trend in Appendix II taxa trade for this category
 
 <details>
 <summary>
+	
 #### See Output for Most Traded Taxon per Year by Appendix
+	
 </summary>
 <details>
 	
