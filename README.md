@@ -808,10 +808,8 @@ There is an overall increasing trend in Appendix II taxa trade for this category
 |2019|145071  |prunus africana           |II      |1723000            |
 |2020|139699  |saussurea costus          |I       |6982               |
 |2020|145071  |prunus africana           |II      |634050             |
-
-
 	
-<details>
+</details>
 
 #### 5,2,4) Medicine - Ex-Animalia (Plants) - kg
 ![5,2,4 Figure 1](https://github.com/thclough/endangered_db/blob/main/query_output_and_visualizations/medical/medicine/Ex-Animalia/kg/Medicine%20-%20Plantae%20-%20kg%20-%20Trades%20vs%20Year%20by%20Appendix.png)
