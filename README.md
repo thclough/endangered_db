@@ -367,7 +367,8 @@ master2.index += 1
 
 Scenario: WildAid is a US-based environmental organization that manages campaigns to reduce demand for wildlife products. They would like to know which taxon are currently in most demand and for which purpose so that they can most efficiently strategize their next campaign.
 
-### Medicine Scenario
+
+### 5,2) Medicine Scenario
 
 Certain taxon are valued for their supposed medicinal properties. Here I have visualized trends in medicinal trades.
 
@@ -375,6 +376,7 @@ Certain taxon are valued for their supposed medicinal properties. Here I have vi
 
 #### Key Findings (TL;DR)
 
+* Chinese Pond Turtle mauremys_reevesii 
 
 <details>
 
@@ -657,7 +659,112 @@ There is sustained trade in Appendix III animal taxa trade. Looking at the max t
 
 </details>
 	
-This trade pattern in Chinese Pond Turtles presents itself as a target for an NGO like WildAid and requires further querying to identify importers/exporters/origin and gather further information on its population if possible.
+This trade pattern in Chinese Pond Turtles presents itself as a target for an NGO like WildAid and requires further querying to identify importers and gather further information on its population.
+
+I started off by querying for the largest importer by absolute quantity for each year. I found that Japan has been the largest importer by absolute amount of kilograms starting in 2014. I then decided to query by largest importer on a per 100,000 population basis to correct for population and identify if the average consumer in one country had more demand for the Chinese Pond Turtle over consumers in other countries. Again, Japan was the largest on a per capita basis, this time since 2013. I finally looked into the IUCN conservation status of the Chinese Pond Turtle. The Red list has classified the turtle as Endangered since 2011. While trade in the turtle is continuously high, trade has declined in the past few year.
+
+<details>
+<summary>
+	
+#### See Queries and Output
+	
+</summary>
+
+#### Largest Importers of the Chinese Pond Turtle for Medicinal Puposes in kg by Year
+
+```SQL
+with turtle_importer_sums_per_year as -- first sum imports by year for each importer
+	(select
+		year,
+		importer_id,
+		sum(quantity) as total_traded
+	from kg_medicine_animalia_trades
+    where taxon_name = "mauremys reevesii"
+	group by year, importer_id)
+select
+	year,
+    country_name,
+    total_traded
+    from turtle_importer_sums_per_year t join country c on t.importer_id = c.country_id
+	where (year, total_traded) in
+		-- table with max 
+        (select
+		year,
+        max(total_traded) as total_traded
+		from turtle_importer_sums_per_year
+		group by year)
+	order by year;
+```
+	
+|year|country_name|total_traded              |
+|----|------------|--------------------------|
+|2011|United States|142.54                    |
+|2012|United States|659.82                    |
+|2013|United States|624.98                    |
+|2014|Japan       |7175.76                   |
+|2015|Japan       |2833.75                   |
+|2016|Japan       |4080.6000000000004        |
+|2017|Japan       |6160.9000000000015        |
+|2018|Japan       |4080.6                    |
+|2019|Japan       |2267                      |
+|2020|Japan       |2138.98                   |
+
+
+#### Largest Importers of the Chinese Pond Turtle for Medicinal Puposes in kg/100000 people by Year
+
+```sql
+with turtle_importer_sums_per_year as -- first sum imports by year for each importer
+	(select
+		year,
+		importer_id,
+		sum(quantity) as total_traded
+	from kg_medicine_animalia_trades
+    where taxon_name = "mauremys reevesii"
+	group by year, importer_id),
+turtle_kg_per_100k as
+	(select
+	year,
+    country_name,
+    total_traded/total_pop * 100000 as kg_per_1k
+	from turtle_importer_sums_per_year t
+	join country c on t.importer_id = c.country_id
+    join population p using (year, country_id))
+select *
+from turtle_kg_per_100k
+where (year,kg_per_100k) in
+	(select 
+		year,
+		max(kg_per_100k)
+    from turtle_kg_per_100k
+    group by year);
+```
+|year|country_name|kg_per_100k                 |
+|----|------------|--------------------------|
+|2011|Canada      |0.18582192406327813       |
+|2012|United States|0.2102156603931885        |
+|2013|Japan       |0.3923261014555298        |
+|2014|Japan       |5.637952166944279         |
+|2015|Japan       |2.228824690697729         |
+|2016|Japan       |3.2111492335295413        |
+|2017|Japan       |4.852172132438649         |
+|2018|Japan       |3.2178596493995           |
+|2019|Japan       |1.7902126617864222        |
+|2020|Japan       |1.6940939799304615        |
+
+#### IUCN Conservation Status of the Chinese Pond Turtle
+```sql
+select 
+    year,
+    taxon_name,
+    endangered_status
+from taxon join historical_status using(taxon_id)
+where taxon_name = "mauremys reevesii";
+```
+|year|taxon_name|endangered_status         |
+|----|----------|--------------------------|
+|2011|mauremys reevesii|Endangered                |
+
+</details>
 
 #### 5,2,3) Medicine - Ex-Animalia (Plants) - Number of Specimens
 *Figure 1*
