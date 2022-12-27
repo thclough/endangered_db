@@ -572,7 +572,7 @@ The most traded Appendix I animal in 2013 and 2014 by specimen under the term me
 
 <summary>
 
-#### See output for Most Traded Taxon per Year by Appendix
+#### See Output for Most Traded Taxon per Year by Appendix
 	
 </summary>
 	
@@ -621,7 +621,7 @@ There is sustained trade in Appendix III animal taxa trade. Looking at the max t
 
 <summary>
 
-#### See output for max taxon by year
+#### See Output for Most Traded Taxon per Year by Appendix
 	
 </summary>
 
@@ -658,7 +658,11 @@ There is sustained trade in Appendix III animal taxa trade. Looking at the max t
 |2020|111654  |mauremys reevesii         |III     |2269.75     |
 
 </details>
-	
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/e/e0/Naturalis_Biodiversity_Center_-_RMNH.ART.274_-_Chinemys_reevesii_-_Mauremys_reevesii_-_Kawahara_Keiga_-_1823_-_1829_-_Siebold_Collection_-_white_background.jpeg" height=211 width=456></img>
+<br>
+*Mauremys reevesii: The Chinese Pond Turtle*
+
 This trade pattern in Chinese Pond Turtles presents itself as a target for an NGO like WildAid and requires further querying to identify importers and gather further information on its population.
 
 I started off by querying for the largest importer by absolute quantity for each year. I found that Japan has been the largest importer by absolute amount of kilograms starting in 2014. I then decided to query by largest importer on a per 100,000 population basis to correct for population and identify if the average consumer in one country had more demand for the Chinese Pond Turtle over consumers in other countries. Again, Japan was the largest on a per capita basis, this time since 2013. I finally looked into the IUCN conservation status of the Chinese Pond Turtle. The Red list has classified the turtle as Endangered since 2011. While trade in the turtle is continuously high, trade has declined in the past few year.
@@ -770,9 +774,54 @@ where taxon_name = "mauremys reevesii";
 *Figure 1*
 ![5,2,3 Figure 1](https://github.com/thclough/endangered_db/blob/main/query_output_and_visualizations/medical/medicine/Ex-Animalia/specimen/Medicine%20-%20Plantae%20-%20Number%20of%20Specimens%20-%20Trades%20vs%20Year%20by%20Appendix.png)
 
+There is an overall increasing trend in Appendix II taxa trade for this category. According to the output below for most traded taxon, from 2014 to 2018, trade in "hydrastis candensis" (Goldenseal) drove this trend. Since 2019, trade in "prunus africana" (African cherry) has been the largest for Appendix II in this category.
+
+<details>
+<summary>
+#### See Output for Most Traded Taxon per Year by Appendix
+</summary>
+	
+|year|taxon_id|taxon_name                |appendix|round(tot_traded,4)|
+|----|--------|--------------------------|--------|-------------------|
+|2008|147641  |hoodia gordonii           |II      |1830               |
+|2009|139699  |saussurea costus          |I       |941                |
+|2009|147641  |hoodia gordonii           |II      |15246              |
+|2010|139699  |saussurea costus          |I       |14428              |
+|2010|152520  |hirudo medicinalis        |II      |198960             |
+|2011|139699  |saussurea costus          |I       |6588               |
+|2011|152520  |hirudo medicinalis        |II      |55264              |
+|2012|139699  |saussurea costus          |I       |4932               |
+|2012|152520  |hirudo medicinalis        |II      |55620              |
+|2013|139699  |saussurea costus          |I       |9537               |
+|2013|138707  |aloe ferox                |II      |64231.7            |
+|2014|139699  |saussurea costus          |I       |6258               |
+|2014|145446  |hydrastis canadensis      |II      |466520             |
+|2015|139699  |saussurea costus          |I       |1839               |
+|2015|145446  |hydrastis canadensis      |II      |621506.57          |
+|2016|139699  |saussurea costus          |I       |7338               |
+|2016|145446  |hydrastis canadensis      |II      |649965             |
+|2017|139699  |saussurea costus          |I       |6437               |
+|2017|145446  |hydrastis canadensis      |II      |480640             |
+|2018|139699  |saussurea costus          |I       |47502              |
+|2018|145446  |hydrastis canadensis      |II      |612674             |
+|2019|139699  |saussurea costus          |I       |120000             |
+|2019|145071  |prunus africana           |II      |1723000            |
+|2020|139699  |saussurea costus          |I       |6982               |
+|2020|145071  |prunus africana           |II      |634050             |
+
+
+	
+<details>
+
 #### 5,2,4) Medicine - Ex-Animalia (Plants) - kg
 ![5,2,4 Figure 1](https://github.com/thclough/endangered_db/blob/main/query_output_and_visualizations/medical/medicine/Ex-Animalia/kg/Medicine%20-%20Plantae%20-%20kg%20-%20Trades%20vs%20Year%20by%20Appendix.png)
 
+<details>
+<summary>
+#### See Output for Most Traded Taxon per Year by Appendix
+</summary>
+<details>
+	
 ### 5,3) Fashion Scenario
 
 ## Citations
@@ -783,3 +832,4 @@ where taxon_name = "mauremys reevesii";
 <br>
 [2] Tow, J. H., Symes, W. S., & Carrasco, L. R. (2021, October 12). Economic value of illegal wildlife trade entering the USA. PLOS ONE. https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0258523
 [3] Crocodile | Asian Bestiary. (n.d.). http://asianbestiary.org/crocodile/
+[4] Plastus of Turtle
