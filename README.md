@@ -613,7 +613,7 @@ The most traded Appendix I animal in 2013 and 2014 by specimen under the term me
 *Figure 1*
 ![5,2,2 Figure 1](https://github.com/thclough/endangered_db/blob/main/query_output_and_visualizations/medical/medicine/Animalia/kg/Medicine%20-%20Animalia%20-%20kg%20-%20Trades%20vs%20Year%20by%20Appendix.png)
 
-There is sustained trade in Appendix III animal taxa. 
+There is sustained trade in Appendix III animal taxa trade. Looking at the max taxa per year output (see below), the main driver for this trend is "mauremys reevesii" (the Chinese Pond Turtle) year after year. The plastron (or belly shell) of the Chinese Pond Turtle is common in traditional Chinese medicine <sup>4</sup>.
 
 <details>
 
@@ -655,8 +655,9 @@ There is sustained trade in Appendix III animal taxa.
 |2020|136551  |moschus spp.              |II      |41.615      |
 |2020|111654  |mauremys reevesii         |III     |2269.75     |
 
+</details>
 	
-<details>
+This trade pattern in Chinese Pond Turtles presents itself as a target for an NGO like WildAid and requires further querying to identify importers/exporters/origin and gather further information on its population if possible.
 
 #### 5,2,3) Medicine - Ex-Animalia (Plants) - Number of Specimens
 *Figure 1*
