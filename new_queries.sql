@@ -100,7 +100,6 @@ create view world_specimen_med_trades_per_year as
 	group by year, taxon_id, appendix
 	order by year, taxon_id;
 -- max traded med species traded per year
--- USE FOR LATER YOY GROWTH RATE
 
 with
 	-- temp table containing year and taxon_id with maximum amount of trades
@@ -170,6 +169,10 @@ select
 from specimen_medicine_animalia_trades
 group by year;
 
+-- find growth rates in by appendix by year
+
+
+
 -- sum each taxon by year (Regardless of importer, exporter, or origin)
 drop view if exists world_specimen_medicine_animalia_trades;
 create view world_specimen_medicine_animalia_trades as
@@ -215,7 +218,6 @@ create view world_kg_medicine_animalia_trades as
 	from kg_medicine_animalia_trades
 	group by year, taxon_id, taxon_name, appendix;
 
-describe world_kg_medicine_animalia_trades;
 
 -- max taxon each year
 with
@@ -231,7 +233,67 @@ with
 	select year, taxon_id, taxon_name, appendix, round(tot_traded, 3) as total_traded -- save join for very last to be the most efficient and cleaner code
     from max_world_kg_medicine_animalia_trades;
 
+-- Query into "mauremys reevesii" The Chinese Pond Turtle
+select * from kg_medicine_animalia_trades;
 
+-- Find the top importers
+-- absolute
+with turtle_importer_sums_per_year as -- first sum imports by year for each importer
+	(select
+		year,
+		importer_id,
+		sum(quantity) as total_traded
+	from kg_medicine_animalia_trades
+    where taxon_name = "mauremys reevesii"
+	group by year, importer_id)
+select
+	year,
+    country_name,
+    total_traded
+    from turtle_importer_sums_per_year t join country c on t.importer_id = c.country_id
+	where (year, total_traded) in
+		-- table with max 
+        (select
+		year,
+        max(total_traded) as total_traded
+		from turtle_importer_sums_per_year
+		group by year)
+	order by year;
+
+-- per capita
+with turtle_importer_sums_per_year as -- first sum imports by year for each importer
+	(select
+		year,
+		importer_id,
+		sum(quantity) as total_traded
+	from kg_medicine_animalia_trades
+    where taxon_name = "mauremys reevesii"
+	group by year, importer_id),
+turtle_kg_per_1k as
+	(select
+	year,
+    country_name,
+    total_traded/total_pop * 100000 as kg_per_1k
+	from turtle_importer_sums_per_year t
+	join country c on t.importer_id = c.country_id
+    join population p using (year, country_id))
+select *
+from turtle_kg_per_1k
+where (year,kg_per_1k) in
+	(select 
+		year,
+		max(kg_per_1k)
+    from turtle_kg_per_1k
+    group by year);
+    
+-- look at IUCN data
+select 
+	year,
+    taxon_name,
+    endangered_status
+from taxon join historical_status using(taxon_id)
+where taxon_name = "mauremys reevesii";
+    
 ## Medicine Ex-Animalia (Probably plantae) (plants come in much squaller quanitities and need to be separated)
 drop view if exists medicine_ex_animalia_trades;
 create view medicine_ex_animalia_trades as
