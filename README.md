@@ -926,6 +926,8 @@ Largest Importers on Per 100k Population Basis:
 <br>
 [4] Plastus of Turtle
 <br>
-[5] https://www.nccih.nih.gov/health/goldenseal
+[5] https://www.herbalgram.org/resources/herbalgram/issues/41/table-of-contents/article1262/ 
 <br>
-[5]https://www.herbalgram.org/resources/herbalgram/issues/41/table-of-contents/article1262/
+[6] https://www.nccih.nih.gov/health/goldenseal
+
+
