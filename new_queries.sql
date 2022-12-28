@@ -341,7 +341,16 @@ with
 	select year, taxon_id, taxon_name, appendix, round(tot_traded,4) as tot_traded -- save join for very last to be the most efficient and cleaner code
     from max_world_specimen_medicine_ex_animalia_trades;
 
--- look at growth rate for most common species in this
+-- query for a stacked barchart (need a wide format) of appendix II trade
+select
+	year,
+    sum(case when taxon_name = "hydrastis canadensis" then tot_traded else 0 end) as "Hydrastis canadensis",
+	sum(case when taxon_name = "prunus africana" then tot_traded else 0 end) as "Prunus africana",
+    sum(case when taxon_name not in ("hydrastis candensis","prunus africana") then tot_traded else 0 end) as "Other"
+from world_specimen_medicine_ex_animalia_trades
+where appendix = "II"
+group by year;
+
 
 ### Medicine Ex-Animalia: kg 
 drop view if exists kg_medicine_ex_animalia_trades;
