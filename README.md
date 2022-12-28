@@ -560,7 +560,7 @@ with
 
 #### 5,2,1) Medicine - Animalia - Number of Specimens
 *Figure 1*
-![5,2,1 Figure 1](https://github.com/thclough/endangered_db/blob/main/query_output_and_visualizations/medical/medicine/Animalia/specimen/Medicine%20-%20Animalia%20-%20Number%20of%20Specimens%20-%20Trades%20vs%20Year%20by%20Appendix.png)
+![Figure 1](https://github.com/thclough/endangered_db/blob/main/query_output_and_visualizations/medical/medicine/Animalia/specimen/Medicine%20-%20Animalia%20-%20Number%20of%20Specimens%20-%20Trades%20vs%20Year%20by%20Appendix.png)
 
 I chose to start with a simple visualization of the trades over time broken out by CITES appendix (Appendix I the most threatened and III the least). While Appendix III taxa account for the vast majority of trade (**notice the different y-axis scales**), a large increase in Appendix I trade would raise the most concern.
 
@@ -612,8 +612,8 @@ The most traded Appendix I animal in 2013 and 2014 by specimen under the term me
 </details>
 
 #### 5,2,2) Medicine - Animalia - kg
-*Figure 1*
-![5,2,2 Figure 1](https://github.com/thclough/endangered_db/blob/main/query_output_and_visualizations/medical/medicine/Animalia/kg/Medicine%20-%20Animalia%20-%20kg%20-%20Trades%20vs%20Year%20by%20Appendix.png)
+*Figure 2*
+![Figure 2](https://github.com/thclough/endangered_db/blob/main/query_output_and_visualizations/medical/medicine/Animalia/kg/Medicine%20-%20Animalia%20-%20kg%20-%20Trades%20vs%20Year%20by%20Appendix.png)
 
 There is sustained trade in Appendix III animal taxa trade. Looking at the max taxa per year output (see below), the main driver for this trend is "mauremys reevesii" (the Chinese Pond Turtle) year after year. The plastron (or belly shell) of the Chinese Pond Turtle is common in traditional Chinese medicine <sup>4</sup>.
 
@@ -771,8 +771,8 @@ where taxon_name = "mauremys reevesii";
 </details>
 
 #### 5,2,3) Medicine - Ex-Animalia (Plants) - Number of Specimens
-*Figure 1*
-![5,2,3 Figure 1](https://github.com/thclough/endangered_db/blob/main/query_output_and_visualizations/medical/medicine/Ex-Animalia/specimen/Medicine%20-%20Plantae%20-%20Number%20of%20Specimens%20-%20Trades%20vs%20Year%20by%20Appendix.png)
+*Figure 3*
+![Figure 3](https://github.com/thclough/endangered_db/blob/main/query_output_and_visualizations/medical/medicine/Ex-Animalia/specimen/Medicine%20-%20Plantae%20-%20Number%20of%20Specimens%20-%20Trades%20vs%20Year%20by%20Appendix.png)
 
 There is an overall increasing trend in Appendix II taxa trade for this category. According to the output below for most traded taxon, from 2014 to 2018, trade in "hydrastis candensis" (Goldenseal) drove this trend. Since 2019, trade in "prunus africana" (African cherry) has been the largest for Appendix II in this category.
 
@@ -813,8 +813,96 @@ There is an overall increasing trend in Appendix II taxa trade for this category
 	
 </details>
 
+*Figure 4*
+
+![Figure 4](https://github.com/thclough/endangered_db/blob/main/query_output_and_visualizations/medical/medicine/Ex-Animalia/specimen/trends/specimen_plant_med_stacked.png)
+
+Figure 4 shows that trade in Hydrastis canadensis (Goldenseal) has oscillated while the recent trade in Prunus africana has led to an overall increasing trend in Appendix II taxa under this category. 
+
+I used the same query structure seen in the [Section 5,2,2](#522-medicine---animalia---kg) analysis of the Chinese Pond Turtle.
+
+##### Hydrastis canadensis - Goldenseal
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Hydrastis_canadensis_%28goldenseal%29_%28Flint_Ridge%2C_Ohio%2C_USA%29_2_%2826764491885%29.jpg/640px-Hydrastis_canadensis_%28goldenseal%29_%28Flint_Ridge%2C_Ohio%2C_USA%29_2_%2826764491885%29.jpg" height=200 width=200></img>
+
+The United States has been the largest absolute importer of goldenseal in the last ten years. On a per capita basis, Canada was the largest importer in 2019 and 2020.
+
+It seems that much of this trade is between the US and Canada (where goldenseal grows naturally). Upon first glance, France seems to be a major exporter as well, but, in reality, three large homeopathic companies (Boiron, Dolisos, and Lehnin g) are located in France and process goldenseal sourced from North America and re-export it to the US and Canada<sup>5</sup>. This data could indicate that a large amount of Goldenseal trade is domestically contained in both the US and Canada, and would not show in CITES trade data.
+
+Goldenseal is taken orally to for a veriety of purposes. According to the US National Institutes of Health, there is an absence of evidence supporting goldenseal's claimed health benefits (note: not evidence of absence)<sup>6</sup>. 
+
+<details>
+<summary>
+	
+##### See Outputs
+	
+</summary>
+
+Largest Absolute Importers:
+
+|year|country_name |total_imported|
+|----|-------------|--------------|
+|2014|United States|441820        |
+|2015|United States|571428        |
+|2016|United States|547480        |
+|2017|United States|262515        |
+|2018|United States|319656        |
+|2019|Canada       |196630        |
+|2020|United States|316315        |
+	
+Largest Importers on Per 100k Population Basis:
+
+|year|country_name |specimens_per_100k|
+|----|-------------|------------------|
+|2014|United States|138.76852105669397|
+|2015|United States|178.15981551653803|
+|2016|United States|169.46080600577415|
+|2017|French Polynesia|6482.970431859997 |
+|2018|French Polynesia|3842.6494473715484|
+|2019|Canada       |522.9350210086213 |
+|2020|Canada       |507.8948494742148 |
+
+</details>
+
+##### Prunus africana - African Cherry
+
+<details>
+<summary>
+	
+##### See Outputs
+
+While African cherry does not seem to have been imported in the 
+
+</summary>
+	
+Largest Absolute Importers:
+
+|year|country_name |total_imported|
+|----|-------------|--------------|
+|2009|Austria      |2067          |
+|2010|Austria      |2040          |
+|2011|Norway       |360           |
+|2012|United States|51750         |
+|2014|Norway       |960           |
+|2019|Turkey       |847500        |
+|2020|Turkey       |634050        |
+
+Largest Importers on Per 100k Population Basis:
+
+|year|country_name |specimens_per_100k|
+|----|-------------|------------------|
+|2009|Austria      |24.774301558264014|
+|2010|Austria      |24.39198202071788 |
+|2011|Norway       |7.26819309489353  |
+|2012|United States|16.48731536683869 |
+|2014|Norway       |18.687106208168135|
+|2019|Portugal     |2756.102969562415 |
+|2020|Turkey       |751.786832073919  |
+	
+</details>
+
+
 #### 5,2,4) Medicine - Ex-Animalia (Plants) - kg
-![5,2,4 Figure 1](https://github.com/thclough/endangered_db/blob/main/query_output_and_visualizations/medical/medicine/Ex-Animalia/kg/Medicine%20-%20Plantae%20-%20kg%20-%20Trades%20vs%20Year%20by%20Appendix.png)
+![Figure 5](https://github.com/thclough/endangered_db/blob/main/query_output_and_visualizations/medical/medicine/Ex-Animalia/kg/Medicine%20-%20Plantae%20-%20kg%20-%20Trades%20vs%20Year%20by%20Appendix.png)
 
 <details>
 <summary>
@@ -837,3 +925,7 @@ There is an overall increasing trend in Appendix II taxa trade for this category
 [3] Crocodile | Asian Bestiary. (n.d.). http://asianbestiary.org/crocodile/
 <br>
 [4] Plastus of Turtle
+<br>
+[5] https://www.nccih.nih.gov/health/goldenseal
+<br>
+[5]https://www.herbalgram.org/resources/herbalgram/issues/41/table-of-contents/article1262/
