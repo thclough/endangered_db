@@ -346,10 +346,110 @@ select
 	year,
     sum(case when taxon_name = "hydrastis canadensis" then tot_traded else 0 end) as "Hydrastis canadensis",
 	sum(case when taxon_name = "prunus africana" then tot_traded else 0 end) as "Prunus africana",
-    sum(case when taxon_name not in ("hydrastis candensis","prunus africana") then tot_traded else 0 end) as "Other"
+    sum(case when taxon_name not in ("hydrastis canadensis","prunus africana") then tot_traded else 0 end) as "Other"
 from world_specimen_medicine_ex_animalia_trades
 where appendix = "II"
 group by year;
+
+select *
+from specimen_medicine_ex_animalia_trades;
+
+-- Find the top importers
+-- absolute
+with goldenseal_importer_sums_per_year as -- first sum imports by year for each importer
+	(select
+		year,
+		importer_id,
+		sum(quantity) as total_imported
+	from specimen_medicine_ex_animalia_trades
+    where taxon_name = "hydrastis canadensis"
+	group by year, importer_id)
+select
+	year,
+    country_name,
+    total_imported
+    from goldenseal_importer_sums_per_year t join country c on t.importer_id = c.country_id
+	where (year, total_imported) in
+		-- table with max 
+        (select
+		year,
+        max(total_imported) as total_imported
+		from goldenseal_importer_sums_per_year
+		group by year)
+	order by year;
+
+with african_cherry_importer_sums_per_year as -- first sum imports by year for each importer
+	(select
+		year,
+		importer_id,
+		sum(quantity) as total_imported
+	from specimen_medicine_ex_animalia_trades
+    where taxon_name = "prunus africana"
+	group by year, importer_id)
+select
+	year,
+    country_name,
+    total_imported
+    from african_cherry_importer_sums_per_year t join country c on t.importer_id = c.country_id
+	where (year, total_imported) in
+		-- table with max 
+        (select
+		year,
+        max(total_imported) as total_imported
+		from african_cherry_importer_sums_per_year
+		group by year)
+	order by year;
+
+-- per capita
+with goldenseal_importer_sums_per_year as -- first sum imports by year for each importer
+	(select
+		year,
+		importer_id,
+		sum(quantity) as total_imported
+	from specimen_medicine_ex_animalia_trades
+    where taxon_name = "hydrastis canadensis"
+	group by year, importer_id),
+goldenseal_specimens_per_100k as
+	(select
+	year,
+    country_name,
+    total_imported/total_pop * 100000 as specimens_per_100k
+	from goldenseal_importer_sums_per_year t
+	join country c on t.importer_id = c.country_id
+    join population p using (year, country_id))
+select *
+from goldenseal_specimens_per_100k
+where (year,specimens_per_100k) in
+	(select 
+		year,
+		max(specimens_per_100k)
+    from goldenseal_specimens_per_100k 
+    group by year);
+    
+with african_cherry_importer_sums_per_year as -- first sum imports by year for each importer
+	(select
+		year,
+		importer_id,
+		sum(quantity) as total_imported
+	from specimen_medicine_ex_animalia_trades
+    where taxon_name = "prunus africana"
+	group by year, importer_id),
+african_cherry_specimens_per_100k as
+	(select
+	year,
+    country_name,
+    total_imported/total_pop * 100000 as specimens_per_100k
+	from african_cherry_importer_sums_per_year t
+	join country c on t.importer_id = c.country_id
+    join population p using (year, country_id))
+select *
+from african_cherry_specimens_per_100k
+where (year,specimens_per_100k) in
+	(select 
+		year,
+		max(specimens_per_100k)
+    from african_cherry_specimens_per_100k 
+    group by year);
 
 
 ### Medicine Ex-Animalia: kg 
