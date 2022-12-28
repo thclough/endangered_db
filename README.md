@@ -778,7 +778,9 @@ There is an overall increasing trend in Appendix II taxa trade for this category
 
 <details>
 <summary>
+	
 #### See Output for Most Traded Taxon per Year by Appendix
+	
 </summary>
 	
 |year|taxon_id|taxon_name                |appendix|round(tot_traded,4)|
@@ -818,9 +820,9 @@ There is an overall increasing trend in Appendix II taxa trade for this category
 <summary>
 	
 #### See Output for Most Traded Taxon per Year by Appendix
-	
+
 </summary>
-<details>
+</details>
 	
 ### 5,3) Fashion Scenario
 
@@ -831,5 +833,7 @@ There is an overall increasing trend in Appendix II taxa trade for this category
 [1] CITES Secretariat and UNEP-WCMC (2022). A guide to using the CITES Trade Database. Version 9. Geneva, Switzerland, and Cambridge, UK. https://trade.cites.org/cites_trade_guidelines/en-CITES_Trade_Database_Guide.pdf
 <br>
 [2] Tow, J. H., Symes, W. S., & Carrasco, L. R. (2021, October 12). Economic value of illegal wildlife trade entering the USA. PLOS ONE. https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0258523
+<br>
 [3] Crocodile | Asian Bestiary. (n.d.). http://asianbestiary.org/crocodile/
+<br>
 [4] Plastus of Turtle
