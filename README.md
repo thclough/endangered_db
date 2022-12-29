@@ -659,7 +659,7 @@ There is sustained trade in Appendix III animal taxa trade. Looking at the max t
 
 </details>
 
-<img src="https://upload.wikimedia.org/wikipedia/commons/e/e0/Naturalis_Biodiversity_Center_-_RMNH.ART.274_-_Chinemys_reevesii_-_Mauremys_reevesii_-_Kawahara_Keiga_-_1823_-_1829_-_Siebold_Collection_-_white_background.jpeg" height=211 width=456></img>
+<img src="https://upload.wikimedia.org/wikipedia/commons/e/e0/Naturalis_Biodiversity_Center_-_RMNH.ART.274_-_Chinemys_reevesii_-_Mauremys_reevesii_-_Kawahara_Keiga_-_1823_-_1829_-_Siebold_Collection_-_white_background.jpeg" height=211 width=456 align="right"> </img>
 <br>
 *Mauremys reevesii: The Chinese Pond Turtle*
 
@@ -822,7 +822,7 @@ Figure 4 shows that trade in Hydrastis canadensis (Goldenseal) has oscillated wh
 I used the same query structure seen in the [Section 5,2,2](#522-medicine---animalia---kg) analysis of the Chinese Pond Turtle.
 
 ##### Hydrastis canadensis - Goldenseal
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Hydrastis_canadensis_%28goldenseal%29_%28Flint_Ridge%2C_Ohio%2C_USA%29_2_%2826764491885%29.jpg/640px-Hydrastis_canadensis_%28goldenseal%29_%28Flint_Ridge%2C_Ohio%2C_USA%29_2_%2826764491885%29.jpg" height=200 width=200 align="right"></img>
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Hydrastis_canadensis_%28goldenseal%29_%28Flint_Ridge%2C_Ohio%2C_USA%29_2_%2826764491885%29.jpg/640px-Hydrastis_canadensis_%28goldenseal%29_%28Flint_Ridge%2C_Ohio%2C_USA%29_2_%2826764491885%29.jpg" height=200 width=200 align="right" align="right"></img>
 
 The United States has been the largest absolute importer of goldenseal in the last ten years. On a per capita basis, Canada was the largest importer in 2019 and 2020.
 
@@ -871,6 +871,8 @@ Prunus africana, the African cherry, is harvested for its bark which has medicin
 
 African cherry does not seem to have been imported from 2015-2018 for medicinal purposes. In 2019 and 2020, the largest importer was Turkey for both years on an absolute basis, and Protugal and Turkey on a per capita basis, respectively. 
 
+Conservation efforts for African Cherry do not seem to be increasing the population. My query on IUCN data for this taxa shows it was first listed as "vulnerable" in 1998 and again 2021.
+
 <details>
 <summary>
 	
@@ -908,15 +910,68 @@ Largest Importers on Per 100k Population Basis:
 #### 5,2,4) Medicine - Ex-Animalia (Plants) - kg
 ![Figure 5](https://github.com/thclough/endangered_db/blob/main/query_output_and_visualizations/medical/medicine/Ex-Animalia/kg/Medicine%20-%20Plantae%20-%20kg%20-%20Trades%20vs%20Year%20by%20Appendix.png)
 
+There were slight rebounds in both Appendix I and II medicinal trades for this category in 2020. According to my query (see below), trade in Saussurea costus (costus) and Panax quinquefolius (American ginseng) drove Appendix I and II trade, respectively. 
+
 <details>
 <summary>
 	
 #### See Output for Most Traded Taxon per Year by Appendix
 
 </summary>
-</details>
 	
-### 5,3) Fashion Scenario
+|year|taxon_id|taxon_name              |appendix|tot_traded |
+|----|--------|------------------------|--------|-----------|
+|2009|139699  |saussurea costus        |I       |127679.829 |
+|2009|144864  |aquilaria malaccensis   |II      |953.1193   |
+|2010|139699  |saussurea costus        |I       |1053.84    |
+|2010|147641  |hoodia gordonii         |II      |1361.32    |
+|2011|139699  |saussurea costus        |I       |102975.654 |
+|2011|141434  |dendrobium hybrid       |II      |302828.14  |
+|2011|147977  |harpagophytum procumbens|N       |53000      |
+|2012|139699  |saussurea costus        |I       |59934.52   |
+|2012|142010  |gastrodia elata         |II      |91007.45   |
+|2012|147792  |harpagophytum spp.      |N       |24.9       |
+|2013|139699  |saussurea costus        |I       |676130.25  |
+|2013|142010  |gastrodia elata         |II      |62092.1131 |
+|2013|147977  |harpagophytum procumbens|N       |50000      |
+|2014|139699  |saussurea costus        |I       |178174.2047|
+|2014|142010  |gastrodia elata         |II      |93687.001  |
+|2015|139699  |saussurea costus        |I       |164167.158 |
+|2015|142010  |gastrodia elata         |II      |166231.3941|
+|2016|139699  |saussurea costus        |I       |256460.8741|
+|2016|141434  |dendrobium hybrid       |II      |1645703.365|
+|2017|139699  |saussurea costus        |I       |160195.342 |
+|2017|141434  |dendrobium hybrid       |II      |500001.8   |
+|2018|139699  |saussurea costus        |I       |86748.5841 |
+|2018|142010  |gastrodia elata         |II      |65765.2    |
+|2019|139699  |saussurea costus        |I       |19984.3535 |
+|2019|137308  |panax quinquefolius     |II      |40966.79   |
+|2020|139699  |saussurea costus        |I       |135128.3228|
+|2020|137308  |panax quinquefolius     |II      |192944.2   |
+
+</details>
+
+##### Saussurea costus - Costus
+
+<details>
+<summary>
+	
+##### See Outputs
+
+</summary>
+</details>
+
+##### Panax quinquefolius - American ginseng
+
+<details>
+<summary>
+	
+##### See Outputs
+
+</summary>
+</details>
+
+### 5,3) Fashion Scenario (Coming soon)
 
 ## Citations
 
