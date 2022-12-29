@@ -849,7 +849,7 @@ Largest Absolute Importers:
 |2019|Canada       |196630        |
 |2020|United States|316315        |
 	
-Largest Importers on Per 100k Population Basis:
+Largest Importers on per 100k Population Basis:
 
 |year|country_name |specimens_per_100k|
 |----|-------------|------------------|
@@ -892,7 +892,7 @@ Largest Absolute Importers:
 |2019|Turkey       |847500        |
 |2020|Turkey       |634050        |
 
-Largest Importers on Per 100k Population Basis:
+Largest Importers on per 100k Population Basis:
 
 |year|country_name |specimens_per_100k|
 |----|-------------|------------------|
@@ -953,22 +953,100 @@ There were slight rebounds in both Appendix I and II medicinal trades for this c
 
 ##### Saussurea costus - Costus
 
+Saussurea costus, or costus, has been harvested for its root since ancient times. There is scientific evidence that its root holds a veriety of medicinal properties<sup>8</sup>. Unfortunately, the plant has been overharvested and listed as "critically endangered" since 2015 (see output below)
+
+South Korea is the largest importer by an absolute and per capita basis historically, but recently, Vietnam took the top spot as largest absolute importer in 2020. In conclusion, East Asian demand is overwelming the population. Countries such as Korea, Japan, and Vietnam are high-potential targets to launch awareness campaigns.
 <details>
+	
 <summary>
 	
 ##### See Outputs
 
 </summary>
+	
+Largest Absolute Importers:
+|year|country_name|total_imported          |
+|----|------------|------------------------|
+|2009|Korea, Rep. |124152                  |
+|2010|Switzerland |1011.6800000000001      |
+|2011|Korea, Rep. |70967                   |
+|2012|Korea, Rep. |45024                   |
+|2013|Various     |606148                  |
+|2014|Korea, Rep. |155764.00268            |
+|2015|Korea, Rep. |128926.00268            |
+|2016|Korea, Rep. |219916.0402             |
+|2017|Korea, Rep. |115868.00536            |
+|2018|Korea, Rep. |64796.70499             |
+|2019|Japan       |10785.825229999999      |
+|2020|Vietnam     |51500                   |
+
+Largest Importers on per 100k Population Basis:
+|year|country_name|specimens_per_100k      |
+|----|------------|------------------------|
+|2009|Korea, Rep. |251.78959895521677      |
+|2010|Switzerland |12.928968247426264      |
+|2011|Korea, Rep. |142.114092662786        |
+|2012|Korea, Rep. |89.6895056644887        |
+|2013|Korea, Rep. |87.48952708519697       |
+|2014|Korea, Rep. |306.94435012953267      |
+|2015|Korea, Rep. |252.72201631415984      |
+|2016|Korea, Rep. |429.3742162271193       |
+|2017|Korea, Rep. |225.59130512102635      |
+|2018|Korea, Rep. |125.61138341649243      |
+|2019|Hong Kong SAR, China|74.096618228799         |
+|2020|Korea, Rep. |72.7290419353148        |
+
+Population Data:
+|year|taxon_name|endangered_status       |
+|----|----------|------------------------|
+|2015|saussurea costus|Critically Endangered   |
+
+	
 </details>
 
 ##### Panax quinquefolius - American ginseng
 
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/American_Ginseng_3.jpg/640px-American_Ginseng_3.jpg" height=168 width=200 align="right"></img>
+
 <details>
 <summary>
 	
 ##### See Outputs
 
 </summary>
+	
+Largest Absolute Importers:
+|year|country_name|total_imported          |
+|----|------------|------------------------|
+|2009|Norway      |1.588                   |
+|2011|China       |10000                   |
+|2012|Australia   |624                     |
+|2013|Australia   |30                      |
+|2014|China       |1895.36                 |
+|2015|China       |1999.98                 |
+|2016|China       |6200                    |
+|2017|China       |11906.687               |
+|2018|China       |15746                   |
+|2019|China       |40966.79                |
+|2020|China       |192944.2                |
+
+Largest Importers on per 100k Population Basis:
+|year|country_name|specimens_per_100k      |
+|----|------------|------------------------|
+|2009|Norway      |0.032886521206628834    |
+|2011|Hong Kong SAR, China|3.349595565360032       |
+|2012|Australia   |2.744852137586593       |
+|2013|Australia   |0.12971217862024204     |
+|2014|China       |0.1381598705407257      |
+|2015|China       |0.14494079109474875     |
+|2016|China       |0.4467534713465294      |
+|2017|China       |0.8527832031599718      |
+|2018|China       |1.1225013544726112      |
+|2019|China       |2.9101001957030572      |
+|2020|China       |13.673318687548722      |
+
+
+	
 </details>
 
 ### 5,3) Fashion Scenario (Coming soon)
@@ -990,5 +1068,6 @@ There were slight rebounds in both Appendix I and II medicinal trades for this c
 [6] https://www.nccih.nih.gov/health/goldenseal
 <br>
 [7] https://cites.org/eng/prog/african_cherry.php
-
+<br>
+[8] https://link.springer.com/article/10.1007/s13596-011-0043-1
 
