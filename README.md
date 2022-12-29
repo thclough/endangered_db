@@ -822,7 +822,7 @@ Figure 4 shows that trade in Hydrastis canadensis (Goldenseal) has oscillated wh
 I used the same query structure seen in the [Section 5,2,2](#522-medicine---animalia---kg) analysis of the Chinese Pond Turtle.
 
 ##### Hydrastis canadensis - Goldenseal
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Hydrastis_canadensis_%28goldenseal%29_%28Flint_Ridge%2C_Ohio%2C_USA%29_2_%2826764491885%29.jpg/640px-Hydrastis_canadensis_%28goldenseal%29_%28Flint_Ridge%2C_Ohio%2C_USA%29_2_%2826764491885%29.jpg" height=200 width=200></img>
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Hydrastis_canadensis_%28goldenseal%29_%28Flint_Ridge%2C_Ohio%2C_USA%29_2_%2826764491885%29.jpg/640px-Hydrastis_canadensis_%28goldenseal%29_%28Flint_Ridge%2C_Ohio%2C_USA%29_2_%2826764491885%29.jpg" height=200 width=200 align="right"></img>
 
 The United States has been the largest absolute importer of goldenseal in the last ten years. On a per capita basis, Canada was the largest importer in 2019 and 2020.
 
@@ -865,12 +865,16 @@ Largest Importers on Per 100k Population Basis:
 
 ##### Prunus africana - African Cherry
 
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Prunus_africana_MS_3588.jpg/640px-Prunus_africana_MS_3588.jpg" width=150 height=225 align = "right"></img>
+
+Prunus africana, the African cherry, is harvested for its bark which has medicinal properties. Its population has been classified under "of urgent concern" in several African countries to which it is native<sup>7</sup>.
+
+African cherry does not seem to have been imported from 2015-2018 for medicinal purposes. In 2019 and 2020, the largest importer was Turkey for both years on an absolute basis, and Protugal and Turkey on a per capita basis, respectively. 
+
 <details>
 <summary>
 	
 ##### See Outputs
-
-While African cherry does not seem to have been imported in the 
 
 </summary>
 	
@@ -929,5 +933,7 @@ Largest Importers on Per 100k Population Basis:
 [5] https://www.herbalgram.org/resources/herbalgram/issues/41/table-of-contents/article1262/ 
 <br>
 [6] https://www.nccih.nih.gov/health/goldenseal
+<br>
+[7] https://cites.org/eng/prog/african_cherry.php
 
 
