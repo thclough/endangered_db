@@ -502,6 +502,111 @@ with
 	select year, taxon_id, taxon_name, appendix, round(tot_traded,4) as tot_traded -- save join for very last to be the most efficient and cleaner code
     from max_world_kg_medicine_ex_animalia_trades;
 
+-- Find the top importers
+-- absolute
+with costus_importer_sums_per_year as -- first sum imports by ysear for each importer
+	(select
+		year,
+		importer_id,
+		sum(quantity) as total_imported
+	from kg_medicine_ex_animalia_trades
+    where taxon_name = "saussurea costus"
+	group by year, importer_id)
+select
+	year,
+    country_name,
+    total_imported
+    from costus_importer_sums_per_year t join country c on t.importer_id = c.country_id
+	where (year, total_imported) in
+		-- table with max 
+        (select
+		year,
+        max(total_imported) as total_imported
+		from costus_importer_sums_per_year
+		group by year)
+	order by year;
+    
+with ginseng_importer_sums_per_year as -- first sum imports by ysear for each importer
+	(select
+		year,
+		importer_id,
+		sum(quantity) as total_imported
+	from kg_medicine_ex_animalia_trades
+    where taxon_name = "panax quinquefolius"
+	group by year, importer_id)
+select
+	year,
+    country_name,
+    total_imported
+    from ginseng_importer_sums_per_year t join country c on t.importer_id = c.country_id
+	where (year, total_imported) in
+		-- table with max 
+        (select
+		year,
+        max(total_imported) as total_imported
+		from ginseng_importer_sums_per_year
+		group by year)
+	order by year;
+
+-- per capita
+with costus_importer_sums_per_year as -- first sum imports by year for each importer
+	(select
+		year,
+		importer_id,
+		sum(quantity) as total_imported
+	from kg_medicine_ex_animalia_trades
+    where taxon_name = "saussurea costus"
+	group by year, importer_id),
+costus_specimens_per_100k as
+	(select
+	year,
+    country_name,
+    total_imported/total_pop * 100000 as specimens_per_100k
+	from costus_importer_sums_per_year t
+	join country c on t.importer_id = c.country_id
+    join population p using (year, country_id))
+select *
+from costus_specimens_per_100k
+where (year,specimens_per_100k) in
+	(select 
+		year,
+		max(specimens_per_100k)
+    from costus_specimens_per_100k 
+    group by year);
+
+with ginseng_importer_sums_per_year as -- first sum imports by year for each importer
+	(select
+		year,
+		importer_id,
+		sum(quantity) as total_imported
+	from kg_medicine_ex_animalia_trades
+    where taxon_name = "panax quinquefolius"
+	group by year, importer_id),
+ginseng_specimens_per_100k as
+	(select
+	year,
+    country_name,
+    total_imported/total_pop * 100000 as specimens_per_100k
+	from ginseng_importer_sums_per_year t
+	join country c on t.importer_id = c.country_id
+    join population p using (year, country_id))
+select *
+from ginseng_specimens_per_100k
+where (year,specimens_per_100k) in
+	(select 
+		year,
+		max(specimens_per_100k)
+    from ginseng_specimens_per_100k 
+    group by year);
+
+-- population
+select 
+	year,
+    taxon_name,
+    endangered_status
+from taxon join historical_status using(taxon_id)
+where taxon_name = "saussurea costus";
+
 -- didn't start using that term until 2009, so is there a way to use more data to study medicinal purposes
 -- use some background knowledge
 # Medicine by term
