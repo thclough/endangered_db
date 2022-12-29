@@ -953,7 +953,7 @@ There were slight rebounds in both Appendix I and II medicinal trades for this c
 
 ##### Saussurea costus - Costus
 
-Saussurea costus, or costus, has been harvested for its root since ancient times. There is scientific evidence that its root holds a veriety of medicinal properties<sup>8</sup>. Unfortunately, the plant has been overharvested and listed as "critically endangered" since 2015 (see output below)
+Saussurea costus, or costus, has been harvested for its root since ancient times. There is scientific evidence that its root holds a veriety of medicinal properties<sup>8</sup>. Unfortunately, the plant has been overharvested and listed as "critically endangered" since 2015 (see output below).
 
 South Korea is the largest importer by an absolute and per capita basis historically, but recently, Vietnam took the top spot as largest absolute importer in 2020. In conclusion, East Asian demand is overwelming the population. Countries such as Korea, Japan, and Vietnam are high-potential targets to launch awareness campaigns.
 <details>
@@ -1007,6 +1007,10 @@ Population Data:
 ##### Panax quinquefolius - American ginseng
 
 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/American_Ginseng_3.jpg/640px-American_Ginseng_3.jpg" height=168 width=200 align="right"></img>
+
+Ginseng is commonly used in traditional Chinese medicine to make powerful medicine that increases energy<sup>9</sup>. American ginseng is coveted because it is considered "cool" and can be taken daily, while Asian ginseng is "hot" and only can be consumed in limited quantities. Wild ginseng fetches the highest price <sup>10</sup>
+
+Not surprisingly, China is by far the largest importer both in an absolute and per capita basis every year. Ginseng demand has depleted wild populations <sup>11</sup>. An NGO like WildAid could launch campaigns in China against demand for wild-harvested American ginseng. Such campaigns may be well received as sustainable cultivated ginseng can easily substitute for wild caught ginseng.
 
 <details>
 <summary>
@@ -1070,4 +1074,9 @@ Largest Importers on per 100k Population Basis:
 [7] https://cites.org/eng/prog/african_cherry.php
 <br>
 [8] https://link.springer.com/article/10.1007/s13596-011-0043-1
-
+<br>
+[9] https://festival.si.edu/blog/ginseng-traditional-chinese-medicine)
+<br>
+[10] https://www.latimes.com/local/california/la-me-adv-ginseng-american-20150301-story.html
+<br>
+[11] https://www.worldwildlife.org/pages/ginseng
