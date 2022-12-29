@@ -293,6 +293,8 @@ select
     endangered_status
 from taxon join historical_status using(taxon_id)
 where taxon_name = "mauremys reevesii";
+
+
     
 ## Medicine Ex-Animalia (Probably plantae) (plants come in much squaller quanitities and need to be separated)
 drop view if exists medicine_ex_animalia_trades;
@@ -354,7 +356,8 @@ group by year;
 select *
 from specimen_medicine_ex_animalia_trades;
 
-select * from specimen_medicine_ex_animalia_trades;
+select * from trade join taxon using(taxon_id)
+where taxon_name = "hydrastis canadensis";
 
 -- Find the top importers
 -- absolute
@@ -453,7 +456,13 @@ where (year,specimens_per_100k) in
     from african_cherry_specimens_per_100k 
     group by year);
 
-
+-- IUCN data
+select 
+	year,
+    taxon_name,
+    endangered_status
+from taxon join historical_status using(taxon_id)
+where taxon_name = "prunus africana";
 
 ### Medicine Ex-Animalia: kg 
 drop view if exists kg_medicine_ex_animalia_trades;
