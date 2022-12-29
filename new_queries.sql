@@ -354,9 +354,11 @@ group by year;
 select *
 from specimen_medicine_ex_animalia_trades;
 
+select * from specimen_medicine_ex_animalia_trades;
+
 -- Find the top importers
 -- absolute
-with goldenseal_importer_sums_per_year as -- first sum imports by year for each importer
+with goldenseal_importer_sums_per_year as -- first sum imports by ysear for each importer
 	(select
 		year,
 		importer_id,
@@ -450,6 +452,7 @@ where (year,specimens_per_100k) in
 		max(specimens_per_100k)
     from african_cherry_specimens_per_100k 
     group by year);
+
 
 
 ### Medicine Ex-Animalia: kg 
