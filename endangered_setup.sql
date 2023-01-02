@@ -2,6 +2,7 @@ drop database if exists endangered_animal_trade;
 create database if not exists endangered_animal_trade;
 
 use endangered_animal_trade;
+-- NOTE: Change the file paths to match where you're storing the git repo on your machine
 
 -- TAXON
 drop table if exists taxon;
@@ -19,7 +20,7 @@ create table taxon (
 
 set global local_infile = 'ON';
 truncate taxon;
-load data local infile '/Users/Tighe_Clough/Library/CloudStorage/OneDrive-NortheasternUniversity/Fourth Year/summer_i/CS3200/Project/Individual/DBDesign-Expansion/taxon.csv'
+load data local infile "/Users/Tighe_Clough/Library/CloudStorage/OneDrive-NortheasternUniversity/Fourth Year/summer_i/CS3200/Project/Individual/endangered_db/table_csv's/taxon.csv"
 into table taxon
 fields terminated by  ','
 ignore 1 lines;
@@ -38,29 +39,30 @@ CREATE TABLE historical_status (
 
 SET GLOBAL local_infile = 'ON';
 
-LOAD DATA LOCAL INFILE '/Users/Tighe_Clough/Library/CloudStorage/OneDrive-NortheasternUniversity/Fourth Year/summer_i/CS3200/Project/Individual/DBDesign-Expansion/historical_status.csv'
+LOAD DATA LOCAL INFILE "/Users/Tighe_Clough/Library/CloudStorage/OneDrive-NortheasternUniversity/Fourth Year/summer_i/CS3200/Project/Individual/endangered_db/table_csv's/historical_status.csv"
 INTO TABLE historical_status
 FIELDS TERMINATED BY ',' ENCLOSED BY '"'
 IGNORE 1 LINES;
 
 
 -- COUNTRY
-DROP TABLE IF EXISTS country;
+drop table if exists country;
 
-CREATE TABLE country (
-	country_id INT NOT NULL AUTO_INCREMENT,
-    country_name VARCHAR(255) NOT NULL,
-    PRIMARY KEY(country_id)
+create table country (
+	country_id int not null primary key auto_increment,
+    country_name varchar(255) not null,
+    iso2_code char(2),
+    continent_code char(2)
 );
 
 SET GLOBAL local_infile = 'ON';
 
--- Change the file path to match where you're storing the git repo on your machine
-LOAD DATA LOCAL INFILE '/Users/Tighe_Clough/Library/CloudStorage/OneDrive-NortheasternUniversity/Fourth Year/summer_i/CS3200/Project/Individual/DBDesign-Expansion/countries - API_NY.GDP.PCAP.CD_DS2_en_csv_v2_2445354.csv'
+truncate country;
+LOAD DATA LOCAL INFILE "/Users/Tighe_Clough/Library/CloudStorage/OneDrive-NortheasternUniversity/Fourth Year/summer_i/CS3200/Project/Individual/endangered_db/table_csv's/countries.csv"
 INTO TABLE country
-FIELDS TERMINATED BY ',' ENCLOSED BY '"'
+FIELDS TERMINATED BY ',' enclosed by '"' lines terminated by  '\r\n' 
 IGNORE 1 LINES
-(@dummy, country_name);
+(@dummy, country_name, @dummy, iso2_code, continent_code);
 
 -- GDP
 DROP TABLE IF EXISTS gdp;
@@ -77,7 +79,7 @@ SET GLOBAL local_infile = 'ON';
 
 -- Change the file path to match where you're storing the git repo on your machine
 truncate gdp;
-LOAD DATA LOCAL INFILE '/Users/Tighe_Clough/Library/CloudStorage/OneDrive-NortheasternUniversity/Fourth Year/summer_i/CS3200/Project/Individual/DBDesign-Expansion/gdp_normalized.csv'
+LOAD DATA LOCAL INFILE "/Users/Tighe_Clough/Library/CloudStorage/OneDrive-NortheasternUniversity/Fourth Year/summer_i/CS3200/Project/Individual/endangered_db/table_csv's/gdp_normalized.csv"
 INTO TABLE gdp
 FIELDS TERMINATED BY ',' ENCLOSED BY '"';
 
@@ -96,9 +98,9 @@ SET GLOBAL local_infile = 'ON';
 
 -- Change the file path to match where you're storing the git repo on your machine
 truncate population;
-LOAD DATA LOCAL INFILE '/Users/Tighe_Clough/Library/CloudStorage/OneDrive-NortheasternUniversity/Fourth Year/summer_i/CS3200/Project/Individual/DBDesign-Expansion/pop_normalized.csv'
-INTO TABLE population
-FIELDS TERMINATED BY ',' ENCLOSED BY '"';
+load data local infile "/Users/Tighe_Clough/Library/CloudStorage/OneDrive-NortheasternUniversity/Fourth Year/summer_i/CS3200/Project/Individual/endangered_db/table_csv's/pop_normalized.csv"
+into table population
+fields terminated by ',' enclosed by '"';
 
 -- TRADE
 
@@ -128,10 +130,7 @@ create table trade (
     );
 
 truncate trade;
-load data local infile '/Users/Tighe_Clough/Library/CloudStorage/OneDrive-NortheasternUniversity/Fourth Year/summer_i/CS3200/Project/Individual/DBDesign-Expansion/cites_trade.csv'
+load data local infile "/Users/Tighe_Clough/Library/CloudStorage/OneDrive-NortheasternUniversity/Fourth Year/summer_i/CS3200/Project/Individual/endangered_db/table_csv's/cites_trade.csv"
 into table trade
 fields terminated by  ','
 ignore 1 lines;
-
-
-

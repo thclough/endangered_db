@@ -31,9 +31,45 @@ from trade
 order by term;
 
 
--- what if there are smaller more valuable species, not all animals are the same size
--- where kg < 1
+#### GENERAL ANALYSIS
 
+drop view if exists specimen_trade;
+create view specimen_trade as
+	select *
+    from trade
+    where unit in ('', 'Number of specimens');
+
+with yearly_specimen_trade as
+	(select
+		t.year,
+		country_name,
+        iso2_code,
+        continent_code,
+		total_pop,
+		amount,
+		sum(quantity) as total_imported
+	from trade t join country c on t.importer_id=c.country_id join population p using(country_id,year) join gdp using(country_id,year)
+	where unit in ('', 'Number of specimens')
+	group by year, country_name, iso2_code, continent_code, total_pop, amount)
+select
+	year,
+    country_name,
+    iso2_code,
+	continent_code,
+    total_imported,
+    total_pop,
+    round(amount/total_pop,3) as gdp_per_capita,
+    -- yearly moving average +/- 5 yrs for smoother animation in graph
+    round(avg(amount/total_pop)
+		over(partition by country_name -- only average within each country
+			 order by country_name, year
+			 rows between 5 preceding and 5 following),4) as gdp_per_capita_yma,
+    round(total_imported/total_pop*100000,4) as specimen_imports_per_100k,
+	ifnull(log(total_imported/total_pop*100000),0) as specimen_imports_per_100k_log
+from yearly_specimen_trade
+order by year, country_name;
+
+select * from country;
 -- what about the amount of traded appendix i species broken down by unit and by year
 -- separate query for each year
 

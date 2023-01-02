@@ -1,0 +1,314 @@
+index,full_name,world_bank_code,cites_code,continent_code
+,Afghanistan,AFG,AF,AS
+,Africa,AFR,XF,\N
+,Aland Islands,ALA,AX,EU
+,Albania,ALB,AL,EU
+,Algeria,DZA,DZ,AF
+,American Samoa,ASM,AS,OC
+,Andorra,AND,AD,EU
+,Angola,AGO,AO,AF
+,Anguilla,AIA,AI,NA
+,Antarctica,ATA,AQ,AN
+,Antigua and Barbuda,ATG,AG,NA
+,Arab World,ARB,\N,\N
+,Argentina,ARG,AR,SA
+,Armenia,ARM,AM,AS
+,Aruba,ABW,AW,NA
+,Asia,,XS,AS
+,Australia,AUS,AU,OC
+,Austria,AUT,AT,EU
+,Azerbaijan,AZE,AZ,AS
+,"Bahamas, The",BHS,BS,NA
+,Bahrain,BHR,BH,AS
+,Bangladesh,BGD,BD,AS
+,Barbados,BRB,BB,NA
+,Belarus,BLR,BY,EU
+,Belgium,BEL,BE,EU
+,Belize,BLZ,BZ,NA
+,Benin,BEN,BJ,AF
+,Bermuda,BMU,BM,NA
+,Bhutan,BTN,BT,AS
+,Bolivia,BOL,BO,SA
+,Bonaire St. Eustatius and Saba,,BQ,NA
+,Bosnia and Herzegovina,BIH,BA,EU
+,Botswana,BWA,BW,AF
+,Bouvet Island,BVT,BV,AN
+,Brazil,BRA,BR,SA
+,British India Ocean Territory,IOT,IO,AF
+,Brunei Darussalam,BRN,BN,AS
+,Bulgaria,BGR,BG,EU
+,Burkina Faso,BFA,BF,AF
+,Burundi,BDI,BI,AF
+,Cape Verde,CPV,CV,AF
+,Cambodia,KHM,KH,AS
+,Cameroon,CMR,CM,AF
+,Canada,CAN,CA,NA
+,Caribbean,CSS,XC,\N
+,Cayman Islands,CYM,KY,NA
+,Central African Republic,CAF,CF,AF
+,Central Europe and the Baltics,CEB,\N,\N
+,Chad,TCD,TD,AF
+,Channel Islands,CHI,\N,\N
+,Chile,CHL,CL,SA
+,China,CHN,CN,AS
+,Christmas Island,CXR,CX,AS
+,Cocos (Keeling) Islands,CCK,CC,AS
+,Colombia,COL,CO,SA
+,Comoros,COM,KM,AF
+,"Congo, Dem. Rep.",COD,CD,AF
+,"Congo, Rep.",COG,CG,AF
+,Cook Islands,COK,CK,OC
+,Costa Rica,CRI,CR,NA
+,Cote d'Ivoire,CIV,CI,AF
+,Croatia,HRV,HR,EU
+,Cuba,CUB,CU,NA
+,Curacao,CUW,CW,NA
+,Cyprus,CYP,CY,AS
+,Czech Republic,CZE,CZ,EU
+,Denmark,DNK,DK,EU
+,Djibouti,DJI,DJ,AF
+,Dominica,DMA,DM,NA
+,Dominican Republic,DOM,DO,NA
+,Early-demographic dividend,EAR,\N,\N
+,East Asia & Pacific,EAP,\N,\N
+,East Asia & Pacific,EAS,\N,\N
+,East Asia & Pacific (IDA & IBRD countries),TEA,\N,\N
+,Ecuador,ECU,EC,SA
+,"Egypt, Arab Rep.",EGY,EG,AF
+,El Salvador,SLV,SV,NA
+,Equatorial Guinea,GNQ,GQ,AF
+,Eritrea,ERI,ER,AF
+,Estonia,EST,EE,EU
+,Swaziland,SWZ,SZ,AF
+,Ethiopia,ETH,ET,AF
+,Euro area,EMU,\N,\N
+,Europe,,XE,\N
+,Europe & Central Asia,ECA,\N,\N
+,Europe & Central Asia,ECS,\N,\N
+,Europe & Central Asia (IDA & IBRD countries),TEC,\N,\N
+,European Union,EUU,\N,\N
+,Falkland Islands (Malvinas),FLK,FK,SA
+,Faroe Islands,FRO,FO,EU
+,Fiji,FJI,FJ,OC
+,Finland,FIN,FI,EU
+,Former Czechoslovakia,,ZC,\N
+,Former East Germany,,DD,\N
+,Former Pacific Trust Territory,,PC,\N
+,Former Serbia and Montenegro,,CS,\N
+,Former Soviet Union,,SU,\N
+,Former Yugoslavia,,YU,\N
+,Fragile and conflict affected situations,FCS,\N,\N
+,France,FRA,FR,EU
+,French Antilles,,XA,\N
+,French Guiana,GUF,GF,SA
+,French Polynesia,PYF,PF,OC
+,French Southern Territories,ATF,TF,AF
+,Gabon,GAB,GA,AF
+,"Gambia, The",GMB,GM,AF
+,Georgia,GEO,GE,AS
+,Germany,DEU,DE,EU
+,Ghana,GHA,GH,AF
+,Gibraltar,GIB,GI,EU
+,Greece,GRC,GR,EU
+,Greenland,GRL,GL,NA
+,Grenada,GRD,GD,NA
+,Guam,GUM,GU,OC
+,Guadeloupe,GLP,GP,NA
+,Guatemala,GTM,GT,NA
+,Guernsey,GGY,GG,EU
+,Guinea,GIN,GN,AF
+,Guinea-Bissau,GNB,GW,AF
+,Guyana,GUY,GY,SA
+,Haiti,HTI,HT,NA
+,Heard and McDonald Islands,HMD,HM,AN
+,Heavily indebted poor countries (HIPC),HPC,\N,\N
+,High income,HIC,\N,\N
+,Holy See (Vatican City State),VAT,VA,EU
+,Honduras,HND,HN,NA
+,"Hong Kong SAR, China",HKG,HK,AS
+,Hungary,HUN,HU,EU
+,IBRD only,IBD,\N,\N
+,Iceland,ISL,IS,EU
+,IDA & IBRD total,IBT,\N,\N
+,IDA blend,IDB,\N,\N
+,IDA only,IDX,\N,\N
+,IDA total,IDA,\N,\N
+,India,IND,IN,AS
+,Indonesia,IDN,ID,AS
+,Introduction from the Sea,,ZZ,\N
+,"Iran, Islamic Rep.",IRN,IR,AS
+,Iraq,IRQ,IQ,AS
+,Ireland,IRL,IE,EU
+,Isle of Man,IMN,IM,EU
+,Israel,ISR,IL,AS
+,Italy,ITA,IT,EU
+,Jamaica,JAM,JM,NA
+,Japan,JPN,JP,AS
+,Jersey,JEY,JE,EU
+,Jordan,JOR,JO,AS
+,Kazakhstan,KAZ,KZ,AS
+,Kenya,KEN,KE,AF
+,Kiribati,KIR,KI,OC
+,"Korea, Dem. People's Rep.",PRK,KP,AS
+,"Korea, Rep.",KOR,KR,AS
+,Kosovo,XKX,KV,\N
+,Kuwait,KWT,KW,AS
+,Kyrgyzstan,KGZ,KG,AS
+,Lao PDR,LAO,LA,AS
+,Late-demographic dividend,LTE,\N,\N
+,Latin America & Caribbean,LAC,\N,\N
+,Latin America & Caribbean,LCN,\N,\N
+,Latin America & the Caribbean (IDA & IBRD countries),TLA,\N,\N
+,Latvia,LVA,LV,EU
+,Least developed countries: UN classification,LDC,\N,\N
+,Lebanon,LBN,LB,AS
+,Lesotho,LSO,LS,AF
+,Liberia,LBR,LR,AF
+,Libya,LBY,LY,AF
+,Liechtenstein,LIE,LI,EU
+,Lithuania,LTU,LT,EU
+,Low & middle income,LMY,\N,\N
+,Low income,LIC,\N,\N
+,Lower middle income,LMC,\N,\N
+,Luxembourg,LUX,LU,EU
+,"Macao SAR, China",MAC,MO,AS
+,Macedonia,MKD,MK,EU
+,Madagascar,MDG,MG,AF
+,Malawi,MWI,MW,AF
+,Malaysia,MYS,MY,AS
+,Maldives,MDV,MV,AS
+,Mali,MLI,ML,AF
+,Malta,MLT,MT,EU
+,Marshall Islands,MHL,MH,OC
+,Martinique,MTQ,MQ,NA
+,Mauritania,MRT,MR,AF
+,Mauritius,MUS,MU,AF
+,Mayotte,MYT,YT,AF
+,Mexico,MEX,MX,NA
+,"Micronesia, Fed. Sts.",FSM,FM,OC
+,Middle East & North Africa,MEA,\N,\N
+,Middle East & North Africa,MNA,\N,\N
+,Middle East & North Africa (IDA & IBRD countries),TMN,\N,\N
+,Middle income,MIC,\N,\N
+,Moldova,MDA,MD,EU
+,Monaco,MCO,MC,EU
+,Mongolia,MNG,MN,AS
+,Montenegro,MNE,ME,EU
+,Montserrat,MSR,MS,NA
+,Morocco,MAR,MA,AF
+,Mozambique,MOZ,MZ,AF
+,Myanmar,MMR,MM,AS
+,Namibia,NAM,NA,AF
+,Nauru,NRU,NR,OC
+,Nepal,NPL,NP,AS
+,Netherlands,NLD,NL,EU
+,Netherlands Antilles,ANT,AN,\N
+,New Caledonia,NCL,NC,OC
+,New Zealand,NZL,NZ,OC
+,Nicaragua,NIC,NI,NA
+,Niger,NER,NE,AF
+,Nigeria,NGA,NG,AF
+,Niue,NIU,NU,OC
+,Norfolk Island,NFK,NF,OC
+,North America,NAC,\N,\N
+,Northern Mariana Islands,MNP,MP,OC
+,Norway,NOR,NO,EU
+,Not classified,INX,\N,\N
+,OECD members,OED,\N,\N
+,Oman,OMN,OM,AS
+,Other small states,OSS,\N,\N
+,Pacific island small states,PSS,\N,\N
+,Pakistan,PAK,PK,AS
+,Palau,PLW,PW,OC
+,Palestinian Territory,PSE,PS,AS
+,Panama,PAN,PA,NA
+,Papua New Guinea,PNG,PG,OC
+,Paraguay,PRY,PY,SA
+,Peru,PER,PE,SA
+,Philippines,PHL,PH,AS
+,Pitcairn,PCN,PN,OC
+,Poland,POL,PL,EU
+,Portugal,PRT,PT,EU
+,Post-demographic dividend,PST,\N,\N
+,Pre-demographic dividend,PRE,\N,\N
+,Puerto Rico,PRI,PR,NA
+,Qatar,QAT,QA,AS
+,Réunion,REU,RE,AF
+,Romania,ROU,RO,EU
+,Russian Federation,RUS,RU,AS
+,Rwanda,RWA,RW,AF
+,Samoa,WSM,WS,OC
+,San Marino,SMR,SM,EU
+,Sao Tome and Principe,STP,ST,AF
+,Saudi Arabia,SAU,SA,AS
+,Senegal,SEN,SN,AF
+,Serbia,SRB,RS,EU
+,Seychelles,SYC,SC,AF
+,Sierra Leone,SLE,SL,AF
+,Singapore,SGP,SG,AS
+,Sint Maarten (Dutch part),SXM,SX,NA
+,Slovakia,SVK,SK,EU
+,Slovenia,SVN,SI,EU
+,Small states,SST,\N,\N
+,Solomon Islands,SLB,SB,OC
+,Somalia,SOM,SO,AF
+,South Africa,ZAF,ZA,AF
+,South America,,XM,\N
+,South Asia,SAS,\N,\N
+,South Asia (IDA & IBRD),TSA,\N,\N
+,South Georgia and the South Sandwich Islands,SGS,GS,AN
+,South Sudan,SSD,SS,AF
+,Spain,ESP,ES,EU
+,Sri Lanka,LKA,LK,AS
+,St. Barthelemy,,BL,NA
+,St. Helena,SHN,SH,AF
+,St. Kitts and Nevis,KNA,KN,NA
+,St. Lucia,LCA,LC,NA
+,St. Martin (French part),MAF,MF,NA
+,St. Pierre and Miquelon,SPM,PM,NA
+,St. Vincent and the Grenadines,VCT,VC,NA
+,Sub-Saharan Africa,SSF,\N,\N
+,Sub-Saharan Africa (excluding high income),SSA,\N,\N
+,Sub-Saharan Africa (IDA & IBRD countries),TSS,\N,\N
+,Sudan,SDN,SD,AF
+,Suriname,SUR,SR,SA
+,Svalbard and Jan Mayen Islands,SJM,SJ,EU
+,Sweden,SWE,SE,EU
+,Switzerland,CHE,CH,EU
+,Syrian Arab Republic,SYR,SY,AS
+,"Taiwan, Republic of China",TWN,TW,AS
+,Tajikistan,TJK,TJ,AS
+,Tanzania,TZA,TZ,AF
+,Thailand,THA,TH,AS
+,Timor-Leste,TLS,TL,AS
+,Togo,TGO,TG,AF
+,Tokelau,TKL,TK,OC
+,Tonga,TON,TO,OC
+,Trinidad and Tobago,TTO,TT,NA
+,Tunisia,TUN,TN,AF
+,Turkey,TUR,TR,AS
+,Turkmenistan,TKM,TM,AS
+,Turks and Caicos Islands,TCA,TC,NA
+,Tuvalu,TUV,TV,OC
+,Uganda,UGA,UG,AF
+,Ukraine,UKR,UA,EU
+,United Arab Emirates,ARE,AE,AS
+,United Kingdom,GBR,GB,EU
+,United States,USA,US,NA
+,United States Minor Outlying Islands,UMI,UM,NA
+,Unknown,,XX,OC
+,Upper middle income,UMC,\N,\N
+,Uruguay,URY,UY,SA
+,Uzbekistan,UZB,UZ,AS
+,Vanuatu,VUT,VU,OC
+,Various,,XV,\N
+,"Venezuela, RB",VEN,VE,SA
+,Vietnam,VNM,VN,AS
+,Virgin Islands (British),VGB,VG,NA
+,Virgin Islands (U.S.),VIR,VI,NA
+,Wallis and Futuna Islands,WLF,WF,OC
+,Western Sahara,,EH,AF
+,World,WLD,\N,\N
+,"Yemen, Rep.",YEM,YE,AS
+,Zambia,ZMB,ZM,AF
+,Zimbabwe,ZWE,ZW,AF
