@@ -12,7 +12,7 @@ import numpy as np
 import plotly.express as px
 
 ## General visualization df
-root3 = "https://github.com/thclough/endangered_db/blob/main/query_output_and_visualizations/general/"
+root3 = "https://raw.githubusercontent.com/thclough/endangered_db/main/query_output_and_visualizations/general/"
 year_spec_df = pd.read_csv(root3 + "yearly_specimen_trade.csv", keep_default_na=False)
 
 # give Kosovo a continent
