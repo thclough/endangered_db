@@ -365,9 +365,11 @@ master2.index += 1
 
 ### 5,1) General Analysis
 *Figure 1*
+
 https://user-images.githubusercontent.com/77560829/210288063-f06384b6-1c62-41ae-932e-5486da17c516.mp4
 
-**Click [here](https://bit.ly/cites_dash) for interactive scatterplot.** (Not optimized for mobile)
+**Click [here](https://bit.ly/cites_dash) for interactive scatterplot.** 
+(Note: Not optimized for mobile, may take a minute to load page)
 
 <details>
 	
@@ -412,6 +414,10 @@ order by year, country_name;
 ```
 
 </details>
+
+The animated scatterplot illustrates the relationships between increased income per person in a country (technically per 100K population) and the amount of specimens imported per person. The data is separated by continent to examing different trends between geographical regions. As time progresses, countries that become richer relative to population seem to import more endangered specimens per person. Looking at data in recent years, this trend seems to be the strongest (although still reltively weak) in Africa, Asia, and South America. The trend lines for these continents are steeper in recent years with Asia having the highest coefficinents of determination. (2021 does not reflect these trends to the same extent possibly because it is incomplete with only a fraction of the datapoints as other years). However, as gdp per capita increases this trend seems to plateau, as shown in the animations for richer continents. Richer continents may be "ahead" of continents like Africa, Asia, and South America. Less developed continents may demonstrate this plateau effect in years to come as their countries become richer like their Western counterparts.
+
+Further statistical analysis is necessary, such as checking assumptions for regression, to come to stronger conclusions. However, the scatterplot still gives insight into rough trends.
 	
 ### 5,2) Medicine Scenario
 
