@@ -365,10 +365,15 @@ master2.index += 1
 
 ## 5) Analysis and Results
 
-Scenario: WildAid is a US-based environmental organization that manages campaigns to reduce demand for wildlife products. They would like to know which taxon are currently in most demand and for which purpose so that they can most efficiently strategize their next campaign.
+### 5,1) General Analysis
 
+https://user-images.githubusercontent.com/77560829/210288063-f06384b6-1c62-41ae-932e-5486da17c516.mp4
+
+**Click [here](https://bit.ly/cites_dash) for interactive scatterplot.** (Not optimized for mobile)
 
 ### 5,2) Medicine Scenario
+
+Scenario Analysis: WildAid is a US-based environmental organization that manages campaigns to reduce demand for wildlife products. They would like to know which taxon are currently in most demand and for which purpose so that they can most efficiently strategize their next campaign.
 
 Certain taxon are valued for their supposed medicinal properties. Here I have visualized trends in medicinal trades.
 
