@@ -216,7 +216,7 @@ master2 = master2.groupby(by = by_cols, dropna = False).sum().sort_values(by_col
 master2 = master2.reset_index()
 ```
 
-I then dropped all entries that did not have specic taxa data:
+I then dropped all entries that did not have specific taxa data:
 
 ```python
 master2 = master2[[len(taxon) > 1 for taxon in master2["Taxon"].str.split()]]
@@ -306,7 +306,7 @@ We created the primary keys for each country and mapped the World Bank countries
 
 [Yuki Chen](https://github.com/OOYUKIOO) wrote original code to format the "gdp" Table CSV found [here](https://github.com/thclough/endangered_db/blob/main/prepare_gdp_data.py)
 
-This code normalized the World Bank gdp data for each country. I repurposed the code to normalize population data.
+This code normalized the World Bank gdp data for each country. I repurposed the code to normalize population data. I also included continent code data to break out countries based on geographical region.
 
 #### 4,1,6) Aligning Parent and Child Keys
 
@@ -369,10 +369,16 @@ master2.index += 1
 
 https://user-images.githubusercontent.com/77560829/210288063-f06384b6-1c62-41ae-932e-5486da17c516.mp4
 
+**Click [here](https://bit.ly/cites_dash) for interactive scatterplot.** (Not optimized for mobile)
 
-### Click [here](https://bit.ly/cites_dash) for interactive scatterplot. (Not optimized for mobile)
+<details>
+	
+<summary>
 
-Query for Graphed Data:
+See Query for Graphed Data:
+	
+</summary>
+	
 ```sql
 -- first create cte for all data needed, sum imported specimens by year and country
 with yearly_specimen_trade as
@@ -407,6 +413,8 @@ from yearly_specimen_trade
 order by year, country_name;
 ```
 
+</details>
+	
 ### 5,2) Medicine Scenario
 
 Scenario Analysis: WildAid is a US-based environmental organization that manages campaigns to reduce demand for wildlife products. They would like to know which taxon are currently in most demand and for which purpose so that they can most efficiently strategize their next campaign.
