@@ -1,6 +1,12 @@
 # Endangered Animal Database Construction and Analysis
 #### By: Tighe Clough
 
+## 0) Summary/Highlights
+
+I created a database to intergreate various data sources on endangered species trade. I then wrote queries on it and create visualized the data to gain insight.
+
+* [Click here for an interactive animated graph of the data](#51-general-analysis)
+
 ## 1) Background
 
 This analysis stems from a group project in "CS3200: Database Design" at Northeastern University. The group consisted of myself, [Yuxuan Chen](https://github.com/OOYUKIOO), [Britney Chen](https://github.com/britneyart80), [Sarah Tong](https://github.com/saraht0ng), and Amaya Kejriwal. My original vision for the project proved too ambitious due to time and technology constraints. I have revisited the project to achieve these goals and have redesigned and updated the database. Additionally, I am performing continuous analysis on the database which I document through updates on this repo.
@@ -368,14 +374,13 @@ master2.index += 1
 
 https://user-images.githubusercontent.com/77560829/210288063-f06384b6-1c62-41ae-932e-5486da17c516.mp4
 
-**Click <a href="https://bit.ly/cites_dash" target="_blank" rel="noopener noreferrer">here</a> for interactive scatterplot.** 
+**Click <a href="https://bit.ly/cites_dash" target="_blank" rel="noopener noreferrer">here</a> to access interactive scatterplot.** 
 (May take a minute to load page, Not optimized for mobile)
 
 <details>
-	
 <summary>
 
-See Query for Graphed Data:
+See Query for Graphed Data (click dropdown arrow):
 
 </summary>
 	
@@ -415,7 +420,7 @@ order by year, country_name;
 
 </details>
 
-The animated scatterplot illustrates the relationships between increased income per person in a country (technically per 100K population) and the amount of specimens imported per person. If data points (countries) migrate to the top right, then the people in those countries are exhibiting stronger demand for endangered taxa as their purchasing power increases. The data is separated by continent to examine different trends between geographical regions. As time progresses, countries that become richer relative to population seem to import more endangered specimens per person. Looking at data in recent years, this trend seems to be the strongest (although still reltively weak) in Africa, Asia, and South America. The trend lines for these continents are steeper in recent years with Asia having the highest coefficinents of determination. (2021 does not reflect these trends to the same extent possibly because it is incomplete with only a fraction of the datapoints as other years). However, as gdp per capita increases this trend seems to plateau, as shown in the animations for richer continents. Richer continents may be "ahead" of continents like Africa, Asia, and South America. Less developed continents may demonstrate this plateau effect in years to come as their countries become richer like their Western counterparts.
+The animated scatterplot illustrates the relationships between increased income per person in a country (technically per 100K population) and the amount of endangered specimens imported per person. If data points (countries) migrate to the top right, then the people in those countries are exhibiting stronger demand for endangered taxa as their purchasing power increases. The data is separated by continent to examine different trends between geographical regions. As time progresses, countries that become richer relative to population seem to import more endangered specimens per person. Looking at data in recent years, this trend seems to be the strongest (although still reltively weak) in Africa, Asia, and South America. The trend lines for these continents are steeper in recent years with Asia having the highest coefficinents of determination. (2021 does not reflect these trends to the same extent possibly because it is incomplete with only a fraction of the datapoints as other years). However, as gdp per capita increases this trend seems to plateau, as shown in the animations for richer continents. Richer continents may be "ahead" of continents like Africa, Asia, and South America. Less developed continents may demonstrate this plateau effect in years to come as their countries become richer like their Western counterparts.
 
 Further statistical analysis is necessary, such as checking assumptions for regression, to come to stronger conclusions. However, the scatterplot still gives insight into rough trends.
 	
