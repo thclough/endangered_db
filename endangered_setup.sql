@@ -20,7 +20,7 @@ create table taxon (
 
 set global local_infile = 'ON';
 truncate taxon;
-load data local infile "/Users/Tighe_Clough/Library/CloudStorage/OneDrive-NortheasternUniversity/Fourth Year/summer_i/CS3200/Project/Individual/endangered_db/table_csv's/taxon.csv"
+load data local infile "<YOUR PATH HERE>/endangered_db/table_csv's/taxon.csv"
 into table taxon
 fields terminated by  ','
 ignore 1 lines;
@@ -28,9 +28,9 @@ ignore 1 lines;
 
 -- HISTORICAL STATUS
 drop table if exists historical_status;
-CREATE TABLE historical_status (
-	taxon_id INT NOT NULL,
-    year INT NOT NULL,
+create table historical_status (
+	taxon_id int not null,
+    year int not null,
     endangered_status VARCHAR(255) NOT NULL,
     CONSTRAINT fk_historical_status FOREIGN KEY (taxon_id) REFERENCES taxon (taxon_id)
     ON DELETE NO ACTION
@@ -39,7 +39,7 @@ CREATE TABLE historical_status (
 
 SET GLOBAL local_infile = 'ON';
 
-LOAD DATA LOCAL INFILE "/Users/Tighe_Clough/Library/CloudStorage/OneDrive-NortheasternUniversity/Fourth Year/summer_i/CS3200/Project/Individual/endangered_db/table_csv's/historical_status.csv"
+LOAD DATA LOCAL INFILE "<YOUR PATH HERE>/endangered_db/table_csv's/historical_status.csv"
 INTO TABLE historical_status
 FIELDS TERMINATED BY ',' ENCLOSED BY '"'
 IGNORE 1 LINES;
@@ -58,7 +58,7 @@ create table country (
 SET GLOBAL local_infile = 'ON';
 
 truncate country;
-LOAD DATA LOCAL INFILE "/Users/Tighe_Clough/Library/CloudStorage/OneDrive-NortheasternUniversity/Fourth Year/summer_i/CS3200/Project/Individual/endangered_db/table_csv's/countries.csv"
+LOAD DATA LOCAL INFILE "<YOUR PATH HERE>/endangered_db/table_csv's/countries.csv"
 INTO TABLE country
 FIELDS TERMINATED BY ',' enclosed by '"' lines terminated by  '\r\n' 
 IGNORE 1 LINES
@@ -79,7 +79,7 @@ SET GLOBAL local_infile = 'ON';
 
 -- Change the file path to match where you're storing the git repo on your machine
 truncate gdp;
-LOAD DATA LOCAL INFILE "/Users/Tighe_Clough/Library/CloudStorage/OneDrive-NortheasternUniversity/Fourth Year/summer_i/CS3200/Project/Individual/endangered_db/table_csv's/gdp_normalized.csv"
+LOAD DATA LOCAL INFILE "<YOUR PATH HERE>/endangered_db/table_csv's/gdp_normalized.csv"
 INTO TABLE gdp
 FIELDS TERMINATED BY ',' ENCLOSED BY '"';
 
@@ -98,7 +98,7 @@ SET GLOBAL local_infile = 'ON';
 
 -- Change the file path to match where you're storing the git repo on your machine
 truncate population;
-load data local infile "/Users/Tighe_Clough/Library/CloudStorage/OneDrive-NortheasternUniversity/Fourth Year/summer_i/CS3200/Project/Individual/endangered_db/table_csv's/pop_normalized.csv"
+load data local infile "<YOUR PATH HERE>/endangered_db/table_csv's/pop_normalized.csv"
 into table population
 fields terminated by ',' enclosed by '"';
 
@@ -130,7 +130,7 @@ create table trade (
     );
 
 truncate trade;
-load data local infile "/Users/Tighe_Clough/Library/CloudStorage/OneDrive-NortheasternUniversity/Fourth Year/summer_i/CS3200/Project/Individual/endangered_db/table_csv's/cites_trade.csv"
+load data local infile "<YOUR PATH HERE>/endangered_db/table_csv's/cites_trade.csv"
 into table trade
 fields terminated by  ','
 ignore 1 lines;
