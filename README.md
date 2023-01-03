@@ -366,7 +366,7 @@ master2.index += 1
 ## 5) Analysis and Results
 
 ### 5,1) General Analysis
-
+*Figure 1*
 https://user-images.githubusercontent.com/77560829/210288063-f06384b6-1c62-41ae-932e-5486da17c516.mp4
 
 **Click [here](https://bit.ly/cites_dash) for interactive scatterplot.** (Not optimized for mobile)
@@ -423,9 +423,7 @@ Certain taxon are valued for their supposed medicinal properties. Here I have vi
 
 **GOAL**: Find **1)** which endangered taxon are most at threat from medicine-driven trade, and **2)** which countries are driving this demand.
 
-#### Key Findings (TL;DR)
-
-* Chinese Pond Turtle mauremys_reevesii 
+<!-- #### Key Findings (TL;DR) * Chinese Pond Turtle mauremys_reevesii -->
 
 <details>
 
@@ -575,7 +573,7 @@ create view specimen_medicine_animalia_trades as
 ```
 
 For each of these subcategories, I wrote a query to break out the total amount of taxa traded by appendix (how endangered the taxa is).
-Example for [Section 5,2,1](#521-medicine---animalia---number-of-specimens) Figure 1.
+Example for [Section 5,2,1](#521-medicine---animalia---number-of-specimens) Figure 2.
 ```sql
 select
     year,
@@ -608,8 +606,8 @@ with
 </details>
 
 #### 5,2,1) Medicine - Animalia - Number of Specimens
-*Figure 1*
-![Figure 1](https://github.com/thclough/endangered_db/blob/main/query_output_and_visualizations/medical/medicine/Animalia/specimen/Medicine%20-%20Animalia%20-%20Number%20of%20Specimens%20-%20Trades%20vs%20Year%20by%20Appendix.png)
+*Figure 2*
+![Figure 2](https://github.com/thclough/endangered_db/blob/main/query_output_and_visualizations/medical/medicine/Animalia/specimen/Medicine%20-%20Animalia%20-%20Number%20of%20Specimens%20-%20Trades%20vs%20Year%20by%20Appendix.png)
 
 I chose to start with a simple visualization of the trades over time broken out by CITES appendix (Appendix I the most threatened and III the least). While Appendix III taxa account for the vast majority of trade (**notice the different y-axis scales**), a large increase in Appendix I trade would raise the most concern.
 
@@ -661,8 +659,8 @@ The most traded Appendix I animal in 2013 and 2014 by specimen under the term me
 </details>
 
 #### 5,2,2) Medicine - Animalia - kg
-*Figure 2*
-![Figure 2](https://github.com/thclough/endangered_db/blob/main/query_output_and_visualizations/medical/medicine/Animalia/kg/Medicine%20-%20Animalia%20-%20kg%20-%20Trades%20vs%20Year%20by%20Appendix.png)
+*Figure 3*
+![Figure 3](https://github.com/thclough/endangered_db/blob/main/query_output_and_visualizations/medical/medicine/Animalia/kg/Medicine%20-%20Animalia%20-%20kg%20-%20Trades%20vs%20Year%20by%20Appendix.png)
 
 There is sustained trade in Appendix III animal taxa trade. Looking at the max taxa per year output (see below), the main driver for this trend is "mauremys reevesii" (the Chinese Pond Turtle) year after year. The plastron (or belly shell) of the Chinese Pond Turtle is common in traditional Chinese medicine <sup>4</sup>.
 
@@ -820,8 +818,8 @@ where taxon_name = "mauremys reevesii";
 </details>
 
 #### 5,2,3) Medicine - Ex-Animalia (Plants) - Number of Specimens
-*Figure 3*
-![Figure 3](https://github.com/thclough/endangered_db/blob/main/query_output_and_visualizations/medical/medicine/Ex-Animalia/specimen/Medicine%20-%20Plantae%20-%20Number%20of%20Specimens%20-%20Trades%20vs%20Year%20by%20Appendix.png)
+*Figure 4*
+![Figure 4](https://github.com/thclough/endangered_db/blob/main/query_output_and_visualizations/medical/medicine/Ex-Animalia/specimen/Medicine%20-%20Plantae%20-%20Number%20of%20Specimens%20-%20Trades%20vs%20Year%20by%20Appendix.png)
 
 There is an overall increasing trend in Appendix II taxa trade for this category. According to the output below for most traded taxon, from 2014 to 2018, trade in "hydrastis candensis" (Goldenseal) drove this trend. Since 2019, trade in "prunus africana" (African cherry) has been the largest for Appendix II in this category.
 
@@ -862,11 +860,11 @@ There is an overall increasing trend in Appendix II taxa trade for this category
 	
 </details>
 
-*Figure 4*
+*Figure 5*
 
-![Figure 4](https://github.com/thclough/endangered_db/blob/main/query_output_and_visualizations/medical/medicine/Ex-Animalia/specimen/trends/specimen_plant_med_stacked.png)
+![Figure 5](https://github.com/thclough/endangered_db/blob/main/query_output_and_visualizations/medical/medicine/Ex-Animalia/specimen/trends/specimen_plant_med_stacked.png)
 
-Figure 4 shows that trade in Hydrastis canadensis (Goldenseal) has oscillated while the recent trade in Prunus africana has led to an overall increasing trend in Appendix II taxa under this category. 
+Figure 5 shows that trade in Hydrastis canadensis (Goldenseal) has oscillated while the recent trade in Prunus africana has led to an overall increasing trend in Appendix II taxa under this category. 
 
 I used the same query structure seen in the [Section 5,2,2](#522-medicine---animalia---kg) analysis of the Chinese Pond Turtle.
 
@@ -957,7 +955,8 @@ Largest Importers on per 100k Population Basis:
 
 
 #### 5,2,4) Medicine - Ex-Animalia (Plants) - kg
-![Figure 5](https://github.com/thclough/endangered_db/blob/main/query_output_and_visualizations/medical/medicine/Ex-Animalia/kg/Medicine%20-%20Plantae%20-%20kg%20-%20Trades%20vs%20Year%20by%20Appendix.png)
+*Figure 6*
+![Figure 6](https://github.com/thclough/endangered_db/blob/main/query_output_and_visualizations/medical/medicine/Ex-Animalia/kg/Medicine%20-%20Plantae%20-%20kg%20-%20Trades%20vs%20Year%20by%20Appendix.png)
 
 There were slight rebounds in both Appendix I and II medicinal trades for this category in 2020. According to my query (see below), trade in Saussurea costus (costus) and Panax quinquefolius (American ginseng) drove Appendix I and II trade, respectively. 
 
@@ -1098,8 +1097,6 @@ Largest Importers on per 100k Population Basis:
 |2019|China       |2.9101001957030572      |
 |2020|China       |13.673318687548722      |
 
-
-	
 </details>
 
 ### 5,3) Fashion Scenario (Coming soon)
@@ -1107,25 +1104,24 @@ Largest Importers on per 100k Population Basis:
 ## Citations
 
 <br>
-
 [1] CITES Secretariat and UNEP-WCMC (2022). A guide to using the CITES Trade Database. Version 9. Geneva, Switzerland, and Cambridge, UK. https://trade.cites.org/cites_trade_guidelines/en-CITES_Trade_Database_Guide.pdf
 <br>
 [2] Tow, J. H., Symes, W. S., & Carrasco, L. R. (2021, October 12). Economic value of illegal wildlife trade entering the USA. PLOS ONE. https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0258523
 <br>
 [3] Crocodile | Asian Bestiary. (n.d.). http://asianbestiary.org/crocodile/
 <br>
-[4] Plastus of Turtle
+[4] Dharmananda, C. D. S. /., Ph. D. (n.d.). Endangered Species Issues Affecting Turtles and Tortoises Used In Chinese Medicine. Institute for Traditional Medicine, Portland, OR. Retrieved December 29, 2022, from http://www.itmonline.org/arts/turtles.htm
 <br>
-[5] https://www.herbalgram.org/resources/herbalgram/issues/41/table-of-contents/article1262/ 
+[5] Bannerman, J. (n.d.). Goldenseal In World Trade: Pressures and Potentials. - American Botanical Council. Retrieved December 29, 2022, from https://www.herbalgram.org/resources/herbalgram/issues/41/table-of-contents/article1262/
 <br>
-[6] https://www.nccih.nih.gov/health/goldenseal
+[6] Goldenseal. (n.d.). NCCIH. Retrieved December 29, 2022, from https://www.nccih.nih.gov/health/goldenseal
 <br>
-[7] https://cites.org/eng/prog/african_cherry.php
+[7] African cherry Prunus africana | CITES. (n.d.). CITES. https://cites.org/eng/prog/african_cherry.php
 <br>
-[8] https://link.springer.com/article/10.1007/s13596-011-0043-1
+[8] Madhuri, K., Elango, K., & Ponnusankar, S. (2011). Saussurea lappa (Kuth root): review of its traditional uses, phytochemistry and pharmacology. Oriental Pharmacy and Experimental Medicine, 12(1), 1–9. https://doi.org/10.1007/s13596-011-0043-1
 <br>
-[9] https://festival.si.edu/blog/ginseng-traditional-chinese-medicine)
+[9] Chang, S. H. (n.d.). In Traditional Chinese Medicine, Ginseng Is King of Tonic Herbs. Smithsonian Folklife Festival. https://festival.si.edu/blog/ginseng-traditional-chinese-medicine
 <br>
-[10] https://www.latimes.com/local/california/la-me-adv-ginseng-american-20150301-story.html
+[10] Shyong, F. (2015, March 2). American ginseng has a loyal Chinese clientele. Los Angeles Times. https://www.latimes.com/local/california/la-me-adv-ginseng-american-20150301-story.html
 <br>
-[11] https://www.worldwildlife.org/pages/ginseng
+[11] Ginseng | Pages | WWF. (n.d.). World Wildlife Fund. https://www.worldwildlife.org/pages/ginseng
