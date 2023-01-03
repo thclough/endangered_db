@@ -91,9 +91,7 @@ The country table creates a country_id for each CITES country and serves to conn
 
 Upon close inspection, one can see that the "taxon" table is not very normalized. Taxon data is heirarchical and therefore has many depedencies. It is not worth the effort to normalize the table by separating out each level of taxonomy to its own table. Joining such tables for later analysis would be tedious and unneccessary.
 
-<!-- <img src="https://github.com/thclough/endangered_db/blob/main/readme_images/historical_status.png" width="800" height="563"></img> -->
-
-![ER](https://github.com/thclough/endangered_db/blob/main/readme_images/historical_status.png)
+![ER](https://github.com/thclough/endangered_db/blob/main/readme_images/er.png)
 
 <details>
 <summary>
