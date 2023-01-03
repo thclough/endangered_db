@@ -11,7 +11,7 @@ The international demand for animal and plant-derived products has caused alarmi
 
 It is worth noting that the database does not contain *illegal* wildlife trade. However, the global *legal* trade of wildlife reached an estimated 119 billion USD or more in 2020, while its illegal counterpart only stood at an estimated 5 to 23 billion USD<sup>2</sup>. Therefore, the study of legal trade can give insights into overall wildlife trade patterns.
 
-In this project, I have set out to create a database that integrates CITES data, Red list endangerment statuses, and importing/exporting/origin country statistics. Following the contruction of the database, I have thought up a few scenarios to guide analysis and to demonstrate the importance of studying this connected data.
+In this project, I have set out to create a database that integrates CITES data, Red List conservation statuses, and importing/exporting/origin country statistics. Following the contruction of the database, I have thought up a few scenarios to guide analysis and to demonstrate the importance of studying this connected data.
 
 [Skip to Analysis and Results](#5-analysis-and-results)
 
@@ -369,7 +369,43 @@ master2.index += 1
 
 https://user-images.githubusercontent.com/77560829/210288063-f06384b6-1c62-41ae-932e-5486da17c516.mp4
 
-**Click [here](https://bit.ly/cites_dash) for interactive scatterplot.** (Not optimized for mobile)
+
+### Click [here](https://bit.ly/cites_dash) for interactive scatterplot. (Not optimized for mobile)
+
+Query for Graphed Data:
+```sql
+-- first create cte for all data needed, sum imported specimens by year and country
+with yearly_specimen_trade as
+	(select
+	t.year,
+	country_name,
+        iso2_code,
+        continent_code,
+	total_pop,
+	amount,
+	sum(quantity) as total_imported
+	from trade t join country c on t.importer_id=c.country_id join population p using(country_id,year) join gdp using(country_id,year)
+	where unit in ('', 'Number of specimens')
+	group by year, country_name, iso2_code, continent_code, total_pop, amount)
+-- select from cte
+select
+    year,
+    country_name,
+    iso2_code,
+    continent_code,
+    total_imported,
+    total_pop,
+    round(amount/total_pop,3) as gdp_per_capita,
+    -- use window function for yearly moving average +/- 5 yrs for smoother animation in graph
+    round(avg(amount/total_pop)
+		over(partition by country_name -- only average within each country
+			 order by country_name, year
+			 rows between 5 preceding and 5 following),4) as gdp_per_capita_yma,
+    round(total_imported/total_pop*100000,4) as specimen_imports_per_100k,
+	ifnull(log(total_imported/total_pop*100000),0) as specimen_imports_per_100k_log -- take log scale as many extreme values
+from yearly_specimen_trade
+order by year, country_name;
+```
 
 ### 5,2) Medicine Scenario
 
