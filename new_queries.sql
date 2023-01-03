@@ -39,33 +39,33 @@ create view specimen_trade as
     from trade
     where unit in ('', 'Number of specimens');
 
-with yearly_specimen_trade as
-	(select
-		t.year,
-		country_name,
+select
+	t.year,
+	country_name,
         iso2_code,
         continent_code,
-		total_pop,
-		amount,
-		sum(quantity) as total_imported
+	total_pop,
+	amount,
+	sum(quantity) as total_imported
 	from trade t join country c on t.importer_id=c.country_id join population p using(country_id,year) join gdp using(country_id,year)
 	where unit in ('', 'Number of specimens')
 	group by year, country_name, iso2_code, continent_code, total_pop, amount)
+-- select from cte
 select
-	year,
+    year,
     country_name,
     iso2_code,
-	continent_code,
+    continent_code,
     total_imported,
     total_pop,
     round(amount/total_pop,3) as gdp_per_capita,
-    -- yearly moving average +/- 5 yrs for smoother animation in graph
+    -- use window function for yearly moving average +/- 5 yrs for smoother animation in graph
     round(avg(amount/total_pop)
 		over(partition by country_name -- only average within each country
 			 order by country_name, year
 			 rows between 5 preceding and 5 following),4) as gdp_per_capita_yma,
     round(total_imported/total_pop*100000,4) as specimen_imports_per_100k,
-	ifnull(log(total_imported/total_pop*100000),0) as specimen_imports_per_100k_log
+	ifnull(log(total_imported/total_pop*100000),0) as specimen_imports_per_100k_log -- take log scale as many extreme values
 from yearly_specimen_trade
 order by year, country_name;
 
