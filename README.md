@@ -93,7 +93,7 @@ The database enhances CITES data (found in the trade table) through attaching re
 
 The "taxon" table lists taxa information (kingdom to species) for each taxa in the trade table. Addtionally, Red List conservation status by year on certain taxa is listed in the "historical_status" table.  
 
-The country table creates a country_id for each CITES country and serves to connect trades in the "trade" table with relevant country statistics (namely gdp and population). The "gdp" and "population" tables provided yearly data for countries/regions from World Bank Open Data. Most World Bank countries align with CITES countries. Notably, regions do not align. For example, the CITES incldued data for the region "Asia" while the World Bank does not.
+The country table creates a country_id for each CITES country and serves to connect trades in the "trade" table with relevant country statistics (namely GDP and population). The "gdp" and "population" tables provided yearly data for countries/regions from World Bank Open Data. Most World Bank countries align with CITES countries. Notably, regions do not align. For example, the CITES incldued data for the region "Asia" while the World Bank does not.
 
 Upon close inspection, one can see that the "taxon" table is not very normalized. Taxon data is heirarchical and therefore has many depedencies. It is not worth the effort to normalize the table by separating out each level of taxonomy to its own table. Joining such tables for later analysis would be tedious and unneccessary.
 
@@ -310,7 +310,7 @@ We created the primary keys for each country and mapped the World Bank countries
 
 [Yuki Chen](https://github.com/OOYUKIOO) wrote original code to format the "gdp" Table CSV found [here](https://github.com/thclough/endangered_db/blob/main/prepare_gdp_data.py)
 
-This code normalized the World Bank gdp data for each country. I repurposed the code to normalize population data. I also included continent code data to break out countries based on geographical region.
+This code normalized the World Bank GDP data for each country. I repurposed the code to normalize population data. I also included continent code data to break out countries based on geographical region.
 
 #### 4,1,6) Aligning Parent and Child Keys
 
@@ -420,7 +420,7 @@ order by year, country_name;
 
 </details>
 
-The animated scatterplot illustrates the relationships between increased income per person in a country (technically per 100K population) and the amount of endangered specimens imported per person. If data points (countries) migrate to the top right, then the people in those countries are exhibiting stronger demand for endangered taxa as their purchasing power increases. The data is separated by continent to examine different trends between geographical regions. As time progresses, countries that become richer relative to population seem to import more endangered specimens per person. Looking at data in recent years, this trend seems to be the strongest (although still relatively weak) in Africa, Asia, and South America. The trend lines for these continents are steeper in recent years with Asia having the highest coefficinents of determination. (2021 does not reflect these trends to the same extent possibly because it is incomplete with only a fraction of the datapoints as other years). However, as gdp per capita increases this trend seems to plateau, as shown in the animations for richer continents. Richer continents may be "ahead" of continents like Africa, Asia, and South America. Less developed continents may demonstrate this plateau effect in years to come as their countries become richer like their Western counterparts.
+The animated scatterplot illustrates the relationships between increased income per person in a country (technically per 100K population) and the amount of endangered specimens imported per person. If data points (countries) migrate to the top right, then the people in those countries are exhibiting stronger demand for endangered taxa as their purchasing power increases. The data is separated by continent to examine different trends between geographical regions. As time progresses, countries that become richer relative to population seem to import more endangered specimens per person. Looking at data in recent years, this trend seems to be the strongest (although still relatively weak) in Africa, Asia, and South America. The trend lines for these continents are steeper in recent years with Asia having the highest coefficinents of determination. (2021 does not reflect these trends to the same extent possibly because it is incomplete with only a fraction of the datapoints as other years). However, as GDP per capita increases this trend seems to plateau, as shown in the animations for richer continents. Richer continents may be "ahead" of continents like Africa, Asia, and South America. Less developed continents may demonstrate this plateau effect in years to come as their countries become richer like their Western counterparts.
 
 Further statistical analysis is necessary, such as checking assumptions for regression, to come to stronger conclusions. However, the scatterplot still gives insight into rough trends.
 	
