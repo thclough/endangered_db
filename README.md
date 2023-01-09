@@ -374,7 +374,7 @@ master2.index += 1
 
 https://user-images.githubusercontent.com/77560829/210288063-f06384b6-1c62-41ae-932e-5486da17c516.mp4
 
-**Click <a href="https://bit.ly/cites_dash" target="_blank" rel="noopener noreferrer">here</a> to access interactive scatterplot.** 
+### Click <a href="https://bit.ly/cites_dash" target="_blank" rel="noopener noreferrer">here</a> to access interactive scatterplot.
 (May take a minute to load page, Not optimized for mobile)
 
 <details>
