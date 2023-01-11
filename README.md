@@ -3,7 +3,7 @@
 
 ## 0) Summary/Highlights
 
-I created a database to intergrate various data sources on endangered species trade. I then wrote queries and created visualizations using this data to gain insight.
+I created a database to integrate various data sources on endangered species trade. I then wrote queries and created visualizations using this data to gain insight.
 
 * [Click here for an interactive animated graph of the data](#51-general-analysis)
 
