@@ -3,9 +3,9 @@
 
 ## 0) Summary/Highlights
 
-* Created a database to integrate various data sources on endangered species trade (through API calls and manipulated CSV's).
+* Created a database to integrate various data sources on endangered species trade (through API calls and manipulated CSV files).
 * Wrote queries on the database and created visualizations
-* [Created an interactive animated graph app giving overview of the data and deployed on render](#51-general-analysis)
+* [Created an interactive animated graph app giving an overview of the data and deployed on render](#51-general-analysis)
 * Theorized use cases and performed appropriate analysis
 
 ## 1) Background
@@ -14,11 +14,11 @@ This analysis stems from a group project in "CS3200: Database Design" at Northea
 
 ## 2) Introduction
 
-The international demand for animal and plant-derived products has caused alarming depletions in certain specie populations. While the world economies have become increasingly connected and prosperous in the past few centuries, the resulting market forces have overwheled wildlife in many cases. In 1975, 80 countries came together to address this issue by drafting and signing The Convention on International Trade in Endangered Species of Wild Flora and Fauna (CITES). The agreement stipulated the careful documentation and tracking of trade in threatened and endangered taxa (biological term for a group of related organisms). Currently the UN Environment Programme World Conservation Monitoring Center, on behalf of CITES, maintains the CITES database which contains 23 million records of such trade<sup>1</sup>. 
+The international demand for animal and plant-derived products has caused alarming depletions in certain specie populations. While the world economies have become increasingly connected and prosperous in the past few centuries, the resulting market forces have overwhelmed wildlife in many cases. In 1975, 80 countries came together to address this issue by drafting and signing The Convention on International Trade in Endangered Species of Wild Flora and Fauna (CITES). The agreement stipulated the careful documentation and tracking of trade in threatened and endangered taxa (biological term for a group of related organisms). Currently, the UN Environment Programme World Conservation Monitoring Center, on behalf of CITES, maintains the CITES database which contains 23 million records of such trade<sup>1</sup>. 
 
 It is worth noting that the database does not contain *illegal* wildlife trade. However, the global *legal* trade of wildlife reached an estimated 119 billion USD or more in 2020, while its illegal counterpart only stood at an estimated 5 to 23 billion USD<sup>2</sup>. Therefore, the study of legal trade can give insights into overall wildlife trade patterns.
 
-In this project, I have set out to create a database that integrates CITES data, Red List conservation statuses, and importing/exporting/origin country statistics. Following the contruction of the database, I have thought up a few scenarios to guide analysis and to demonstrate the importance of studying this connected data.
+In this project, I have set out to create a database that integrates CITES data, Red List conservation statuses, and importing/exporting/origin country statistics. Following the construction of the database, I have thought up a few scenarios to guide analysis and to demonstrate the importance of studying this connected data.
 
 [Skip to Analysis and Results](#5-analysis-and-results)
 
@@ -90,13 +90,13 @@ In this project, I have set out to create a database that integrates CITES data,
 ### 4,1) Database Design and Construction
 
 
-The database enhances CITES data (found in the trade table) through attaching relevant information on the traded animals/plant and importing/exporting/origin countries. 
+The database enhances CITES data (found in the trade table) by attaching relevant information on the traded animals/plant and importing/exporting/origin countries. 
 
 The "taxon" table lists taxa information (kingdom to species) for each taxa in the trade table. Addtionally, Red List conservation status by year on certain taxa is listed in the "historical_status" table.  
 
-The country table creates a country_id for each CITES country and serves to connect trades in the "trade" table with relevant country statistics (namely GDP and population). The "gdp" and "population" tables provided yearly data for countries/regions from World Bank Open Data. Most World Bank countries align with CITES countries. Notably, regions do not align. For example, the CITES incldued data for the region "Asia" while the World Bank does not.
+The country table creates a country_id for each CITES country and serves to connect trades in the "trade" table with relevant country statistics (namely GDP and population). The "gdp" and "population" tables provided yearly data for countries/regions from World Bank Open Data. Most World Bank countries align with CITES countries. Notably, regions do not align. For example, the CITES included data for the region "Asia" while the World Bank does not.
 
-Upon close inspection, one can see that the "taxon" table is not very normalized. Taxon data is heirarchical and therefore has many depedencies. It is not worth the effort to normalize the table by separating out each level of taxonomy to its own table. Joining such tables for later analysis would be tedious and unneccessary.
+Upon close inspection, one can see that the "taxon" table is not very normalized. Taxon data is hierarchical and therefore has many dependencies. It is not worth the effort to normalize the table by breaking out each level of taxonomy to its own table. Joining such tables for later analysis would be tedious and unnecessary.
 
 ![ER](https://github.com/thclough/endangered_db/blob/main/readme_images/er.png)
 
@@ -111,7 +111,7 @@ The strategy is to prepare each table as a CSV using Python and then load each t
 
 #### 4,1,1) "trade" Table CSV
 	
-I first imported relevant packages and read in all of the data from the CSV's, only keeping selected columns:
+I first imported relevant packages and read in all of the data from the CSV files, only keeping selected columns:
 ```python
 import pandas as pd
 import numpy as np
@@ -421,17 +421,17 @@ order by year, country_name;
 
 </details>
 
-The animated scatterplot illustrates the relationships between increased income per person in a country (technically per 100K population) and the amount of endangered specimens imported per person. If data points (countries) migrate to the top right, then the people in those countries are exhibiting stronger demand for endangered taxa as their purchasing power increases. The data is separated by continent to examine different trends between geographical regions. Trendlines are drawn for each continent. As time progresses, countries that become richer relative to population seem to import more endangered specimens per person. Looking at data in recent years, this trend seems to be the strongest (although still relatively weak) in Africa, Asia, and South America. The trend lines for these continents are steeper in recent years with Asia having the highest coefficients of determination. (2021 does not reflect these trends to the same extent possibly because it is incomplete with only a fraction of the datapoints as other years). However, as GDP per capita increases this trend seems to plateau, as shown in the animations for richer continents. Richer continents may be "ahead" of continents like Africa, Asia, and South America. Less developed continents may demonstrate this plateau effect in years to come as their countries become richer like their Western counterparts.
+The animated scatterplot illustrates the relationships between increased income per person in a country (technically per 100K population) and the amount of endangered specimens imported per person. If data points (countries) migrate to the top right, then the people in those countries are exhibiting stronger demand for endangered taxa as their purchasing power increases. The data is separated by continent to examine different trends between geographical regions. Trendlines are drawn for each continent. As time progresses, countries that become richer relative to population seem to import more endangered specimens per person. Looking at data in recent years, this trend seems to be the strongest (although still relatively weak) in Africa, Asia, and South America. The trend lines for these continents are steeper in recent years with Asia having the highest coefficients of determination. (2021 does not reflect these trends to the same extent possibly because it is incomplete with only a fraction of the data points as other years). However, as GDP per capita increases this trend seems to plateau, as shown in the animations for richer continents. Richer continents may be "ahead" of continents like Africa, Asia, and South America. Less developed continents may demonstrate this plateau effect in years to come as their countries become richer like their Western counterparts.
 
 Further statistical analysis is necessary, such as checking assumptions for regression, to come to stronger conclusions. However, the scatterplot still gives insight into rough trends.
 	
 ### 5,2) Medicine Scenario
 
-Scenario Analysis: WildAid is a US-based environmental organization that manages campaigns to reduce demand for wildlife products. They would like to know which taxon are currently in most demand and for which purpose so that they can most efficiently strategize their next campaign.
+Scenario Analysis: WildAid is a US-based environmental organization that manages campaigns to reduce demand for wildlife products. They would like to know which taxa are currently in most demand and for which purpose so that they can most efficiently strategize their next campaign.
 
-Certain taxon are valued for their supposed medicinal properties. Here I have visualized trends in medicinal trades.
+Certain taxa are valued for their supposed medicinal properties. Here I have visualized trends in medicinal trades.
 
-**GOAL**: Find **1)** which endangered taxon are most at threat from medicine-driven trade, and **2)** which countries are driving this demand.
+**GOAL**: Find **1)** which endangered taxa are most at threat from medicine-driven trade, and **2)** which countries are driving this demand.
 
 <!-- #### Key Findings (TL;DR) * Chinese Pond Turtle mauremys_reevesii -->
 
@@ -621,9 +621,9 @@ with
 
 I chose to start with a simple visualization of the trades over time broken out by CITES appendix (Appendix I the most threatened and III the least). While Appendix III taxa account for the vast majority of trade (**notice the different y-axis scales**), a large increase in Appendix I trade would raise the most concern.
 
-For the Appendix I trades, there was a large increase starting in 2013, that peaked in 2014, and receded in 2015. I queried to find the most traded taxa by year broken out by appendix (see final example query in [Queries and Explanation Section](#see-queries-and-explanations)). 
+For the Appendix I trades, there was a large increase that started in 2013, peaked in 2014, and receded in 2015. I queried to find the most traded taxa by year broken out by appendix (see final example query in [Queries and Explanation Section](#see-queries-and-explanations)). 
 
-The most traded Appendix I animal in 2013 and 2014 by specimen under the term medicine was "crocodylus siamensis" or the Siamese Crocodile. This animal is commonly farmed and exploited for its medicinal properties cooming from its oil and blood<sup>3</sup>. This particular taxa does not raise concern as its trade has plummited. Instead, I am looking for taxa with sustained levels of high trade which indicate an ongoing problem.
+The most traded Appendix I animal in 2013 and 2014 by specimen under the term medicine was "crocodylus siamensis" or the Siamese Crocodile. This animal is commonly farmed and exploited for its medicinal properties coming from its oil and blood<sup>3</sup>. This particular taxon does not raise concern as its trade has plummeted. Instead, I am looking for taxa with sustained levels of high trade which indicate an ongoing problem.
 
 <details>
 
@@ -831,7 +831,7 @@ where taxon_name = "mauremys reevesii";
 *Figure 4*
 ![Figure 4](https://github.com/thclough/endangered_db/blob/main/query_output_and_visualizations/medical/medicine/Ex-Animalia/specimen/Medicine%20-%20Plantae%20-%20Number%20of%20Specimens%20-%20Trades%20vs%20Year%20by%20Appendix.png)
 
-There is an overall increasing trend in Appendix II taxa trade for this category. According to the output below for most traded taxon, from 2014 to 2018, trade in "hydrastis candensis" (Goldenseal) drove this trend. Since 2019, trade in "prunus africana" (African cherry) has been the largest for Appendix II in this category.
+There is an overall increasing trend in Appendix II taxa trade for this category. According to the output below for the most traded taxon per year , from 2014 to 2018, trade in "hydrastis candensis" (Goldenseal) drove this trend. Since 2019, trade in "prunus africana" (African cherry) has been the largest for Appendix II in this category.
 
 <details>
 <summary>
@@ -885,7 +885,7 @@ The United States has been the largest absolute importer of goldenseal in the la
 
 It seems that much of this trade is between the US and Canada (where goldenseal grows naturally). Upon first glance, France seems to be a major exporter as well, but, in reality, three large homeopathic companies (Boiron, Dolisos, and Lehnin g) are located in France and process goldenseal sourced from North America and re-export it to the US and Canada<sup>5</sup>. This data could indicate that a large amount of Goldenseal trade is domestically contained in both the US and Canada, and would not show in CITES trade data.
 
-Goldenseal is taken orally to for a veriety of purposes. According to the US National Institutes of Health, there is an absence of evidence supporting goldenseal's claimed health benefits (note: not evidence of absence)<sup>6</sup>. 
+Goldenseal is taken orally for a variaty of purposes. According to the US National Institutes of Health, there is an absence of evidence supporting goldenseal's claimed health benefits (note: not evidence of absence)<sup>6</sup>. 
 
 <details>
 <summary>
@@ -924,7 +924,7 @@ Largest Importers on per 100k Population Basis:
 
 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Prunus_africana_MS_3588.jpg/640px-Prunus_africana_MS_3588.jpg" width=150 height=225 align = "right"></img>
 
-Prunus africana, the African cherry, is harvested for its bark which has medicinal properties. Its population has been classified under "of urgent concern" in several African countries to which it is native<sup>7</sup>.
+Prunus africana, the African cherry, is harvested for its bark which has medicinal properties. Its population has been classified "of urgent concern" in several African countries to which it is native<sup>7</sup>.
 
 African cherry does not seem to have been imported from 2015-2018 for medicinal purposes. In 2019 and 2020, the largest importer was Turkey for both years on an absolute basis, and Protugal and Turkey on a per capita basis, respectively. 
 
@@ -1011,9 +1011,9 @@ There were slight rebounds in both Appendix I and II medicinal trades for this c
 
 ##### Saussurea costus - Costus
 
-Saussurea costus, or costus, has been harvested for its root since ancient times. There is scientific evidence that its root holds a veriety of medicinal properties<sup>8</sup>. Unfortunately, the plant has been overharvested and listed as "critically endangered" since 2015 (see output below).
+Saussurea costus, or costus, has been harvested for its root since ancient times. There is scientific evidence that its root holds a variety of medicinal properties<sup>8</sup>. Unfortunately, the plant has been overharvested and listed as "critically endangered" since 2015 (see output below).
 
-South Korea is the largest importer by an absolute and per capita basis historically, but recently, Vietnam took the top spot as largest absolute importer in 2020. In conclusion, East Asian demand is overwelming the population. Countries such as Korea, Japan, and Vietnam are high-potential targets to launch awareness campaigns.
+South Korea is the largest importer on an absolute and per capita basis historically, but recently, Vietnam took the top spot as largest absolute importer in 2020. In conclusion, East Asian demand is overwhelming the population. Countries such as Korea, Japan, and Vietnam are high-potential targets to launch awareness campaigns.
 <details>
 	
 <summary>
@@ -1066,9 +1066,9 @@ Population Data:
 
 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/American_Ginseng_3.jpg/640px-American_Ginseng_3.jpg" height=168 width=200 align="right"></img>
 
-Ginseng is commonly used in traditional Chinese medicine to make powerful medicine that increases energy<sup>9</sup>. American ginseng is coveted because it is considered "cool" and can be taken daily, while Asian ginseng is "hot" and only can be consumed in limited quantities. Wild ginseng fetches the highest price <sup>10</sup>
+Ginseng is commonly used in traditional Chinese medicine to make powerful medicine that increases energy<sup>9</sup>. American ginseng is coveted because it is considered "cool" and can be taken daily, while Asian ginseng is "hot" and only can be consumed in limited quantities. Wild ginseng fetches the highest price.<sup>10</sup>
 
-Not surprisingly, China is by far the largest importer both in an absolute and per capita basis every year. Ginseng demand has depleted wild populations <sup>11</sup>. An NGO like WildAid could launch campaigns in China against demand for wild-harvested American ginseng. Such campaigns may be well received as sustainable cultivated ginseng can easily substitute for wild caught ginseng.
+Not surprisingly, China is by far the largest importer both in an absolute and per capita basis every year. Ginseng demand has depleted wild populations <sup>11</sup>. An NGO like WildAid could launch campaigns in China against the demand for wild-harvested American ginseng. Such campaigns may be well received because sustainably cultivated ginseng can easily substitute for wild-caught ginseng.
 
 <details>
 <summary>
